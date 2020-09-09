@@ -1,5 +1,5 @@
 REM Warp for Galaxy Movements
-@chpid                                                     
+@chpid
 REM 1 argument
 REM #1 - direction = Whether that's up (-1 grow) down (+1 grow) left (-1 gcol) or right ( +1 gcol) while being constrained by borders
 
