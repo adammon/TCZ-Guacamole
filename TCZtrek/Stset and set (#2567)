@@ -23,13 +23,12 @@ REM Setter for Galaxy/Sector coordinates
            @temp sector = {@?modify "{@?modify "$(val)" $(scol) ";" "{@?itemno $(srow) "{@?newline}" "$(sector)"}"}" $(srow) "{@?newline}" "$(sector)"}
            REM @echo This is what sector is now: {@?new}$(sector)
            @desc #24719[$(grow)x$(gcol)] = $(sector)
-  REM Add checks for teams and paint 15x15 summary updates if necessary
-
+  REM Count controlled sectors for galaxy maps.
           @foreach ";" "$(sector)" do 
-
                @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$6]}}} = F} do
                @temp numF = {@eval $(numF) + 1}
-               @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$6]}}} = K} do
+               @end
+               @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$6]}}} = K} do
                @temp numK = {@eval $(numK) + 1}
                @end
            @end
