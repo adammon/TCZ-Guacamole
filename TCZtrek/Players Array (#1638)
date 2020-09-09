@@ -1,0 +1,13 @@
+SAMPLE: @desc #1638[{@?id me}] =Federation,USS Reliant,1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,10
+1 Team, 
+2 Name of ship, 
+3 grow,
+4 gcol,
+5 srow,
+6 scol,
+7 status,
+8 phaserP,
+9 torpedos,
+10 HP,
+11 shields,
+12 AP
