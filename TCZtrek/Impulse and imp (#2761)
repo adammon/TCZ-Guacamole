@@ -1,0 +1,83 @@
+REM Impulse for Sector Movements
+@chpid                                                   
+REM 1 argument
+REM #1 - direction = Whether that's up (-1 srow) down (+1 srow) left (-1 scol) or right ( +1 scol) while being constrained by borders
+
+@temp CurGrow = {@?itemno 3 "," {@?desc #1638[{@?id me}]}}
+@temp CurGcol = {@?itemno 4 "," {@?desc #1638[{@?id me}]}}
+@temp CurSrow = {@?itemno 5 "," {@?desc #1638[{@?id me}]}}
+@temp CurScol = {@?itemno 6 "," {@?desc #1638[{@?id me}]}}
+@temp NewGrow
+@temp NewGcol 
+@temp NewSrow
+@temp NewScol
+@temp CurrentAP = {@?itemno 12 "," {@?desc #1638[{@?id me}]}}
+
+@if {@eval $(CurrentAP) < 1 } do
+
+	@echo %g%LSorry, you are out of Action Points (AP).
+	@break
+
+@else 
+
+    @if {@?eval $3 = ""} do 
+	@echo %g%LYour impulse command requires a direction, Captain. Try impulse up/down/left/right.
+	@break
+    @else {@eval $3 = "up"} Do
+        @if {@eval $(cursrow) = 1} Do
+             @echo %g%LYour ship bumps into the boundaries of space. Try a different direction, Captain.
+	     @break
+        @else do
+        @temp NewGrow = $(curgrow)
+	@temp NewGcol = $(curgcol)
+	@temp NewSrow = {@eval $(cursrow)-1}
+	@temp NewScol = $(curscol)
+    @end
+    @else {@eval $3 = "down"} Do
+         @if {@eval $(cursrow) = 9} Do
+             @echo %g%LYour ship bumps into the boundaries of space. Try a different direction, Captain.
+	    @break
+        @else do
+            @temp NewGrow = $(curgrow)
+	    @temp NewGcol = $(curgcol)
+	    @temp NewSrow = {@eval $(cursrow)+1}
+	    @temp NewScol = $(curscol)
+    @end
+    @else {@eval $3 = "left"} Do
+         @if {@eval $(curscol) = 1} Do
+             @echo %g%LYour ship bumps into the boundaries of space. Try a different direction, Captain.
+	     @break
+         @else do
+            @temp NewGrow = $(curgrow)
+	    @temp NewGcol = $(curgcol)
+	    @temp NewSrow = $(cursrow)
+	    @temp NewScol = {@eval $(curscol)-1}
+        @end
+    @else {@eval $3 = "right"} Do
+        @if {@eval $(curscol) = 9} Do
+            @echo %g%LYour ship bumps into the boundaries of space. Try a different direction, Captain.
+	    @break
+        @else do
+            @temp NewGrow = $(curgrow)
+	    @temp NewGcol = $(curgcol)
+	    @temp NewSrow = $(cursrow)
+	    @temp NewScol = {@eval $(curscol)+1}
+        @end
+
+@else 
+    @echo %g%LYour warp command requires a direction, Captain. Try impulse up/down/left/right.
+@end
+
+@if {@?isupper {#24738 $(newgrow);$(newgcol);$(newsrow);$(newscol)}} do
+     @echo It appears someone is already in that space, Captain. 
+     @break
+@else 
+        #2567 $(newgrow);$(newgcol);$(cursrow);$(curscol);{@?lower "{@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}"}"}
+        #2567 $(newgrow);$(newgcol);$(newsrow);$(newscol);{@?upper "{@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}"}"}
+        @desc #1638[{@?id me}] = {@?modify "$newsrow" 5 "," {@?Desc #1638[{@?id me}]}
+        @desc #1638[{@?id me}] = {@?modify "$newscol" 6 "," {@?Desc #1638[{@?id me}]}
+        @echo %g%LYou command your ship to move to $(newSrow),$(newscol) on impulse.
+	@temp CurrentAP = {@eval $(CurrentAP) - 1}
+	@echo %g%LThis action costs you %w%L1 %g%LAction Point. You have %w%L$(CurrentAP)%g%L AP left.
+	@desc #1638[{@?id me}] = {@?modify "$(CurrentAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+@end
