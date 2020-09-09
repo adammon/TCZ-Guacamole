@@ -72,7 +72,8 @@ REM #1 - direction = Whether that's up (-1 srow) down (+1 srow) left (-1 scol) o
      @echo It appears someone is already in that space, Captain. 
      @break
 @else 
-        #2567 $(newgrow);$(newgcol);$(newsrow);$(newscol);{@?upper "{@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}"}"}
+	#2567 $(newgrow);$(newgcol);$(cursrow);$(curscol);{@?id me}
+        #2567 $(newgrow);$(newgcol);$(newsrow);$(newscol);{@?id me}
         @desc #1638[{@?id me}] = {@?modify "$newsrow" 5 "," {@?Desc #1638[{@?id me}]}
         @desc #1638[{@?id me}] = {@?modify "$newscol" 6 "," {@?Desc #1638[{@?id me}]}
         @echo %g%LYou command your ship to move to $(newSrow),$(newscol) on impulse.
