@@ -1,27 +1,26 @@
 REM Long Range Sensor
-@chpid                                                                                                           
-@echo Long Range Scan                                                                                                       
-@echo %w%L%I%m%L**{@?pad 3}01{@?pad 3} 02{@?pad 3} 03{@?pad 3} 04{@?pad 3} 05{@?pad 3} 06{@?pad 3} 07{@?pad 3} 08{@?pad 3} 09{@?pad 3} 10{@?pad 3} 11{@?pad 3} 12{@?pad 3} 13{@?pad 3} 14{@?pad 3} 15{@?pad 3}**                                                                            
-@temp xline                                                                                                      
-@for 1 to 15 do                                                                                                   
-    @temp row = $4                                                                                                  
-    @for 1 to 15 do                                                                                                   
-        @temp col = $4                                                                                                   
-        @temp xline = $(xline){@?pad 4} {#2582 $(row);$(col)}                                                                
-    @end                                                                                            
-    @echo %w%L%I%m%L{@?padleft 2 "$(row)" "0"}%w%L{@?pad 2} $(xline) {@?pad 3}%w%L%I%m%L{@?padleft 2 "$(row)" "0"}                                                             
-    @temp xline                                                                                                 
-@end     
+@chpid
+@echo Long Range Scan
+@echo %w%L%I%m%L**{@?pad 3}01{@?pad 3} 02{@?pad 3} 03{@?pad 3} 04{@?pad 3} 05{@?pad 3} 06{@?pad 3} 07{@?pad 3} 08{@?pad 3} 09{@?pad 3} 10{@?pad 3} 11{@?pad 3} 12{@?pad 3} 13{@?pad 3} 14{@?pad 3} 15{@?pad 3}**
+@temp xline 
+@for 1 to 15 do
+    @temp row = $4  
+    @for 1 to 15 do 
+        @temp col = $4 
+        @temp xline = $(xline){@?pad 4} {#2582 $(row);$(col)} 
+    @end
+    @echo %w%L%I%m%L{@?padleft 2 "$(row)" "0"}%w%L{@?pad 2} $(xline) {@?pad 3}%w%L%I%m%L{@?padleft 2 "$(row)" "0"}
+    @temp xline
+@end
 
-
-REM Output of scan                                                                                                 
-@echo %w%L%I%m%L**{@?pad 3}01{@?pad 3} 02{@?pad 3} 03{@?pad 3} 04{@?pad 3} 05{@?pad 3} 06{@?pad 3} 07{@?pad 3} 08{@?pad 3} 09{@?pad 3} 10{@?pad 3} 11{@?pad 3} 12{@?pad 3} 13{@?pad 3} 14{@?pad 3} 15{@?pad 3}**                             
+REM Output of scan
+@echo %w%L%I%m%L**{@?pad 3}01{@?pad 3} 02{@?pad 3} 03{@?pad 3} 04{@?pad 3} 05{@?pad 3} 06{@?pad 3} 07{@?pad 3} 08{@?pad 3} 09{@?pad 3} 10{@?pad 3} 11{@?pad 3} 12{@?pad 3} 13{@?pad 3} 14{@?pad 3} 15{@?pad 3}**
 @echo
-@echo %w%L%I%g%L{@?pad {@?strlen {@?itemno 1 "," {@?desc #1638[{@?id me}]}} Captain {@?name *{@?id me}} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[{@?id me}]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}} "-="}                                                                  
-@echo %w%L{@?itemno 1 "," {@?desc #1638[{@?id me}]}} Captain {@?name *{@?id me}} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[{@?id me}]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}    
-@echo %w%L%I%g%L{@?pad {@?strlen {@?itemno 1 "," {@?desc #1638[{@?id me}]}} Captain {@?name *{@?id me}} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[{@?id me}]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}} "-="}                                                                  
-@echo %w%L%I%g%L %c%LAlert Level: {@?itemno 7 "," {@?desc #1638[{@?id me}]}} {@?pad 6} %w%L%I%g%L %c%LPhoton Torpedos:  %w%L{@?itemno 9 "," {@?desc #1638[{@?id me}]}}                                                       
+@echo %w%L%I%g%L{@?pad {@?strlen {@?itemno 1 "," {@?desc #1638[{@?id me}]}} Captain {@?name *{@?id me}} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[{@?id me}]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}} "-="}
+@echo %w%L{@?itemno 1 "," {@?desc #1638[{@?id me}]}} Captain {@?name *{@?id me}} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[{@?id me}]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}
+@echo %w%L%I%g%L{@?pad {@?strlen {@?itemno 1 "," {@?desc #1638[{@?id me}]}} Captain {@?name *{@?id me}} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[{@?id me}]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}} "-="}
+@echo %w%L%I%g%L %c%LAlert Level: {@?itemno 7 "," {@?desc #1638[{@?id me}]}} {@?pad 6} %w%L%I%g%L %c%LPhoton Torpedos:  %w%L{@?itemno 9 "," {@?desc #1638[{@?id me}]}}
 @echo %w%L%I%g%L %c%LGalaxy: %w%L{@?itemno 3 "," {@?desc #1638[{@?id me}]}}, {@?itemno 4 "," {@?desc #1638[{@?id me}]}} {@?pad 12} %w%L%I%g%L %c%LPhaser Power:  %w%L{@?itemno 8 "," {@?desc #1638[{@?id me}]}}                   
-@echo %w%L%I%g%L %c%LSector: %w%L{@?itemno 5 "," {@?desc #1638[{@?id me}]}}, {@?itemno 6 "," {@?desc #1638[{@?id me}]}} {@?pad 12} %w%L%I%g%L %c%LHealth: {@?pad 1}  %w%L{@?itemno 10 "," {@?desc #1638[{@?id me}]}} / 100        
-@echo %w%L%I%g%L %c%LAction Points: %w%L {@?itemno 12 "," {@?desc #1638[{@?id me}]}}  {@?pad 6} %w%L%I%g%L%c%LShields: %w%L {@?itemno 11 "," {@?desc #1638[{@?id me}]}} / 100                                    
-@echo %w%L%I%g%L{@?pad {@?strlen {@?itemno 1 "," {@?desc #1638[{@?id me}]}} Captain {@?name *{@?id me}} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[{@?id me}]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}} "-="}       
+@echo %w%L%I%g%L %c%LSector: %w%L{@?itemno 5 "," {@?desc #1638[{@?id me}]}}, {@?itemno 6 "," {@?desc #1638[{@?id me}]}} {@?pad 12} %w%L%I%g%L %c%LHealth: {@?pad 1} %w%L{progressbar {@?itemno 10 "," {@?desc #1638[{@?id me}]}}/100=10} 
+@echo %w%L%I%g%L %c%LAction Points: %w%L {@?itemno 12 "," {@?desc #1638[{@?id me}]}}  {@?pad 7} %w%L%I%g%L%c%LShields: %w%L{@?pad 1}{progressbar {@?itemno 11 "," {@?desc #1638[{@?id me}]}}/100=10}
+@echo %w%L%I%g%L{@?pad {@?strlen {@?itemno 1 "," {@?desc #1638[{@?id me}]}} Captain {@?name *{@?id me}} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[{@?id me}]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}} "-="}
