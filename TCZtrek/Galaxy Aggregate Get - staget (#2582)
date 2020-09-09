@@ -1,0 +1,24 @@
+REM Getter for Galaxy/Sector coordinates
+@chpid
+REM 2 arguments
+REM #1 - grow = row in galaxy
+REM #2 - gcol = column in galaxy
+
+@if {@eval {@?noitems ";" "$3"} == 2} do
+@temp grow = {@?itemno 1 ";" "$3"}
+@temp gcol = {@?itemno 2 ";" "$3"}
+
+REM make sure we have good ranges on these coordinates (15x15)
+@if {@eval ($grow > 0) && ($grow <= 15) && ($gcol > 0) && ($gcol <= 15)} do
+
+temp value = {@?itemno $(gcol) ";" "{@?itemno $(grow) "{@?newline}" "{@?desc #2578}"}"}
+@returnvalue $(value)
+
+@else
+       @echo Galaxy rows and columns must be between 1-15
+       @returnvalue Error
+     @end
+  @else
+     @echo You must specify 2 numerical arguments separated by a ;
+     @returnvalue Error
+  @end
