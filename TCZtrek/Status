@@ -1,0 +1,10 @@
+Sector stGet #24738 (grow;gcol;srow;scol) - WORKING
+Sector Stset #2567 (grow;gcol;srow;scol;newvalue)- WORKING
+Short;srs (range scan) (#23143 C^) (default command, similar to look)- WORKING- MORE FLAVOUR REQUIRED
+Long (range scan) (#24759 C^) (shows galaxy)- WORKING- MORE FLAVOUR REQUIRED
+Imp;impulse created with ID #2761.  ) (moves around sector screen, 1 AP per move)- WORKING- MORE FLAVOUR REQUIRED
+Warp (#455) (moves around galaxy screen, 1 AP per move)- WORKING - MORE FLAVOUR REQUIRED
+Hail (#5760) - WORKING- WAY MORE FLAVOUR REQUIRED (Require AP to hail?)
+Phaser (TBD) (fires at adjacent opponents, 1AP per shot. Damage: RAND(1-10))
+Torpedo (TBD) (fires at 2 spaces or less opponents, 2AP per shot. Damage: 2*RAND(1-10))
+Reload (Refills torpedos at earth/kronos) 1AP
