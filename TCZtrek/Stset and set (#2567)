@@ -38,6 +38,8 @@ REM Setter for Galaxy/Sector coordinates
            @else {@eval $(numK) > $(numF)} do
               @temp galaxy = {@?modify "{@?modify "k" $(gcol) ";" "{@?itemno $(grow) "{@?newline}" "$(galaxy)"}"}" $(grow) "{@?newline}" "$(galaxy)"}
            @end
+           @temp numF = 0
+           @temp numK = 0
            REM Don't update galaxy if someone won a sector cell and it became even, must take lead
           REM  @echo new state of galaxy: {@?new}$(galaxy)
            @desc #2578 = $(galaxy)
