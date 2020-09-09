@@ -1,0 +1,10 @@
+  @chpid
+  @dest #24719[ALL]
+  @for 1 to 15 do
+     @temp row = $4
+     @for 1 to 15 do
+        @temp col = $4
+        @desc #24719[$(row)x$(col)] = {@?drop {@?myself}}
+     @end
+  @end
+  @desc #2578 = {@?odrop {@?myself}}
