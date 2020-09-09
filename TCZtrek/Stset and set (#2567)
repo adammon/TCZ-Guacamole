@@ -1,0 +1,55 @@
+REM Setter for Galaxy/Sector coordinates
+  @chpid
+  REM 5 arguments
+  REM #1 - grow = row in galaxy
+  REM #2 - gcol = column in galaxy
+  REM #3 - srow = row in sector
+  REM #4 - scol = column in sector
+  REM #5 - newvalue = value to be set in sector cell
+  
+@if {@eval {@?noitems ";" "$3"} == 5} do
+     @temp grow = {@?itemno 1 ";" "$3"}
+     @temp gcol = {@?itemno 2 ";" "$3"}
+     @temp srow = {@?itemno 3 ";" "$3"}
+     @temp scol = {@?itemno 4 ";" "$3"}
+     @temp val  = {@?itemno 5 ";" "$3"}
+  
+  REM make sure we have good ranges on these coordinates (15x15 and 9x9, respectively)
+     @if {@eval ($grow > 0) && ($grow <= 15) && ($gcol > 0) && ($gcol <= 15) && ($srow > 0) && ($srow <= 9) && ($scol > 0) && ($scol <= 9)} do
+        @if {@?exists #24719[$(grow)x$(gcol)]} do
+           @temp galaxy = {@?desc #2578}
+           @temp sector = {@?desc #24719[$(grow)x$(gcol)]}
+           REM @echo This is what sector is before: {@?new}$(sector)
+           @temp sector = {@?modify "{@?modify "$(val)" $(scol) ";" "{@?itemno $(srow) "{@?newline}" "$(sector)"}"}" $(srow) "{@?newline}" "$(sector)"}
+           REM @echo This is what sector is now: {@?new}$(sector)
+           @desc #24719[$(grow)x$(gcol)] = $(sector)
+  REM Add checks for teams and paint 15x15 summary updates if necessary
+
+          @foreach ";" "$(sector)" do 
+
+               @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$6]}}} = F} do
+               @temp numF = {@eval $(numF) + 1}
+               @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$6]}}} = K} do
+               @temp numK = {@eval $(numK) + 1}
+               @end
+           @end
+           @echo F: $(numF), K:$(numK)
+           @if {@eval $(numF) > $(numK)} do
+              @temp galaxy = {@?modify "{@?modify "f" $(gcol) ";" "{@?itemno $(grow) "{@?newline}" "$(galaxy)"}"}" $(grow) "{@?newline}" "$(galaxy)"}
+           @else {@eval $(numK) > $(numF)} do
+              @temp galaxy = {@?modify "{@?modify "k" $(gcol) ";" "{@?itemno $(grow) "{@?newline}" "$(galaxy)"}"}" $(grow) "{@?newline}" "$(galaxy)"}
+           @end
+           REM Don't update galaxy if someone won a sector cell and it became even, must take lead
+          REM  @echo new state of galaxy: {@?new}$(galaxy)
+           @desc #2578 = $(galaxy)
+        @else
+          @echo That sector doesn't exist in the array, it the array might not even be initialized correctly
+        @end
+     @else
+        @echo Galaxy rows and columns must be between 1-15 and Sector rows and columns must be between 1-9
+        @returnvalue Error
+     @end
+  @else
+     @echo You must specify 5 numerical arguments
+     @returnvalue Error
+  @end
