@@ -11,3 +11,7 @@ SAMPLE: @desc #1638[{@?id me}] =Federation,USS Reliant,1,1,1,1,%w%L%i%g%LGreen%w
 10 HP,
 11 shields,
 12 AP
+
+
+@desc #1638[#1] =Klingon,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0
+@desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0
