@@ -7,7 +7,7 @@ REM #1 ID#
 @if {@eval ($1 = n) do
     @temp mapIcon = %w%L*
 @else {@eval ($1 = #1) do
-    @temp mapIcon = %w%L%i%r%L*
+    @temp mapIcon = %w%L%i%r%L{@?padcentre 3 " " "{%w%L%i%r%L}*{%w%L%i%r%L}"}%w%L%i%r%L
 @else {@eval ($1 = #0) do
     @temp mapIcon = %w%L%i%b%L*
 @else
