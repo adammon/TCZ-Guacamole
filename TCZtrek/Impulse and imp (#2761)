@@ -68,11 +68,15 @@ REM #1 - direction = Whether that's up (-1 srow) down (+1 srow) left (-1 scol) o
     @echo %g%LYour warp command requires a direction, Captain. Try impulse up/down/left/right.
 @end
 
-@if {@?isupper {#24738 $(newgrow);$(newgcol);$(newsrow);$(newscol)}} do
+@if {@eval ({#24738 $(newgrow);$(newgcol);$(newsrow);$(newscol)} <> "n") && ({#24738 $(newgrow);$(newgcol);$(newsrow);$(newscol)} <> "#1") ({#24738 $(newgrow);$(newgcol);$(newsrow);$(newscol)} <> "#2")} do
      @echo It appears someone is already in that space, Captain. 
      @break
 @else 
-	#2567 $(newgrow);$(newgcol);$(cursrow);$(curscol);{@?id me}
+	@if {@eval {@?upper {@leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}"} == "F"} do
+		#2567 $(newgrow);$(newgcol);$(cursrow);$(curscol);#0
+	@else {@eval {@?upper {@leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}"} == "K"} do
+		#2567 $(newgrow);$(newgcol);$(cursrow);$(curscol);#1
+	@end
         #2567 $(newgrow);$(newgcol);$(newsrow);$(newscol);{@?id me}
         @desc #1638[{@?id me}] = {@?modify "$newsrow" 5 "," {@?Desc #1638[{@?id me}]}
         @desc #1638[{@?id me}] = {@?modify "$newscol" 6 "," {@?Desc #1638[{@?id me}]}
