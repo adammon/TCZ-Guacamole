@@ -5,15 +5,16 @@ REM #1 ID#
 
 @if {@eval ($1 <> #1) && ($1 <> #0)} do
      @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$1]}}} = F} do
-     @temp mapIcon = "%w%l%i%b%LF"
+          @temp mapIcon = %w%l%i%b%LF
      @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$1]}}} = K} do
-     @temp mapIcon = "%w%L%i%r%LK"
-     @else
-     @temp mapIcon = "*"
+          @temp mapIcon = %w%L%i%r%LK
+     @else {@eval ($1 = n)
+          @temp mapIcon = %w%L*
+     @end
 @else {@eval ($1 = #1) do
-     @temp mapIcon = "%w%L%i%r%L*"
+     @temp mapIcon = %w%L%i%r%L*
 @else {@eval ($1 = #0) do
-     @temp mapIcon = "%w%L%i%b%L*"
+     @temp mapIcon = %w%L%i%b%L*
 @end
 
 @returnvalue $(mapIcon)
