@@ -72,9 +72,9 @@ REM #1 - direction = Whether that's up (-1 srow) down (+1 srow) left (-1 scol) o
      @echo It appears someone is already in that space, Captain. 
      @break
 @else 
-	@if {@eval {@?upper {@leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}"} == "F"} do
+	@if {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}"} == "F"} do
 		#2567 $(newgrow);$(newgcol);$(cursrow);$(curscol);#0
-	@else {@eval {@?upper {@leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}"} == "K"} do
+	@else {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}"} == "K"} do
 		#2567 $(newgrow);$(newgcol);$(cursrow);$(curscol);#1
 	@end
         #2567 $(newgrow);$(newgcol);$(newsrow);$(newscol);{@?id me}
