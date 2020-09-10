@@ -8,7 +8,7 @@ REM #1 ID#
           @temp mapIcon = %w%l%i%b%LF
      @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$1]}}} = K} do
           @temp mapIcon = %w%L%i%r%LK
-     @else {@eval ($1 = n)
+     @else {@eval ($1 = n) do
           @temp mapIcon = %w%L*
      @end
 @else {@eval ($1 = #1) do
