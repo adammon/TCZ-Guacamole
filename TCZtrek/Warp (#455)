@@ -73,10 +73,11 @@ REM #1 - direction = Whether that's up (-1 grow) down (+1 grow) left (-1 gcol) o
      @break
 @else 
 	@if {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}"} == "F"} do
-		#2567 $(newgrow);$(newgcol);$(cursrow);$(curscol);#0
+		#2567 $(curgrow);$(curgcol);$(cursrow);$(curscol);#0
 	@else {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}"} == "K"} do
-		#2567 $(newgrow);$(newgcol);$(cursrow);$(curscol);#1
+		#2567 $(curgrow);$(curgcol);$(cursrow);$(curscol);#1
 	@end
+	#2567 $(newgrow);$(newgcol);$(newsrow);$(newscol);{@?id me}
         @desc #1638[{@?id me}] = {@?modify "$newgrow" 3 "," {@?Desc #1638[{@?id me}]}
         @desc #1638[{@?id me}] = {@?modify "$newgcol" 4 "," {@?Desc #1638[{@?id me}]}
         @desc #1638[{@?id me}] = {@?modify "$newsrow" 5 "," {@?Desc #1638[{@?id me}]}
