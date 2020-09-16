@@ -2,7 +2,7 @@
 TCZ Development Hub
 
 TCZTrek Code Priorities
-1. Fix buggy Impulse. (Not entering a correct direction screws up AP and doesn't fill out short correctly.
+1. Fix buggy Impulse. (Not entering a correct direction screws up AP and doesn't fill out short correctly. - FIXED
 2. Update Warp to use new TeamLookup.
 3. Update Long to colour correctly using a GalaxyStatus?
 4. Clean up Short's code to be less copied and pasted status text.
