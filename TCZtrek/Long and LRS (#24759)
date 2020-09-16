@@ -7,7 +7,7 @@ REM Long Range Sensor
     @temp row = $4  
     @for 1 to 15 do 
         @temp col = $4 
-        @temp xline = $(xline){@?pad 4} {#2582 $(row);$(col)} 
+        @temp xline = $(xline){@?pad 4} {#6566 {#2582 $(row);$(col)}}
     @end
     @echo %w%L%I%m%L{@?padleft 2 "$(row)" "0"}%w%L{@?pad 2} $(xline) {@?pad 3}%w%L%I%m%L{@?padleft 2 "$(row)" "0"}
     @temp xline
