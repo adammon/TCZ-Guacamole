@@ -18,54 +18,53 @@ REM #1 - direction = Whether that's up (-1 srow) down (+1 srow) left (-1 scol) o
 	@echo %g%LSorry, you are out of Action Points (AP).
 	@break
 
-@else 
+@else {@eval $3 = "up"} do
 
-    @if {@?eval $3 = ""} do 
-	@echo %g%LYour impulse command requires a direction, Captain. Try impulse up/down/left/right.
-	@break
-    @else {@eval $3 = "up"} Do
-        @if {@eval $(cursrow) = 1} Do
-             @echo %g%LYour ship bumps into the boundaries of space. Try a different direction, Captain.
-	     @break
-        @else do
-        @temp NewGrow = $(curgrow)
-	@temp NewGcol = $(curgcol)
-	@temp NewSrow = {@eval $(cursrow)-1}
-	@temp NewScol = $(curscol)
-    @end
-    @else {@eval $3 = "down"} Do
+    @if {@?eval ($3 = "up") || ($3 = "down") || $3 = "left") || ($3 = "right")} do 
+        @If {@eval $3 = "up"} Do
+             @if {@eval $(cursrow) = 1} Do
+               @echo %g%LYour ship bumps into the boundaries of space. Try a different direction, Captain.
+	        @break
+             @else do
+                @temp NewGrow = $(curgrow)
+	        @temp NewGcol = $(curgcol)
+	        @temp NewSrow = {@eval $(cursrow)-1}
+	        @temp NewScol = $(curscol)
+             @end
+       @else {@eval $3 = "down"} Do
          @if {@eval $(cursrow) = 9} Do
              @echo %g%LYour ship bumps into the boundaries of space. Try a different direction, Captain.
 	    @break
-        @else do
-            @temp NewGrow = $(curgrow)
-	    @temp NewGcol = $(curgcol)
-	    @temp NewSrow = {@eval $(cursrow)+1}
-	    @temp NewScol = $(curscol)
-    @end
-    @else {@eval $3 = "left"} Do
-         @if {@eval $(curscol) = 1} Do
-             @echo %g%LYour ship bumps into the boundaries of space. Try a different direction, Captain.
-	     @break
-         @else do
-            @temp NewGrow = $(curgrow)
-	    @temp NewGcol = $(curgcol)
-	    @temp NewSrow = $(cursrow)
-	    @temp NewScol = {@eval $(curscol)-1}
-        @end
-    @else {@eval $3 = "right"} Do
-        @if {@eval $(curscol) = 9} Do
-            @echo %g%LYour ship bumps into the boundaries of space. Try a different direction, Captain.
-	    @break
-        @else do
-            @temp NewGrow = $(curgrow)
-	    @temp NewGcol = $(curgcol)
-	    @temp NewSrow = $(cursrow)
-	    @temp NewScol = {@eval $(curscol)+1}
-        @end
-
-@else 
-    @echo %g%LYour warp command requires a direction, Captain. Try impulse up/down/left/right.
+          @else do
+              @temp NewGrow = $(curgrow)
+	      @temp NewGcol = $(curgcol)
+	      @temp NewSrow = {@eval $(cursrow)+1}
+	      @temp NewScol = $(curscol)
+           @end
+       @else {@eval $3 = "left"} Do
+           @if {@eval $(curscol) = 1} Do
+               @echo %g%LYour ship bumps into the boundaries of space. Try a different direction, Captain.
+	       @break
+           @else do
+              @temp NewGrow = $(curgrow)
+	     @temp NewGcol = $(curgcol)
+	     @temp NewSrow = $(cursrow)
+	     @temp NewScol = {@eval $(curscol)-1}
+           @end
+       @else {@eval $3 = "right"} Do
+          @if {@eval $(curscol) = 9} Do
+              @echo %g%LYour ship bumps into the boundaries of space. Try a different direction, Captain.
+	      @break
+          @else do
+              @temp NewGrow = $(curgrow)
+	      @temp NewGcol = $(curgcol)
+	      @temp NewSrow = $(cursrow)
+	      @temp NewScol = {@eval $(curscol)+1}
+          @end
+	@end
+  @else 
+	@echo %g%LYour impulse command requires a direction, Captain. Try impulse up/down/left/right.
+	@break
 @end
 
 @if {@eval ({#24738 $(newgrow);$(newgcol);$(newsrow);$(newscol)} <> "n") && ({#24738 $(newgrow);$(newgcol);$(newsrow);$(newscol)} <> "#0") && ({#24738 $(newgrow);$(newgcol);$(newsrow);$(newscol)} <> "#1")} do
