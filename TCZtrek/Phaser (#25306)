@@ -30,7 +30,7 @@ REM #1 - direction = Whether that's up (-1 grow) down (+1 grow) left (-1 gcol) o
                         @break
                     @else 
                         @echo %g%LYour %w%l%I%g%LPHASER%g%L fires harmlessly into space.
-                        @temp NewAP = $(currentAP) - 1
+                        @temp NewAP = {@eval $(currentAP) - 1}
                         @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
                         @break
                     @end
