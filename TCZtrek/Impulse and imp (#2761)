@@ -83,4 +83,5 @@ REM #1 - direction = Whether that's up (-1 srow) down (+1 srow) left (-1 scol) o
 	@temp CurrentAP = {@eval $(CurrentAP) - 1}
 	@echo %g%LThis action costs you %w%L1 %g%LAction Point. You have %w%L$(CurrentAP)%g%L AP left.
 	@desc #1638[{@?id me}] = {@?modify "$(CurrentAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+	#23143
 @end
