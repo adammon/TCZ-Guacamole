@@ -14,10 +14,10 @@ REM make sure we have good ranges on these coordinates (15x15 and 9x9, respectiv
      @if {@eval ($curgrow > 0) && ($curgrow <= 15) && ($curgcol > 0) && ($curgcol <= 15) && ($srow > 0) && ($srow <= 9) && ($scol > 0) && ($scol <= 9)} do    
      
           @if {@eval {#25303 $(curgrow);$(curgcol);$(srow);$(scol)} do
-                @echo Direct hit!
+                @echo %g%lDirect hit!
                 @break
           @else 
-                @echo Your %w%l%I%g%LPHASER %g%Lfires harmlessly into space.
+                @echo %g%LYour %w%l%I%g%LPHASER%g%L fires harmlessly into space.
                 @break
           @end
      
