@@ -19,9 +19,9 @@ REM make sure we have good ranges on these coordinates (15x15 and 9x9, respectiv
      @if {@eval ($newgrow > 0) && ($newgrow <= 15) && ($newgcol > 0) && ($newgcol <= 15) && ($newsrow > 0) && ($newsrow <= 9) && ($newscol > 0) && ($newscol <= 9)} do
      
       @if {@eval ("{#24738 $newgrow;$newgcol;$newSrow;$newScol}" <> "n") && ("{#24738 $newgrow;$newgcol;$newSrow;$newScol}" <> "#0") && ("{#24738 $newgrow;$newgcol;$newSrow;$newScol}" <> "#1")} do
-             @echo YAY!
+             @returnvalue 1
          @else
-             @echo BOO!
+             @returnvalue 0
       @end
    
      
