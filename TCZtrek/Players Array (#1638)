@@ -21,4 +21,5 @@ SAMPLE: @desc #1638[{@?id me}] =Federation,USS Reliant,1,1,1,1,%w%L%i%g%LGreen%w
 @desc #1638[#1986] = Klingon,KF Madness,1,1,2,1,%w%l%L%I%g%LGREEN%w%L,10,10,100,100,99
 @desc #1638[#2158] = Klingon,KF Marshall,1,1,4,1,%w%l%L%I%g%LGREEN%w%L,10,10,100,100,99
 @desc #1638[#23212] = Federation,USS Snorlax,1,1,7,1,%w%L%i%g%LGREEN%w%L,10,10,100,100,99
+@desc #1638[#46710] = Federation,USS Shadal,1,1,9,1,%w%L%i%g%LGREEN%w%L,10,10,100,100,99
 
