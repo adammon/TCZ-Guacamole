@@ -20,8 +20,10 @@ REM make sure we have good ranges on these coordinates (15x15 and 9x9, respectiv
      
       @if {@eval ("{#24738 $newgrow;$newgcol;$newSrow;$newScol}" <> "n") && ("{#24738 $newgrow;$newgcol;$newSrow;$newScol}" <> "#0") && ("{#24738 $newgrow;$newgcol;$newSrow;$newScol}" <> "#1")} do
              @returnvalue 1
+             REM Something there
          @else
              @returnvalue 0
+             REM Nothing there
       @end
    
      
