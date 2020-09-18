@@ -16,7 +16,7 @@ REM #4 - New Sector COl (newScol)
      @temp scol = {@?itemno 4 ";" "$3"}
 
 REM make sure we have good ranges on these coordinates (15x15 and 9x9, respectively)
-     @if {@eval ($grow > 0) && ($grow <= 15) && ($gcol > 0) && ($gcol <= 15) && ($srow > 0) && ($srow <= 9) && ($scol > 0) && ($scol <= 9)} do
+     @if {@eval ($newgrow > 0) && ($newgrow <= 15) && ($newgcol > 0) && ($newgcol <= 15) && ($newsrow > 0) && ($newsrow <= 9) && ($newscol > 0) && ($newscol <= 9)} do
      
       @if {@eval ("{#24738 newgrow;newgcol;newSrow;newScol}" <> "n") && ("{#24738 newgrow;newgcol;newSrow;newScol}" <> "#0") && ("{#24738 newgrow;newgcol;newSrow;newScol}" <> "#1")} do
              @echo YAY!
