@@ -3,7 +3,7 @@ REM Simplifies and cleans up other commands to focus on their intended scope
 
 @chpid
 
-REM #1 - New Galaxy Row (newGrow)
+REM #1 - Opponent ID# 
 REM #2 - New Galaxy Col (newGcol)
 
 
@@ -12,24 +12,18 @@ REM #2 - New Galaxy Col (newGcol)
      @temp damage = {@?itemno 2 ";" "$3"}
 
 
-REM make sure we have good ranges on these coordinates (15x15 and 9x9, respectively)
-     @if {@eval ($newgrow > 0) && ($newgrow <= 15) && ($newgcol > 0) && ($newgcol <= 15) && ($newsrow > 0) && ($newsrow <= 9) && ($newscol > 0) && ($newscol <= 9)} do
+     @if {@?exists #1638[$oppID] do
      
-      @if {@eval ("{#24738 $newgrow;$newgcol;$newSrow;$newScol}" <> "n") && ("{#24738 $newgrow;$newgcol;$newSrow;$newScol}" <> "#0") && ("{#24738 $newgrow;$newgcol;$newSrow;$newScol}" <> "#1")} do
-             @returnvalue 1
-             REM Something there
-         @else
-             @returnvalue 0
-             REM Nothing there
-      @end
-   
-     
+          @temp OppHealth = {@?itemno 10 "," {@?desc #1638[$oppID]}}
+          @temp NewHealth = {@eval $Opphealth - Damage}
+          @desc #1638[$oppID] = {@?modify "$NewHealth" 10 "," "{@?desc #1638[{$oppID]}"}
+          @break     
      @else
-        @echo Galaxy rows and columns must be between 1-15 and Sector rows and columns must be between 1-9
+        @echo That's not a current player.
         @returnvalue Error
      @end
      
-  @else
-     @echo You must specify 2 arguments. #1 is opponent ID#. #2 is damage
+@else
+     @echo You must specify 2 arguments. #1 is opponent ID#. #2 is damage.
      @returnvalue Error
 @end
