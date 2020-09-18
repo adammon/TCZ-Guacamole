@@ -7,8 +7,8 @@ TCZTrek Code Priorities
 3. Update Long to colour correctly using a GalaxyStatus? - FIXED
 4. Clean up Short's code to be less copied and pasted status text. FIXED
 5. Ensure collision code is working properly. FIXED AND WORKING for Impulse (Need to test warp still)
-6. Build out phaser code (maybe code Collision as its own command?) - Call collide (#25303 for collision detection)
-7. Build out torpedo code (collision command?) Call collide (#25303 for collision detection)
+6. Build out phaser code - WORKING - Needs AP check and damage to opponent + flavour
+7. Build out torpedo code - WORKING - Needs AP check and damage to opponent + flavour
 8. Figure out Hail so it's better (Works now but takes up a lot of space. SHould it use an AP?)
 9. Figure out reload. (Have to be proximal to starbase. Available at 1,1,1,1 and 15,15,9,9
 10. Character origination
