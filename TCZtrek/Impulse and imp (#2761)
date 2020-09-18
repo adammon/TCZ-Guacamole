@@ -67,7 +67,7 @@ REM #1 - direction = Whether that's up (-1 srow) down (+1 srow) left (-1 scol) o
 	@break
 @end
 
-@if {@eval ({#24738 $(newgrow);$(newgcol);$(newsrow);$(newscol)} <> n) && ({#24738 $(newgrow);$(newgcol);$(newsrow);$(newscol)} <> #0) && ({#24738 $(newgrow);$(newgcol);$(newsrow);$(newscol)} <> #1)} do
+@if {@eval {#25303 $(newgrow);$(newgcol);$(newsrow);$(newscol)} do
      @echo It appears someone is already in that space, Captain. 
      @break
 @else 
