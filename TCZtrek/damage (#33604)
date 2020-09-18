@@ -15,9 +15,26 @@ REM #2 - New Galaxy Col (newGcol)
      @if {@?exists #1638[$(oppID)] do
      
           @temp OppHealth = {@?itemno 10 "," {@?desc #1638[$(oppID)]}}
-          @temp NewHealth = {@eval $(Opphealth) - Damage}
-          @desc #1638[$(oppID)] = {@?modify "$(NewHealth)" 10 "," "{@?desc #1638[$(oppID)]}"}
-          @break     
+          @temp NewHealth = {@eval $(Opphealth) - $(Damage)}
+          
+          @if {@eval $(NewHealth) < 1} do
+               @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$(oppID]}}} = F} do
+                     @desc #1638[$(oppID)] = {@?modify "1" 3 "," "{@?desc #1638[$(oppID)]}"}
+                     @desc #1638[$(oppID)] = {@?modify "1" 4 "," "{@?desc #1638[$(oppID)]}"}
+                     @desc #1638[$(oppID)] = {@?modify "1" 5 "," "{@?desc #1638[$(oppID)]}"}
+                     @desc #1638[$(oppID)] = {@?modify "1" 6 "," "{@?desc #1638[$(oppID)]}"}
+               @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$(oppID]}}} = K} do
+                     @desc #1638[$(oppID)] = {@?modify "15" 3 "," "{@?desc #1638[$(oppID)]}"}
+                     @desc #1638[$(oppID)] = {@?modify "15" 4 "," "{@?desc #1638[$(oppID)]}"}
+                     @desc #1638[$(oppID)] = {@?modify "9" 5 "," "{@?desc #1638[$(oppID)]}"}
+                     @desc #1638[$(oppID)] = {@?modify "9" 6 "," "{@?desc #1638[$(oppID)]}"}
+               @end
+               @echo %g%LYou just destroyed %w%LCaptain {@?namec $(oppID)}%g%L's ship.
+          @else 
+               @desc #1638[$(oppID)] = {@?modify "$(NewHealth)" 10 "," "{@?desc #1638[$(oppID)]}"}
+               @echo %g%LYou just did %w%L$(damage)%g%L damage to %w%LCaptain {@?namec $(oppID)}%g%L's ship.
+               @break   
+          @end
      @else
         @echo That's not a current player.
         @returnvalue Error
