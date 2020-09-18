@@ -29,6 +29,7 @@ REM #2 - New Galaxy Col (newGcol)
                      @desc #1638[$(oppID)] = {@?modify "9" 5 "," "{@?desc #1638[$(oppID)]}"}
                      @desc #1638[$(oppID)] = {@?modify "9" 6 "," "{@?desc #1638[$(oppID)]}"}
                @end
+               @desc #1638[$(oppID)] = {@?modify "100" 10 "," "{@?desc #1638[$(oppID)]}"}
                @echo %g%LYou just destroyed %w%LCaptain {@?namec $(oppID)}%g%L's ship.
           @else 
                @desc #1638[$(oppID)] = {@?modify "$(NewHealth)" 10 "," "{@?desc #1638[$(oppID)]}"}
