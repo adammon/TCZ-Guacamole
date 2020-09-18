@@ -18,10 +18,12 @@ REM #4 - New Sector COl (newScol)
 REM make sure we have good ranges on these coordinates (15x15 and 9x9, respectively)
      @if {@eval ($grow > 0) && ($grow <= 15) && ($gcol > 0) && ($gcol <= 15) && ($srow > 0) && ($srow <= 9) && ($scol > 0) && ($scol <= 9)} do
      
-     
-     
-     
-     
+      @if {@eval ("{#24738 newgrow;newgcol;newSrow;newScol}" <> "n") && ("{#24738 newgrow;newgcol;newSrow;newScol}" <> "#0") && ("{#24738 newgrow;newgcol;newSrow;newScol}" <> "#1")} do
+             @echo YAY!
+         @else
+             @echo BOO!
+      @end
+   
      
      @else
         @echo Galaxy rows and columns must be between 1-15 and Sector rows and columns must be between 1-9
