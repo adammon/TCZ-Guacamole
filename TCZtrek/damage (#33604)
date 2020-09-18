@@ -12,11 +12,11 @@ REM #2 - New Galaxy Col (newGcol)
      @temp damage = {@?itemno 2 ";" "$3"}
 
 
-     @if {@?exists #1638[$oppID] do
+     @if {@?exists #1638[$(oppID)] do
      
-          @temp OppHealth = {@?itemno 10 "," {@?desc #1638[$oppID]}}
-          @temp NewHealth = {@eval $Opphealth - Damage}
-          @desc #1638[$oppID] = {@?modify "$NewHealth" 10 "," "{@?desc #1638[{$oppID]}"}
+          @temp OppHealth = {@?itemno 10 "," {@?desc #1638[$(oppID)]}}
+          @temp NewHealth = {@eval $(Opphealth) - Damage}
+          @desc #1638[$(oppID)] = {@?modify "$(NewHealth)" 10 "," "{@?desc #1638[$(oppID)]}"}
           @break     
      @else
         @echo That's not a current player.
