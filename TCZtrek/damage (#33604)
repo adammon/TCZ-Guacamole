@@ -31,10 +31,11 @@ REM #2 - New Galaxy Col (newGcol)
                @end
                @desc #1638[$(oppID)] = {@?modify "100" 10 "," "{@?desc #1638[$(oppID)]}"}
                @echo %g%LYou just destroyed %w%LCaptain {@?namec $(oppID)}%g%L's ship.
+               @returnvalue @break 
           @else 
                @desc #1638[$(oppID)] = {@?modify "$(NewHealth)" 10 "," "{@?desc #1638[$(oppID)]}"}
                @echo %g%LYou just did %w%L$(damage)%g%L damage to %w%LCaptain {@?namec $(oppID)}%g%L's ship.
-               @break   
+               @returnvalue @break   
           @end
      @else
         @echo That's not a current player.
