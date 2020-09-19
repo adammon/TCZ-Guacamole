@@ -28,7 +28,7 @@ REM #1 - direction = Whether that's up (-1 grow) down (+1 grow) left (-1 gcol) o
                         @desc #1638[{@?id me}] = {@?modify "$(phPointsNew)" 8 "," "{@?desc #1638[{@?id me}]}"}
                         
                         @temp OppDamage = {@?rand 1 = 10}
-                        {#33608 {#24738 $(curGrow);$(curGcol);$(srow);$(sCol)};$(oppDamage)}
+                        {#33604 {#24738 $(curGrow);$(curGcol);$(srow);$(sCol)};$(oppDamage)}
                     @else 
                         @echo %g%LYour %w%l%I%g%LPHASER%g%L fires harmlessly into space.
                         @temp NewAP = {@eval $(currentAP) - 1}
