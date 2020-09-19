@@ -19,11 +19,23 @@ REM #2 - Damage done
           
           @if {@eval $(NewHealth) < 1} do
                @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$(oppID)]}}} = F} do
-                     @desc #1638[$(oppID)] = {@?modify "1" 3 "," "{@?desc #1638[$(oppID)]}"}
+                     @temp oppgrow = {@?itemno 3 "," {@?desc #1638[$(oppID)]}}
+                     @temp oppgcol = {@?itemno 4 "," {@?desc #1638[$(oppID)]}}
+                     @temp oppsrow = {@?itemno 5 "," {@?desc #1638[$(oppID)]}}
+                     @temp oppscol = {@?itemno 6 "," {@?desc #1638[$(oppID)]}}
+                     #2567 $(oppGrow);$(oppgcol);$(oppsrow);$(oppscol);#0
+                     
+                      @desc #1638[$(oppID)] = {@?modify "1" 3 "," "{@?desc #1638[$(oppID)]}"}
                      @desc #1638[$(oppID)] = {@?modify "1" 4 "," "{@?desc #1638[$(oppID)]}"}
                      @desc #1638[$(oppID)] = {@?modify "1" 5 "," "{@?desc #1638[$(oppID)]}"}
                      @desc #1638[$(oppID)] = {@?modify "1" 6 "," "{@?desc #1638[$(oppID)]}"}
                @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$(oppID)]}}} = K} do
+                     @temp oppgrow = {@?itemno 3 "," {@?desc #1638[$(oppID)]}}
+                     @temp oppgcol = {@?itemno 4 "," {@?desc #1638[$(oppID)]}}
+                     @temp oppsrow = {@?itemno 5 "," {@?desc #1638[$(oppID)]}}
+                     @temp oppscol = {@?itemno 6 "," {@?desc #1638[$(oppID)]}}
+                     #2567 $(oppGrow);$(oppgcol);$(oppsrow);$(oppscol);#1
+               
                      @desc #1638[$(oppID)] = {@?modify "15" 3 "," "{@?desc #1638[$(oppID)]}"}
                      @desc #1638[$(oppID)] = {@?modify "15" 4 "," "{@?desc #1638[$(oppID)]}"}
                      @desc #1638[$(oppID)] = {@?modify "9" 5 "," "{@?desc #1638[$(oppID)]}"}
