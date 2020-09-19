@@ -4,7 +4,7 @@ REM Simplifies and cleans up other commands to focus on their intended scope
 @chpid
 
 REM #1 - Opponent ID# 
-REM #2 - New Galaxy Col (newGcol)
+REM #2 - Damage done
 
 
 @if {@eval {@eval {@?noitems ";" "$3"} == 2}} do
