@@ -37,8 +37,9 @@ REM #1 - direction = Whether that's up (-1 grow) down (+1 grow) left (-1 gcol) o
                             @break
                         @end
                    @else
-                  @echo To use your phasers, you have to be next to your opponent. Use your impulse thrusters to maneouvre closer. 
-                  @returnvalue Error
+                       @echo To use your phasers, you have to be next to your opponent. Use your impulse thrusters to maneouvre closer. 
+                       @returnvalue Error
+                   @end
              @else
                   @echo Galaxy rows and columns must be between 1-15 and Sector rows and columns must be between 1-9
                   @returnvalue Error
