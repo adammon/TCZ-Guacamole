@@ -8,3 +8,8 @@ REM No arguments, but have to compare current location against starbase LOC.
      @temp curgcol = {@?itemno 4 "," {@?desc #1638[@?id me]}}
      @temp cursrow = {@?itemno 5 "," {@?desc #1638[@?id me]}}
      @temp curscol = {@?itemno 6 "," {@?desc #1638[@?id me]}}
+     
+@if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me]}}} = K}
+
+@if curgrow
+     
