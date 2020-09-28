@@ -7,8 +7,8 @@ TCZTrek Code Priorities
 3. Update Long to colour correctly using a GalaxyStatus? - FIXED
 4. Clean up Short's code to be less copied and pasted status text. FIXED
 5. Ensure collision code is working properly. FIXED AND WORKING for Impulse (Need to test warp still)
-6. Build out phaser code - WORKING - Needs AP check and damage to opponent + flavour
-7. Build out torpedo code - WORKING - Needs AP check and damage to opponent + flavour
+6. Build out phaser code - WORKING - Change to require proximity
+7. Build out torpedo code - WORKING - Change to use 2 AP and half damage but from anywhere.
 8. Figure out Hail so it's better (Works now but takes up a lot of space. SHould it use an AP?)
 9. Figure out reload. (Have to be proximal to starbase. Available at 1,1,1,1 and 15,15,9,9
 10. Character origination
