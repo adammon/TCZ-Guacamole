@@ -5,7 +5,8 @@ REM #1 - direction = Whether that's up (-1 grow) down (+1 grow) left (-1 gcol) o
 
 @temp curGrow = {@?itemno 3 "," {@?desc #1638[{@?id me}]}}
 @temp CurGcol = {@?itemno 4 "," {@?desc #1638[{@?id me}]}}
-
+@temp curSrow = {@?itemno 5 "," {@?desc #1638[{@?id me}]}}
+@temp curScol = {@?itemno 6 "," {@?desc #1638[{@?id me}]}}
 
 @temp phPointsOld = {@?itemno 8 "," {@?desc #1638[{@?id me}]}}
 @temp CurrentAP = {@?itemno 12 "," {@?desc #1638[{@?id me}]}}
@@ -20,21 +21,24 @@ REM #1 - direction = Whether that's up (-1 grow) down (+1 grow) left (-1 gcol) o
      
               REM make sure we have good ranges on these coordinates (15x15 and 9x9, respectively)
               @if {@eval ($curgrow > 0) && ($curgrow <= 15) && ($curgcol > 0) && ($curgcol <= 15) && ($srow > 0) && ($srow <= 9) && ($scol > 0) && ($scol <= 9)} do    
-                    @if {@eval {#25303 $(curgrow);$(curgcol);$(srow);$(scol)} do
-                        @echo %g%lDirect hit!
-                        @temp NewAP = {@eval $(currentAP) - 1}
-                        @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
-                        @temp phPointsNew = {@eval $(phPointsOld) - 1}
-                        @desc #1638[{@?id me}] = {@?modify "$(phPointsNew)" 8 "," "{@?desc #1638[{@?id me}]}"}
-                        
-                        @temp OppDamage = {@?rand 1 = 10}
-                        {#33604 {#24738 $(curGrow);$(curGcol);$(srow);$(sCol)};$(oppDamage)}
-                    @else 
-                        @echo %g%LYour %w%l%I%g%LPHASER%g%L fires harmlessly into space.
-                        @temp NewAP = {@eval $(currentAP) - 1}
-                        @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
-                        @break
-                    @end
+                    @if {@eval (abs ($(cursrow) - $(srow))) || (abs ($(curscol) - $(scol)))} do
+                         @if {@eval {#25303 $(curgrow);$(curgcol);$(srow);$(scol)} do
+                             @echo %g%lDirect hit!
+                             @temp NewAP = {@eval $(currentAP) - 1}
+                             @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+                             @temp phPointsNew = {@eval $(phPointsOld) - 1}
+                             @desc #1638[{@?id me}] = {@?modify "$(phPointsNew)" 8 "," "{@?desc #1638[{@?id me}]}"}
+                             @temp OppDamage = {@?rand 1 = 10}
+                             {#33604 {#24738 $(curGrow);$(curGcol);$(srow);$(sCol)};$(oppDamage)}
+                        @else 
+                            @echo %g%LYour %w%l%I%g%LPHASER%g%L fires harmlessly into space.
+                            @temp NewAP = {@eval $(currentAP) - 1}
+                            @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+                            @break
+                        @end
+                   @else
+                  @echo To use your phasers, you have to be next to your opponent. Use your impulse thrusters to maneouvre closer. 
+                  @returnvalue Error
              @else
                   @echo Galaxy rows and columns must be between 1-15 and Sector rows and columns must be between 1-9
                   @returnvalue Error
