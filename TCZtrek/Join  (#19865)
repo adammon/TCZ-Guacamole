@@ -13,30 +13,30 @@ REM - One Argument, name of ship, hopefully allows spaces :I
      @end
 @else 
 
-REM Check teams to ensure that they are fair.
-@with elements #1638 do
+     REM Check teams to ensure that they are fair.
+     @with elements #1638 do
 
-    @if {@eval {@?leftstr 1 "{@?itemno 1 "," $6}} = K} do
-         @temp Klingons = {@eval $(Klingons) + 1}
-    @else {@eval {@?leftstr 1 "{@?itemno 1 "," $6}} = F} do
-         @temp Feds = {@eval $(Feds) + 1}
+        @if {@eval {@?leftstr 1 "{@?itemno 1 "," $6}} = K} do
+             @temp Klingons = {@eval $(Klingons) + 1}
+        @else {@eval {@?leftstr 1 "{@?itemno 1 "," $6}} = F} do
+             @temp Feds = {@eval $(Feds) + 1}
+        @end
     @end
-@end
 
-@echo %g%LKlingons: %w%L$(klingons)
-@echo %g%LFederation: %w%L$(feds)
+    @echo %g%LKlingons: %w%L$(klingons)
+    @echo %g%LFederation: %w%L$(feds)
   
-@if {@eval $(klingons) > $(feds)} do
-  @echo %g%lAssigning you to the klingons
+    @if {@eval $(klingons) > $(feds)} do
+       @echo %g%lAssigning you to the klingons
   
   
- @else  {@eval $(klingons) < $(feds)} do
-   @echo %g%LAssigning you to the Federation
+    @else  {@eval $(klingons) < $(feds)} do
+       @echo %g%LAssigning you to the Federation
  
  
- @else {@eval $(klingons) = $(feds)} do
-   @echo %g%LAssigning you to wherever I feel like.
+    @else {@eval $(klingons) = $(feds)} do
+      @echo %g%LAssigning you to wherever I feel like.
  
- @end
+    @end
   
 @end
