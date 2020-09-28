@@ -1,11 +1,5 @@
-REM: Joining the Fleet in TCZ Trek. 
+REM Joining the Fleet in TCZ Trek. 
 REM - One Argument, name of ship, hopefully allows spaces :I
-@chpid
-
-
-@temp klingons 
-@temp Feds
-
 
 @if {@eval {@?noitems "," "$3"} > 1} do
      @echo %g%LIllegal Characters detected you tribble. %w%LNo commas, please.
@@ -19,12 +13,25 @@ REM Check teams to ensure that they are fair.
 @with elements #1638 do
 
     @if {@eval {@?leftstr 1 "{@?itemno 1 "," $6}} = K} do
-         @desc $(klingons) = {@eval $(klingons) + 1}
+         @temp Klingons = {@eval $(Klingons) + 1}
     @else {@eval {@?leftstr 1 "{@?itemno 1 "," $6}} = F} do
-         @desc $(feds) = {@eval $(feds) + 1}
+         @temp Feds = {@eval $(Feds) + 1}
     @end
 @end
 
-@echo Klingons: $(klingons)
-@echo Federation: $(feds)
+@echo %g%LKlingons: %w%L$(klingons)
+@echo %g%LFederation: %w%L$(feds)
+  
+@if {@eval $(klingons) > $(feds)} do
+  @echo %g%lAssigning you to the klingons
+  
+  
+ @else  {@eval $(klingons) < $(feds)} do
+   @echo %g%LAssigning you to the Federation
+ 
+ 
+ @else {@eval $(klingons) = $(feds)} do
+   @echo %g%LAssigning you to wherever I feel like.
+ 
+ @end
   
