@@ -22,14 +22,20 @@ REM Sector column as scol
               REM make sure we have good ranges on these coordinates (15x15 and 9x9, respectively)
               @if {@eval ($curgrow > 0) && ($curgrow <= 15) && ($curgcol > 0) && ($curgcol <= 15) && ($srow > 0) && ($srow <= 9) && ($scol > 0) && ($scol <= 9)} do    
                     @if {@eval {#25303 $(curgrow);$(curgcol);$(srow);$(scol)} do
-                        @echo %g%lDirect hit! Your torpedo struck solidly into the side of the ship.
-                        @temp NewAP = {@eval $(currentAP) - 1}
-                        @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
-                        @temp torpPointsNew = {@eval $(torpPointsOld) - 1}
-                        @desc #1638[{@?id me}] = {@?modify "$(torpPointsNew)" 9 "," "{@?desc #1638[{@?id me}]}"}
+                    
+                        @if {@eval {@?rand 10} > 4} do 
+                             @echo %g%lDirect hit! Your torpedo struck solidly into the side of the ship.
+                             @temp NewAP = {@eval $(currentAP) - 1}
+                             @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+                             @temp torpPointsNew = {@eval $(torpPointsOld) - 1}
+                             @desc #1638[{@?id me}] = {@?modify "$(torpPointsNew)" 9 "," "{@?desc #1638[{@?id me}]}"}
                         
-                        @temp OppDamage = {@eval {@?rand 1 = 10}*2}
-                        {#33604 {#24738 $(curGrow);$(curGcol);$(srow);$(sCol)};$(oppDamage)}
+                             @temp OppDamage = {@eval {@?rand 1 = 10}*2}
+                             {#33604 {#24738 $(curGrow);$(curGcol);$(srow);$(sCol)};$(oppDamage)}
+                        @else 
+                             %g%LYour %w%l%I%r%L*** TORPEDO ***%g%L just barely misses your opponents ship. Tough luck.
+                             @break
+                        @end
                     @else 
                         @echo %g%LYour %w%l%I%r%L*** TORPEDO ***%g%L fires harmlessly into space.
                         @temp NewAP = {@eval $(currentAP) - 1}
