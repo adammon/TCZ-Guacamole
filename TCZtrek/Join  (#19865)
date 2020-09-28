@@ -1,11 +1,16 @@
 REM: Joining the Fleet in TCZ Trek. 
 REM - One Argument, name of ship, hopefully allows spaces :I
 
-@if {@eval {@?noitems "," "$3"} == 2} do
-     @temp grow = {@?itemno 1 ";" "$3"}
-     @temp gcol = {@?itemno 2 ";" "$3"}
-     @temp srow = {@?itemno 3 ";" "$3"}
-     @temp scol = {@?itemno 4 ";" "$3"}
-     @temp val  = {@?itemno 5 ";" "$3"}
+@if {@eval {@?noitems "," "$3"} > 1} do
+     @echo %g%LIllegal Characters detected you tribble. %w%LNo commas, please.
+     @break
+@else
+     @temp shipname = $3
+@end
+
   
-  REM make sure we have good ranges on these coordinates (15x15 and 9x9, respectively)
+  REM Check teams to ensure that they are fair.
+  
+  
+  
+@end
