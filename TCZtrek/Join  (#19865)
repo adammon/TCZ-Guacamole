@@ -27,15 +27,15 @@ REM - One Argument, name of ship, hopefully allows spaces :I
     @echo %g%LFederation: %w%L$(feds)
   
     @if {@eval $(klingons) > $(feds)} do
-       @echo %g%lAssigning you to the klingons
-  
-  
+        @echo %g%lAssigning you to the klingons
+            @desc #1638[{@?id me}] = Klingon,$(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,10
     @else  {@eval $(klingons) < $(feds)} do
-       @echo %g%LAssigning you to the Federation
+        @echo %g%LAssigning you to the Federation
  
- 
+           @desc #1638[{@?id me}] = Federation,$(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,10
+  
     @else {@eval $(klingons) = $(feds)} do
-      @echo %g%LAssigning you to wherever I feel like.
+        @echo %g%LAssigning you to wherever I feel like.
  
     @end
   
