@@ -1,13 +1,17 @@
 REM Joining the Fleet in TCZ Trek. 
 REM - One Argument, name of ship, hopefully allows spaces :I
 
-@if {@eval {@?noitems "," "$3"} > 1} do
-     @echo %g%LIllegal Characters detected you tribble. %w%LNo commas, please.
-     @break
-@else
-     @temp shipname = $3
-@end
 
+@If {@?exists #1638[{@?id me}] Do
+     @echo %g%LYou're already playing, you tribble. %w%LCheck your %y%Lshort%w%L range scanner
+
+     @if {@eval {@?noitems "," "$3"} > 1} do
+         @echo %g%LIllegal Characters detected, you tribble. %w%LNo commas, please.
+         @break
+     @else
+         @temp shipname = $3
+     @end
+@else 
 
 REM Check teams to ensure that they are fair.
 @with elements #1638 do
@@ -35,3 +39,4 @@ REM Check teams to ensure that they are fair.
  
  @end
   
+@end
