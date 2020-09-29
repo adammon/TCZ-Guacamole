@@ -1,6 +1,6 @@
 REM Joining the Fleet in TCZ Trek. 
 REM - One Argument, name of ship, hopefully allows spaces :I
-
+@chpid
 
 @If {@?exists #1638[{@?id me}] Do
      @echo %g%LYou're already playing, you tribble. %w%LCheck your %y%Lshort%w%L range scanner
