@@ -34,7 +34,7 @@ REM Setter for Galaxy/Sector coordinates
                @temp numK = {@eval $(numK) + 1}
                @end
            @end
-           @echo F: $(numF), K:$(numK)
+          REM  @echo F: $(numF), K:$(numK)
            @if {@eval $(numF) > $(numK)} do
               @temp galaxy = {@?modify "{@?modify "#0" $(gcol) ";" "{@?itemno $(grow) "{@?newline}" "$(galaxy)"}"}" $(grow) "{@?newline}" "$(galaxy)"}
            @else {@eval $(numK) > $(numF)} do
