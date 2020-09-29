@@ -33,7 +33,7 @@ REM #1 - direction = Whether that's up (-1 grow) down (+1 grow) left (-1 gcol) o
 	   @temp NewScol = $(curscol)
         @end
     @else {@eval $3 = down} Do
-         @if {@eval $(curgrow) = 9} Do
+         @if {@eval $(curgrow) = 15} Do
              @echo %g%LYour ship bumps into the boundaries of space. Try a different direction, Captain.
 	    @break
         @else do
