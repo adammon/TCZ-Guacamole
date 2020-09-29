@@ -2,6 +2,7 @@ REM Impulse for Sector Movements
 @chpid                                                   
 REM 1 argument
 REM #1 - direction = Whether that's up (-1 srow) down (+1 srow) left (-1 scol) or right ( +1 scol) while being constrained by borders
+@if {@eval {@?exists #1638[{@?id me}]}} do	
 
 @temp CurGrow = {@?itemno 3 "," {@?desc #1638[{@?id me}]}}
 @temp CurGcol = {@?itemno 4 "," {@?desc #1638[{@?id me}]}}
@@ -84,4 +85,7 @@ REM #1 - direction = Whether that's up (-1 srow) down (+1 srow) left (-1 scol) o
 	@echo %g%LThis action costs you %w%L1 %g%LAction Point. You have %w%L$(CurrentAP)%g%L AP left.
 	@desc #1638[{@?id me}] = {@?modify "$(CurrentAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
 	#23143
+@end
+@else
+@echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
 @end
