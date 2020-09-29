@@ -1,0 +1,6 @@
+REM - Resets all AP to 10 every 8 hours.
+
+
+@with elements #1638 do
+@desc #1638[$7] = {@?modify "10" 12 "," "{@?desc #1638[$7]}"}
+@end
