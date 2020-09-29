@@ -1,7 +1,7 @@
 REM Setting Green, Yellow, Red Alert on Ships (Flavour over function)
 
 
-@if {@?exists #1586[{@?id me}]} do
+@if {@?exists #1638[{@?id me}]} do
 
 
 
