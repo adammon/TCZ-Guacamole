@@ -88,6 +88,7 @@ REM #1 - direction = Whether that's up (-1 grow) down (+1 grow) left (-1 gcol) o
 	@echo %g%LThis action costs you %w%L1 %g%LAction Point. You have %w%L$(CurrentAP)%g%L AP left.
 	@desc #1638[{@?id me}] = {@?modify "$(CurrentAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
 	#23143
-@end@else
+@end
+@else
 @echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
 @end
