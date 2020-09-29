@@ -12,4 +12,4 @@ TCZTrek Code Priorities
 8. Figure out Hail so it's better (Works now but takes up a lot of space. SHould it use an AP?)
 9. Figure out reload. (Have to be proximal to starbase. Available at 1,1,1,1 and 15,15,9,9. Completed
 10. Character origination. WORKING.
-11. APReset, need to add a timer every 8 hours. 
+11. APReset, need to add a timer every 1 hours (For beta test)
