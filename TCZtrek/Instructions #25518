@@ -14,17 +14,17 @@ Visit the game room. From there, %y%Ljoin%w%L the battle where you'll be randoml
 %g%LControls%w%L:
 %w%LOnce in command of your ship, your main commands will be:
 
-%g%L - %y%Limpulse (up/left/down/right)%w%L to move within a sector.
+%g%L - %y%Limpulse (up/left/down/right)%w%L to move within a sector
 
-%g%L - %y%Lwarp (up/left/down/right) %w%Lto move between sectors 
+%g%L - %y%Lwarp (up/left/down/right) %w%Lto move between galaxies
 
 %g%L - %y%Lphaser (x,y)%w%L to fire your phasers at an opponent (or friendly) ship within one sector of your ship. 100% chance to hit.
 
 %g%L - %y%Ltorpedo (x,y) %w%Lto fire inside a galaxy with a 50% chance to miss but double the damage
 
-%g%L - %y%Lshort %w%Lrange scan shows you the current sector 
+%g%L - %y%Lshort %w%Lrange scan shows you the current galaxy 
 
-%g%L - %y%Llong %w%Lrange scan shows you who controls the galaxy
+%g%L - %y%Llong %w%Lrange scan shows you who controls the universe
 
 %g%L - %y%Lhail (x,y)%w%L identifies the opponent (or friendly) ship at those coordinates
 
