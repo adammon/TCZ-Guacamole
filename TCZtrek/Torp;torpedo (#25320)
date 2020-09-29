@@ -1,5 +1,6 @@
 REM Torpedo Structure for Fighting
 @chpid
+@if {@eval {@?exists #1638[{@?id me}]}} do	
 REM 2 arguments
 REM Sector row as srow
 REM Sector column as scol
@@ -61,4 +62,7 @@ REM Sector column as scol
    @end
 @else
     @echo %g%LNo more action points, sir. 
+@end
+@else
+@echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
 @end
