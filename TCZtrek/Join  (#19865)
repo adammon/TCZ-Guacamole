@@ -28,15 +28,22 @@ REM - One Argument, name of ship, hopefully allows spaces :I
   
     @if {@eval $(klingons) > $(feds)} do
         @echo %g%lAssigning you to the klingons
-            @desc #1638[{@?id me}] = Klingon,$(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,10
+            @desc #1638[{@?id me}] = Klingon,$(shipName),15,15,9,9,%w%L%i%g%LGreen%w%L,10,10,100,100,10
     @else  {@eval $(klingons) < $(feds)} do
         @echo %g%LAssigning you to the Federation
  
            @desc #1638[{@?id me}] = Federation,$(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,10
   
     @else {@eval $(klingons) = $(feds)} do
-        @echo %g%LAssigning you to wherever I feel like.
- 
+          @echo %g%LAssigning you to wherever I feel like with a coin-flip.
+          @temp teamChance = {@?rand 10}
+          @if {@eval $(teamChance) > 4} do 
+                @echo %g%lAssigning you to the klingons
+               @desc #1638[{@?id me}] = Klingon,$(shipName),15,15,9,9,%w%L%i%g%LGreen%w%L,10,10,100,100,10
+          @else {@eval $(teamChance) < 5} do
+               @echo %g%LAssigning you to the Federation
+               @desc #1638[{@?id me}] = Federation,$(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,10
+          @end
     @end
   
 @end
