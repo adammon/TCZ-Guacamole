@@ -1,5 +1,8 @@
 REM Short Range Sensor 
-@chpid                                              
+@chpid    
+
+@if {@eval {@?exists #1638[{@?id me}]}} do
+
 @echo Short Range Scanner
 @echo %w%L%I%g%L*{@?pad 3} 1{@?pad 3} 2{@?pad 3} 3{@?pad 3} 4{@?pad 3} 5{@?pad 3} 6{@?pad 3} 7{@?pad 3} 8{@?pad 3} 9{@?pad 3} *                                               
 @temp xline
@@ -25,3 +28,6 @@ REM Short Range Sensor
 @echo %w%L%I%g%L %c%LSector: %w%L{@?itemno 5 "," {@?desc #1638[{@?id me}]}}, {@?itemno 6 "," {@?desc #1638[{@?id me}]}} {@?pad 12} %w%L%I%g%L %c%LHealth: {@?pad 1} %w%L{progressbar {@?itemno 10 "," {@?desc #1638[{@?id me}]}}/100=10} %w%L {@?itemno 10 "," {@?desc #1638[{@?id me}]}
 @echo %w%L%I%g%L %c%LAction Points: %w%L {@?itemno 12 "," {@?desc #1638[{@?id me}]}}  {@?pad 7} %w%L%I%g%L%c%LShields: %w%L{@?pad 1}{progressbar {@?itemno 11 "," {@?desc #1638[{@?id me}]}}/100=10} %w%L {@?itemno 11 "," {@?desc #1638[{@?id me}]}
 @echo %w%L%I%g%L{@?pad $(wraplength) "-="}
+@else
+@echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
+@end
