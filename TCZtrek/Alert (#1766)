@@ -6,39 +6,40 @@ REM Setting Green, Yellow, Red Alert on Ships (Flavour over function)
 
 
 
-@temp CurrentAP = {@?itemno 12 "," {@?desc #1638[{@?id me}]}}
+     @temp CurrentAP = {@?itemno 12 "," {@?desc #1638[{@?id me}]}}
 
-
-	@case $3 do                                                                                                      
-	red: @begin
-	@if {@eval $(CurrentAP) < 1 } do
-@echo %g%LSorry, you have no %w%LAction Points%g%L left for today. You are dead in the water.
-@else do
-@desc #1638[{@?id me}] = {@?modify "%w%l%L%I%r%LRED%w%L" 7 "," "{@?desc #1638[{@?id me}]}"}  
-@echo %g%LYou note in the ship's log a dangerous situation requiring an aggressive stance. You are now at %w%l%L%I%r%LRED ALERT%w%L.
-@echo %g%LYour First Officer reports shields are charged and weapons are now ready for use.
-@echo %g%LThis action costs you %w%L1 %g%LAction Point.
-@temp CurrentAP = {@eval $(CurrentAP) - 1}
-@desc #1638[{@?id me}] = {@?modify "$(CurrentAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+@case $3 do                                                                                                      
+red: @begin
+     @if {@eval $(CurrentAP) < 1 } do
+       @echo %g%LSorry, you have no %w%LAction Points%g%L left for today. You are dead in the water.
+     @else
+       @desc #1638[{@?id me}] = {@?modify "%w%l%L%I%r%LRED%w%L" 7 "," "{@?desc #1638[{@?id me}]}"}  
+       @echo %g%LYou note in the ship's log a dangerous situation requiring an aggressive stance. You are now at %w%l%L%I%r%LRED ALERT%w%L.
+       @echo %g%LYour First Officer reports shields are charged and weapons are now ready for use.
+       @echo %g%LThis action costs you %w%L1 %g%LAction Point.
+       @temp CurrentAP = {@eval $(CurrentAP) - 1}
+       @desc #1638[{@?id me}] = {@?modify "$(CurrentAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+     @end
 @end
-@end
+     
 yellow: @begin
-	@if {@eval $(CurrentAP) < 1 } do
-@echo %g%LSorry, you have no %w%LAction Points%g%L left for today. You are dead in the water.
-@else do
-@desc #1638[{@?id me}] = {@?modify "%w%l%L%I%y%LYELLOW%w%L" 7 "," "{@?desc #1638[{@?id me}]}"} 
-@echo %g%LYour concern for your ship requires an defensive stance. You are now at %w%l%L%I%y%LYELLOW ALERT%w%L
-@echo %g%LYour First Officer reports shields are charged.
-@echo %g%LThis action costs you %w%L1 %g%LAction Point.
-@temp CurrentAP = {@eval $(CurrentAP) - 1}
-@desc #1638[{@?id me}] = {@?modify "$(CurrentAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+     @if {@eval $(CurrentAP) < 1 } do
+        @echo %g%LSorry, you have no %w%LAction Points%g%L left for today. You are dead in the water.
+     @else 
+        @desc #1638[{@?id me}] = {@?modify "%w%l%L%I%y%LYELLOW%w%L" 7 "," "{@?desc #1638[{@?id me}]}"} 
+        @echo %g%LYour concern for your ship requires an defensive stance. You are now at %w%l%L%I%y%LYELLOW ALERT%w%L
+        @echo %g%LYour First Officer reports shields are charged.
+        @echo %g%LThis action costs you %w%L1 %g%LAction Point.
+        @temp CurrentAP = {@eval $(CurrentAP) - 1}
+        @desc #1638[{@?id me}] = {@?modify "$(CurrentAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+     @end
 @end
-@end
-green: @begin
-@desc #1638[{@?id me}] = {@?modify "%w%l%L%I%g%LGREEN%w%L" 7 "," "{@?desc #1638[{@?id me}]}"} 
-@echo %g%L"%w%LStand down,%G%L" you state to your First Officer. You are now at %w%l%L%I%g%LSTATUS GREEN - SITUATION NORMAL%w%L.
-@end
-@else
 
+green: @begin
+     @desc #1638[{@?id me}] = {@?modify "%w%l%L%I%g%LGREEN%w%L" 7 "," "{@?desc #1638[{@?id me}]}"} 
+     @echo %g%L"%w%LStand down,%G%L" you state to your First Officer. You are now at %w%l%L%I%g%LSTATUS GREEN - SITUATION NORMAL%w%L.
+@end
+
+@else do
     @echo %g%LYou haven't yet %y%Ljoin%g%Led the battle.
 @end
