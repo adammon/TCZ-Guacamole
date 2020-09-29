@@ -1,0 +1,40 @@
+#25518
+
+%w%LIntroducing %y%LTCZ TREK!%w%L(%g%LBETA%w%L)
+
+%w%LThe first multiplayer, real-time space combat simulator for TCZ. Navigate your Federation or Klingon battlecruiser through space in an attempt to control the galaxy!
+
+%g%LHow to Play%w%L:
+
+Visit the game room. From there, %y%Ljoin%w%L the battle where you'll be randomly assigned to either the %b%LFederation%w%L or the %r%LKlingon Empire%w%L. (%y%LJoin <Name Your Ship>%w%L). Pilot and fight with your ship throughout the galaxy using the commands below. You receive %y%L20 Action Points (AP)%w%L every hour to be used to navigate around and combat your enemies. 
+
+%g%lStarting Locations (Starbases)%w%L:
+%b%LFederation%w%L players start in %g%LGalaxy %w%L1%g%L,%w%L1 in %g%LSector %w%L%L1,%w%L1
+%r%LKlingon%w%L players start in %g%LGalaxy %w%L15%g%L,%w%L15 in %g%LSector %w%L9%g%L,%w%L9
+
+
+%g%LControls%w%L:
+%w%LOnce in command of your ship, your main commands will be:
+
+%g%L - %y%Limpulse (up/left/down/right)%w%L to move within a sector.
+
+%g%L - %y%Lwarp (up/left/down/right) %w%Lto move between sectors 
+
+%g%L - %y%Lphaser (x,y)%w%L to fire your phasers at an opponent (or friendly) ship within one sector of your ship. 100% chance to hit.
+
+%g%L - %y%Ltorpedo (x,y) %w%Lto fire inside a galaxy with a 50% chance to miss but double the damage
+
+%g%L - %y%Lshort %w%Lrange scan shows you the current sector 
+
+%g%L - %y%Llong %w%Lrange scan shows you who controls the galaxy
+
+%g%L - %y%Lhail (x,y)%w%L identifies the opponent (or friendly) ship at those coordinates
+
+%g%L - %y%Lreload %w%Lat your starbase to fill up your phaser banks and torpedos
+
+%g%LHow to win%w%L:
+%g%L - %w%LDestroying an opponents ship will return them to their corresponding starbase.
+
+%g%L - %w%LEvery sector you pass through turns control of the sector over to your team. If your team controls more of a sector than the other team, your team then controls that galaxy. %w%LA team wins when every galaxy in the %y%Llong%w%L range scan is coloured red or blue. %w%LIf a team cannot capture all galaxies, the team with the most galaxies under their control after a pre-determined time wins.
+
+Please pass along feedback, comments, or ideas for improvement to %rFire.
