@@ -4,14 +4,14 @@ REM - One Argument, name of ship, hopefully allows spaces :I
 
 @If {@?exists #1638[{@?id me}] Do
      @echo %g%LYou're already playing, you tribble. %w%LCheck your %y%Lshort%w%L range scanner
-
-     @if {@eval {@?noitems "," "$3"} > 1} do
-         @echo %g%LIllegal Characters detected, you tribble. %w%LNo commas, please.
+     @break
+@else {@eval {@?strlen "$1"} < 1} do
+         @echo %g%LEnter a name for your ship, you tribble.
          @break
-     @else
-         @temp shipname = $3
-     @end
 @else 
+     @temp shipname = {@?capitalise $1}
+     @temp shipclassK = IKS
+     @temp shipclassF = USS
 
      REM Check teams to ensure that they are fair.
 
@@ -28,22 +28,22 @@ REM - One Argument, name of ship, hopefully allows spaces :I
     @echo %g%LFederation: %w%L$(feds)
   
     @if {@eval $(klingons) < $(feds)} do
-        @echo %g%lAssigning you to the klingons
-            @desc #1638[{@?id me}] = Klingon,$(shipName),15,15,9,9,%w%L%i%g%LGreen%w%L,10,10,100,100,10
+        @echo %g%lMore Federation players than Klingons. Assigning you to the %r%LKlingons %g%Lto balance the teams.
+            @desc #1638[{@?id me}] = Klingon,$(shipclassK) $(shipName),15,15,9,9,%w%L%i%g%LGreen%w%L,10,10,100,100,10
     @else  {@eval $(klingons) > $(feds)} do
-        @echo %g%LAssigning you to the Federation
+        @echo %g%LMore Klingon players than Federation. Assigning you to the %b%LFederation %g%Lto balance the teams.
  
-           @desc #1638[{@?id me}] = Federation,$(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,10
+           @desc #1638[{@?id me}] = Federation,$(shipclassF) $(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,10
   
     @else {@eval $(klingons) = $(feds)} do
-          @echo %g%LAssigning you to wherever I feel like with a coin-flip.
+          @echo %g%LBoth teams are equal so you are being randomly assigned.
           @temp teamChance = {@?rand 10}
           @if {@eval $(teamChance) > 4} do 
-                @echo %g%lAssigning you to the klingons
-               @desc #1638[{@?id me}] = Klingon,$(shipName),15,15,9,9,%w%L%i%g%LGreen%w%L,10,10,100,100,10
+                @echo %g%lYou have been randomly assigned to the %r%LKlingon%g%L team.
+               @desc #1638[{@?id me}] = Klingon,$(shipclassK) $(shipName),15,15,9,9,%w%L%i%g%LGreen%w%L,10,10,100,100,10
           @else {@eval $(teamChance) < 5} do
-               @echo %g%LAssigning you to the Federation
-               @desc #1638[{@?id me}] = Federation,$(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,10
+               @echo %g%lYou have been randomly assigned to the %b%LFederation%g%L team.
+               @desc #1638[{@?id me}] = Federation,$(shipclassF) $(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,10
           @end
     @end
   
