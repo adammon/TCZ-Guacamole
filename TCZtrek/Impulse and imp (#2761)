@@ -80,7 +80,7 @@ REM #1 - direction = Whether that's up (-1 srow) down (+1 srow) left (-1 scol) o
         #2567 $(newgrow);$(newgcol);$(newsrow);$(newscol);{@?id me}
         @desc #1638[{@?id me}] = {@?modify "$newsrow" 5 "," {@?Desc #1638[{@?id me}]}
         @desc #1638[{@?id me}] = {@?modify "$newscol" 6 "," {@?Desc #1638[{@?id me}]}
-        @echo %g%LYou command your ship to move to $(newSrow),$(newscol) on impulse.
+        @echo %g%LYou command your ship to move to %w%L$(newSrow)%g%L,%w%L$(newscol)%g%L on impulse.
 	@temp CurrentAP = {@eval $(CurrentAP) - 1}
 	@echo %g%LThis action costs you %w%L1 %g%LAction Point. You have %w%L$(CurrentAP)%g%L AP left.
 	@desc #1638[{@?id me}] = {@?modify "$(CurrentAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
