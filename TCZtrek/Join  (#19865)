@@ -24,6 +24,7 @@ REM - One Argument, name of ship, hopefully allows spaces :I
         @end
     @end
 
+@echo Current Team Numbers:
     @echo %g%LKlingons: %w%L$(klingons)
     @echo %g%LFederation: %w%L$(feds)
   
