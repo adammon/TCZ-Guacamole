@@ -1,7 +1,7 @@
 
 REM Reloading Weapons at Starbase start locations
 @chpid
-
+@if {@eval {@?exists #1638[{@?id me}]}} do	
 REM No arguments, but have to compare current location against starbase LOC.
 
      @temp curgrow = {@?itemno 3 "," {@?desc #1638[{@?id me}]}}
@@ -34,4 +34,7 @@ REM No arguments, but have to compare current location against starbase LOC.
         @echo %g%LYou are not close to your starbase in Galaxy %w%L1%y%L,%w%L1 %g%LSector %w%L1%y%L,%w%l1%g%l.
     @end
     
+@end
+@else
+@echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
 @end
