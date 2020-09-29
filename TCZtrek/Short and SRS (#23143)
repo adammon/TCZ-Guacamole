@@ -25,8 +25,8 @@ REM Short Range Sensor
 @echo %w%L%I%g%L{@?pad $(wraplength) "-="}
 @echo %w%L%I%g%L %c%LAlert Level: {@?itemno 7 "," {@?desc #1638[{@?id me}]}} {@?pad 6} %w%L%I%g%L %c%LPhoton Torpedos:  %w%L{@?itemno 9 "," {@?desc #1638[{@?id me}]}}
 @echo %w%L%I%g%L %c%LGalaxy: %w%L{@?itemno 3 "," {@?desc #1638[{@?id me}]}}, {@?itemno 4 "," {@?desc #1638[{@?id me}]}} {@?pad 12} %w%L%I%g%L %c%LPhaser Power:  %w%L{@?itemno 8 "," {@?desc #1638[{@?id me}]}}
-@echo %w%L%I%g%L %c%LSector: %w%L{@?itemno 5 "," {@?desc #1638[{@?id me}]}}, {@?itemno 6 "," {@?desc #1638[{@?id me}]}} {@?pad 12} %w%L%I%g%L %c%LHealth: {@?pad 1} %w%L{progressbar {@?itemno 10 "," {@?desc #1638[{@?id me}]}}/100=10} %w%L {@?itemno 10 "," {@?desc #1638[{@?id me}]}%%
-@echo %w%L%I%g%L %c%LAction Points: %w%L {@?itemno 12 "," {@?desc #1638[{@?id me}]}}  {@?pad 7} %w%L%I%g%L%c%LShields: %w%L{@?pad 1}{progressbar {@?itemno 11 "," {@?desc #1638[{@?id me}]}}/100=10} %w%L {@?itemno 11 "," {@?desc #1638[{@?id me}]}%%
+@echo %w%L%I%g%L %c%LSector: %w%L{@?itemno 5 "," {@?desc #1638[{@?id me}]}}, {@?itemno 6 "," {@?desc #1638[{@?id me}]}} {@?pad 12} %w%L%I%g%L %c%LHealth: {@?pad 1} %w%L{progressbar {@?itemno 10 "," {@?desc #1638[{@?id me}]}}/100=10} %w%L {@?itemno 10 "," {@?desc #1638[{@?id me}]}\%
+@echo %w%L%I%g%L %c%LAction Points: %w%L {@?itemno 12 "," {@?desc #1638[{@?id me}]}}  {@?pad 7} %w%L%I%g%L%c%LShields: %w%L{@?pad 1}{progressbar {@?itemno 11 "," {@?desc #1638[{@?id me}]}}/100=10} %w%L {@?itemno 11 "," {@?desc #1638[{@?id me}]}\%
 @echo %w%L%I%g%L{@?pad $(wraplength) "-="}
 @else
 @echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
