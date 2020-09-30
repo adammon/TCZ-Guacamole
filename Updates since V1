@@ -4,4 +4,7 @@ V1.1
 2. See the current players and teams (Trekwho)
 3. Specialized nat for your respective teams (treknat)
 4. Fixed bug that prevented players from going right past the middle of the universe.
+5. Added nat status to Playerarray so you can turn it on and off.
+6. Added notifications for online players to know who is damaging their ship and if/when they are destroyed. Working on notifications for out of Space or offline players.
+
 
