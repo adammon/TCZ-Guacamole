@@ -1,28 +1,27 @@
 REM Trekwho - Who's online playing TCZTrek
 
 @chpid
-@if {@eval {@?time} - {@?lastconnect me} < 28800} do
- @echo %g%lSorry, only *SPOD*ers can see who is currently on %m%l[SPODNAT]%g%l.
+
+@execution 3
+@sort #1638 = numeric descending elements 3 "<>"
+@temp h={@eval {@?scrheight} - 6}
+
+@if {@eval "$3"=""} do
+    @temp gr=1:$h
+@else {@?digit $3}
+    @temp gr=$3:$h
+@else {@eval "$3"="all"}
+    @temp gr=all
+@else {@?grouprange $3}
+     @temp gr=$3
 @else
- @temp users
-  @echo %x
- @echo %c{@?padcentre 0 "-=" " {%y%l}Current SPODNAT users{%c} "}
- @temp count = 0
- @with connected do
-  @if {@eval {@?time} - {@?lastconnect $6} > 28799} do
-    @if {@?exists #26436[$6]} do
-    @if {@eval "{@?desc #26436[$6]}" != "off"} do
-      @temp users = $(users) %x {@?status $6 = colour}{@?pad 23 " " "{@?realname $6}"}
-     @temp count = {@eval $(count) + 1}
-      @end
-    @else
-    @temp users = $(users) %x {@?status $6 = colour}{@?pad 23 " " "{@?realname $6}"}
-     @temp count = {@eval $(count) + 1}
-    @end
-   @end
-  @end
-   @echo $(users)
-   {@?sep}
- @echo %w%l Total users: %y%l$(count)
-  @echo %x
- @end
+     @temp gr=1:$h
+@end
+~
+~%[%m %l %l %l %l %l %l %l {@?pad 23 " " "Name:"}{@?pad 13 " " " Team:"}%l %l {@?pad 7 " " "Ship:"}
+~%[%g%l{@?pad 65 "-="}
+@with $gr elements #1638 do
+@echolist $4 =%[%w%l{@?pad 23 " " "{@?namec *$7}"}{@?padright 12 " " "{@?itemno 2 "<>" "$6"}"}%l %l %l %l {@?pad 5 " " "{@?itemno 1 "<>" "$6"}"}%l %l %l {@?result {@eval "{@?itemno 21 "<>" "$6"}"="no"}="%w%lALIVE" "%r%lDEAD"}
+~%[%g%l{@?pad 65 "-="}
+~%[ %c%lListed:  %w%l{@?display}
+~
