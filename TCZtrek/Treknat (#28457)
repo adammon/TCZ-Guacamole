@@ -1,8 +1,8 @@
-REM Starace August 2020
+REM Fire September 2020
 @chpid
 
-@with elements #26436 do @if false {@?exists *$7} do @dest #26436[$7]
-  @if false {@?exists #26436[{@?id}]} do @desc #26436[{@?id}] = on
+@with elements #1638 do @if false {@?exists *$7} do @dest #1638[$7]
+  @if false {@?exists #1638[{@?id}]} do  @desc #1638[{@?id me}] = {@?modify "on" 13 "," "{@?desc #1638[{@?id me}]}"}
   
   @if {@eval "$3" == "help"} do
      @echo {@?odrop {@?myself}}
@@ -19,7 +19,7 @@ REM Starace August 2020
      @end
   
   @else {@eval "$3" == "on"} do
-     @if {@eval {@?itemno 1 ";" "{@?desc #26436[{@?id}]"} == on} do
+     @if {@eval {@?itemno 13 ";" "{@?desc #26436[{@?id}]"} == on} do
         @echo %g%lYou already have %m%l[SPODNAT]%g%l turned on.
         @break
     @else
@@ -35,8 +35,7 @@ REM Starace August 2020
   
   @else
      @if {@eval "$3" == ""} do
-       @echo %m%l[SPODNAT, Book of *SPOD*] %g%lWhat do you want to say? See %y%LSpodnat
-             help%g%l for other options.
+       @echo %m%l[TREKNat, Book of *SPOD*] %g%lWhat do you want to say? See %y%LTreknat help%g%l for other options.
        @break
      @end
      @if {@eval {@?time} - {@?lastconnect me} < 28800} do
