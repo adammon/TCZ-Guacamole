@@ -30,21 +30,21 @@ REM - One Argument, name of ship, hopefully allows spaces :I
   
     @if {@eval $(klingons) < $(feds)} do
         @echo %g%lMore Federation players than Klingons. Assigning you to the %r%LKlingons %g%Lto balance the teams.
-            @desc #1638[{@?id me}] = Klingon,$(shipclassK) $(shipName),15,15,9,9,%w%L%i%g%LGreen%w%L,10,10,100,100,20
+            @desc #1638[{@?id me}] = Klingon,$(shipclassK) $(shipName),15,15,9,9,%w%L%i%g%LGreen%w%L,10,10,100,100,20,on
     @else  {@eval $(klingons) > $(feds)} do
         @echo %g%LMore Klingon players than Federation. Assigning you to the %b%LFederation %g%Lto balance the teams.
  
-           @desc #1638[{@?id me}] = Federation,$(shipclassF) $(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,20
+           @desc #1638[{@?id me}] = Federation,$(shipclassF) $(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,20,on
   
     @else {@eval $(klingons) = $(feds)} do
           @echo %g%LBoth teams are equal so you are being randomly assigned.
           @temp teamChance = {@?rand 10}
           @if {@eval $(teamChance) > 4} do 
                 @echo %g%lYou have been randomly assigned to the %r%LKlingon%g%L team.
-               @desc #1638[{@?id me}] = Klingon,$(shipclassK) $(shipName),15,15,9,9,%w%L%i%g%LGreen%w%L,10,10,100,100,20
+               @desc #1638[{@?id me}] = Klingon,$(shipclassK) $(shipName),15,15,9,9,%w%L%i%g%LGreen%w%L,10,10,100,100,20,on
           @else {@eval $(teamChance) < 5} do
                @echo %g%lYou have been randomly assigned to the %b%LFederation%g%L team.
-               @desc #1638[{@?id me}] = Federation,$(shipclassF) $(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,20
+               @desc #1638[{@?id me}] = Federation,$(shipclassF) $(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,20,on
           @end
     @end
   
