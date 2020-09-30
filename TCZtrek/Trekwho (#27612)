@@ -1,0 +1,68 @@
+[001]  REM Coded by Lorax 3/98
+[002]  @chpid
+[003]  @if false {@?exists #4904[{@?id}]} do
+[004]   ~%r%lSorry, only Darksiders may use this command.
+[005]   @break
+[006]   @end
+[007]  @if {@eval "{@?cmdname}"="DSCafe"} do
+[008]   @oemote %g%lflags down an imperial shuttle and takes off for the %y%lDarkside Club &
+        Cafe%g%l.
+[009]   @tel me=#48208
+[010]   ~%g%lYou teleport to the %y%l{@?name here}%g%l.
+[011]   @break
+[012]  @else {@eval "{@?cmdname}"="Torture"} do
+[013]   @oemote %g%lgoes off to %y%lTORTURE%g%l to visit the prisoners!
+[014]   @tel me=#31184
+[015]   @break
+[016]  @end
+[017]  @if {@eval ("$3"!="")&&("$3"!="all")} do
+[018]  ~%y%lUSAGE: %g%lDSAWho %y%l-> %g%lDarkside Admin Nat users connected.
+[019]  ~{@?pad 7 " "}%g%lDSAWho ALL %y%l-> %g%lAll members of the Darkside Admin Nat.
+[020]  @break
+[021]  @end
+[022]  @temp what=$1
+[023]  @if false {@?exists #43603[{@?id}]} do
+[024]   ~%r%lSorry, only DS Admin may use this command.
+[025]   @break
+[026]  @end
+[027]  @if {@Eval "$(what)"="all"} do
+[028]  ~%g%l{@?pad 0 "-="}
+[029]  ~%r%l{@?padcentre 0 " " "Users of the {%m%l}DARKSIDE{%r%l} Admin Nat..."}
+[030]  ~%g%l{@?pad 0 "-"}
+[031]  @with elements #43603 do
+[032]  @temp rank={@?desc #25167[{@?itemno 1 ";" "$6"}]}
+[033]  @temp rln={@?leftstr {@eval {@?scrwidth}-({@?strlen "{@?filter $(rank)}"}+{@?strlen
+       {@?realname *$7}}+11)} {@?title $7}}
+[034]  @if false {@?connected *$7} do @temp rank = {@?replace "%l" "%d" ALL "$rank"}
+[035]  @temp nat=%y%l[%w%l{@?upper {@?itemno 2 ";" "$6"}}%y%l]
+[036]  @if {@?wildcard "*ON*" "$nat"} do @temp nat=%y%l[%x %w%lON%y%l]
+[037]  ~%x $(nat) $(rank) {@?realname *$7}%x %w$(rln)
+[038]  @end
+[039]  ~%g%l{@?pad 0 "-"}
+[040]  ~%y%l Users listed: %r%l{@?noelements #43603}
+[041]  ~%y%l Latest News: %w%l%9%5{@?desc #11506}
+[042]  ~%g%l{@?pad 0 "-="}
+[043]  
+[044]  @else
+[045]  ~%g%l{@?pad 0 "-="}
+[046]  ~%r%l{@?padcentre 0 " " "Users of {%m%l}DSAN{%r%l} connected..."}
+[047]  ~%g%l{@?pad 0 "-"}
+[048]  @temp number=0
+[049]  @with elements #43603 do
+[050]  @temp rank={@?itemno 1 ";" "$6"}
+[051]  @if {@?connected $7} do
+[052]  @temp number={@eval $(number)+1}
+[053]  @temp rank={@?desc #25167[{@?itemno 1 ";" "$6"}]}
+[054]  @temp rln={@?leftstr {@eval {@?scrwidth}-({@?strlen "{@?filter $(rank)}"}+{@?strlen
+       {@?realname *$7}}+11)} {@?title $7}}
+[055]  @if false {@?connected *$7} do @temp rank = {@?replace "%l" "%d" ALL "$rank"}
+[056]  @temp nat=%y%l[%w%l{@?upper {@?itemno 2 ";" "$6"}}%y%l]
+[057]  @if {@?wildcard "*ON*" "$nat"} do @temp nat=%y%l[%x %w%lON%y%l]
+[058]  ~%x $(nat) $(rank) {@?realname *$7}%x %w$(rln)
+[059]  @end
+[060]  @end
+[061]  ~%g%l{@?pad 0 "-"}
+[062]  ~%y%l Users listed: %r%l$number
+[063]  ~%y%l Latest News: %w%l%9%5{@?desc #11506}
+[064]  ~%g%l{@?pad 0 "-="}
+[065]  @end
