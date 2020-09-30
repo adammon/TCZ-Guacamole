@@ -3,7 +3,7 @@
 3. NPCs
 4. PlayerStats array 
 5. Auto-completion
-6. Notifications that you were destroyed and by who.
+6. Notifications that you were destroyed and by who. (Completed for online, will build out for offline)
 7. Automated alerts (Red alert if damage and in same galaxy, yellow if full health and same galaxy)
 8. Clarify ships don't need prefixes (USS or IKS)
  PAGING from Space, The Final Frontier(#22018 RAHOQywFVT):  Starace says "Yeah definitely need a
