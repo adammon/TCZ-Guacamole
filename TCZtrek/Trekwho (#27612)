@@ -3,7 +3,7 @@ REM Trekwho - Who's online playing TCZTrek
 @chpid
 
 @execution 3
-@sort #1638 = numeric descending elements 3 "<>"
+@sort #1638 = alpha ascending elements 1 ","
 @temp h={@eval {@?scrheight} - 6}
 
 @if {@eval "$3"=""} do
@@ -18,10 +18,13 @@ REM Trekwho - Who's online playing TCZTrek
      @temp gr=1:$h
 @end
 ~
-~%[%m %l %l %l %l %l %l %l {@?pad 23 " " "Name:"}{@?pad 13 " " " Team:"}%l %l {@?pad 7 " " "Ship:"}
+~%[%m %l {@?padleft 20 " " "Name:"}{@?padleft 12 " " "Team:"}%l %l {@?pad 20 " " "Ship:"}
 ~%[%g%l{@?pad 65 "-="}
-@with $gr elements #1638 do
-@echolist $4 =%[%w%l{@?pad 23 " " "{@?namec *$7}"}{@?padright 12 " " "{@?itemno 2 "<>" "$6"}"}%l %l %l %l {@?pad 5 " " "{@?itemno 1 "<>" "$6"}"}%l %l %l {@?result {@eval "{@?itemno 21 "<>" "$6"}"="no"}="%w%lALIVE" "%r%lDEAD"}
+@with $gr elements #1638 do 
+@if {@eval ("$6" <> "#0") && ("$6" <> "#1")} do
+@echo $4 %[%w%l{@?pad 20 " " "Captain {@?realname *$7}"}{@?left 12  "{@?itemno 1 "," "$6"}"}%l %l %l %l {@?pad 20 " " "{@?itemno 2 "," "$6"}"}%l %l %l 
+@end
+@end
 ~%[%g%l{@?pad 65 "-="}
 ~%[ %c%lListed:  %w%l{@?display}
 ~
