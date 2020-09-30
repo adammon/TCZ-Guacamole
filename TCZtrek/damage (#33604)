@@ -43,10 +43,12 @@ REM #2 - Damage done
                @end
                @desc #1638[$(oppID)] = {@?modify "100" 10 "," "{@?desc #1638[$(oppID)]}"}
                @echo %g%LYou just destroyed %w%LCaptain {@?namec $(oppID)}%g%L's ship.
+               @notify $(oppid) = %g%LYour ship was just destroyed by %w%LCaptain {@?namec *{@?id me}}.
                @returnvalue @break 
           @else 
                @desc #1638[$(oppID)] = {@?modify "$(NewHealth)" 10 "," "{@?desc #1638[$(oppID)]}"}
                @echo %g%LYou just did %w%L$(damage)%g%L damage to %w%LCaptain {@?namec $(oppID)}%g%L's ship.
+               @notify $(oppid) = %g%LYour ship just received %w%L$(damage)%g%L damage from %w%LCaptain {@?namec *{@?id me}}.
                @returnvalue @break   
           @end
      @else
