@@ -1,0 +1,70 @@
+REM Starace August 2020
+@chpid
+
+@with elements #26436 do @if false {@?exists *$7} do @dest #26436[$7]
+  @if false {@?exists #26436[{@?id}]} do @desc #26436[{@?id}] = on
+  
+  @if {@eval "$3" == "help"} do
+     @echo {@?odrop {@?myself}}
+     @break
+  
+  @else {@eval "$3" == "off"} do
+     @if {@eval {@?itemno 1 ";" "{@?desc #26436[{@?id}]}"} == off} do
+        @echo %g%lYou already have %m%l[SPODNAT]%g%l turned off.
+       @break
+     @else
+        @desc #26436[{@?id}] = {@?modify "off" 1 ";" "{@?desc #26436[{@?id}]}"}
+        @echo %g%lYou turn %m%l[SPODNAT]%g%l off.
+       @break
+     @end
+  
+  @else {@eval "$3" == "on"} do
+     @if {@eval {@?itemno 1 ";" "{@?desc #26436[{@?id}]"} == on} do
+        @echo %g%lYou already have %m%l[SPODNAT]%g%l turned on.
+        @break
+    @else
+        @desc #26436[{@?id}] = {@?modify "on" 1 ";" "{@?desc #26436[{@?id}]}"}
+        @echo %g%lYou turn %m%l[SPODNAT]%g%l on.
+       @break
+     @end
+  
+  @else {@eval "$3" == "who} do
+     #28818
+     @break
+  @end
+  
+  @else
+     @if {@eval "$3" == ""} do
+       @echo %m%l[SPODNAT, Book of *SPOD*] %g%lWhat do you want to say? See %y%LSpodnat
+             help%g%l for other options.
+       @break
+     @end
+     @if {@eval {@?time} - {@?lastconnect me} < 28800} do
+        @echo %g%lSorry, only *SPOD*ers can speak on %m%l[SPODNAT]%g%l.
+        @break
+     @end
+     @if {@eval {@?itemno 1 ";" "{@?desc #26436[{@?id}]}"} == off} do
+        @echo %g%lSorry, you need to have %m%l[SPODNAT] %g%lturned on to use it.
+        @break
+     @end
+     @temp spods = 0
+     @temp botspots = 0
+     @if {@?exists #2869[{@?id}]} do @temp spods = {@?desc #2869[{@?id}]}
+     @if {@?exists #27432[{@?id}]} do @temp botspots = {@?itemno 1 ";" "{@?desc #27432[{@?id}]}"}
+  
+     @temp pre = %m%l[SPODNAT%c%l|%g%l$(spods)%c%l:%g%l$(botspots)%m%l] %w%l
+     @temp content = {@?fullname me} {lformat $3}
+     @temp msg = {@?itemno {@calc {@?length {@?filter $(pre)}} + 1} ";" "%1;%2;%3;%4;%5;%6;%7;%8;%9;%9%1;%9%2;%9%3;%9%4;%9%5;%9%6;%9%7;%9%8;%9%9;%9%9%1;%9%9%2;%9%9%3;%9%9%4;%9%9%5;%9%9%6;%9%9%7;%9%9%8;%9%9%9"}$(pre) $(content)
+     @temp msg = {@?replace "{@?newline}" "{@?newline}{@?pad {@eval {@?length {@?filter $(pre)}} + 1} " "}" ALL "$(msg)"}
+     @with connected do
+        @if {@calc ({@?time} - {@?lastconnected $6}) > 28800} do
+           @if false {@?set $6 = quiet} do
+              @if false {@?exists #26436[$6]}} do
+                 @notify *$6 = $(msg)
+              @else {@eval {@?itemno 1 ";" "{@?desc #26436[$6]}"} == on} do
+                @notify *$6 = $(msg)
+              @end
+           @end
+        @end
+     @end
+  @end
