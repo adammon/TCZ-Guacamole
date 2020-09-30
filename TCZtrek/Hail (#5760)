@@ -22,7 +22,7 @@ REM make sure we have good ranges on these coordinates (9x9)
      @temp cursrow = {@?itemno 5 "," {@?desc #1638[$6]}}
      @temp curscol = {@?itemno 6 "," {@?desc #1638[$6]}}
      
-@if {@eval ($curgrow = {@?itemno 3 "," {@?desc #1638[{@?id me}]}}) && ($(curgcol) = {@?itemno 3 "," {@?desc #1638[{@?id me}]}}) && ($(curscol) = $(hailscol)) && ($(cursrow) = $(hailsrow))} do
+@if {@eval ($curgrow = {@?itemno 3 "," {@?desc #1638[{@?id me}]}}) && ($(curgcol) = {@?itemno 4 "," {@?desc #1638[{@?id me}]}}) && ($(curscol) = $(hailscol)) && ($(cursrow) = $(hailsrow))} do
      @temp hailed = $6
 @end
 @end
