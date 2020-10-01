@@ -15,8 +15,8 @@ SAMPLE: @desc #1638[{@?id me}] =Federation,USS Reliant,1,1,1,1,%w%L%i%g%LGreen%w
 14 title
 
 
-@desc #1638[#1] =Klingon,Empty Space,151,5,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off
-@desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off
+@desc #1638[#1] =Klingon,Empty Space,15,15,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
+@desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
 
 @desc #1638[{@?id me}] = Federation,USS Reliant,1,1,1,1,%w%l%L%I%g%LGREEN%w%L,10,10,100,100,99,on
 @desc #1638[#1977] = Klingon,KF Korinar,1,1,3,1,%w%L%i%g%LGreen%w%L,10,10,100,100,99,on
