@@ -18,21 +18,3 @@ SAMPLE: @desc #1638[{@?id me}] =Federation,USS Reliant,1,1,1,1,%w%L%i%g%LGreen%w
 @desc #1638[#1] =Klingon,Empty Space,15,15,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
 @desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
 
-@desc #1638[{@?id me}] = Federation,USS Reliant,1,1,1,1,%w%l%L%I%g%LGREEN%w%L,10,10,100,100,99,on
-@desc #1638[#1977] = Klingon,KF Korinar,1,1,3,1,%w%L%i%g%LGreen%w%L,10,10,100,100,99,on
-@desc #1638[#1986] = Klingon,KF Madness,1,1,2,1,%w%l%L%I%g%LGREEN%w%L,10,10,100,100,99,on
-@desc #1638[#2158] = Klingon,KF Marshall,1,1,4,1,%w%l%L%I%g%LGREEN%w%L,10,10,100,100,99,on
-@desc #1638[#23212] = Federation,USS Snorlax,1,1,7,1,%w%L%i%g%LGREEN%w%L,10,10,100,100,99,on
-@desc #1638[#46710] = Federation,USS Shadal,1,1,9,1,%w%L%i%g%LGREEN%w%L,10,10,100,100,99,on
-
-
-
-@desc #1638[#0]=Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,20,on
-@desc #1638[#1]=Klingon,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,20,on
-@desc #1638[#5486]=Klingon,IKS Defiant,11,15,9,6,%w%L%i%g%LGreen%w%L,4,0,40,100,0,on
-@desc #1638[#1959]=Federation,USS USS Barbie,4,11,2,5,%w%L%i%g%LGreen%w%L,10,10,100,100,0,on
-@desc #1638[#23212]=Klingon,IKS SS Whee,12,2,7,5,%w%L%i%g%LGreen%w%L,5,0,44,100,0,on
-@desc #1638[#15434]=Federation,USS Fluffy,1,1,1,1,%w%L%i%g%LGreen%w%L,10,6,100,100,20,on
-@desc #1638[#41170]=Federation,USS Federation,12,2,1,2,%w%L%i%g%LGreen%w%L,10,10,70,100,0,on
-@desc #1638[#20703]=Klingon,IKS Discovery,12,2,8,6,%w%L%i%g%LGreen%w%L,8,10,100,100,0,on
-@desc #1638[#1977]=Klingon,IKS SS MessYouUp,13,2,6,3,%w%L%i%g%LGreen%w%L,10,0,100,100,0,on
