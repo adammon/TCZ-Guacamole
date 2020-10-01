@@ -78,7 +78,7 @@ REM #1 - direction = Whether that's up (-1 grow) down (+1 grow) left (-1 gcol) o
 	@else {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}"} == "K"} do
 		#2567 $(curgrow);$(curgcol);$(cursrow);$(curscol);#1
 	@end
-	#2567 $(newgrow);$(newgcol);$(newsrow);$(newscol);{@?id me}
+	
         @desc #1638[{@?id me}] = {@?modify "$newgrow" 3 "," {@?Desc #1638[{@?id me}]}
         @desc #1638[{@?id me}] = {@?modify "$newgcol" 4 "," {@?Desc #1638[{@?id me}]}
         @desc #1638[{@?id me}] = {@?modify "$newsrow" 5 "," {@?Desc #1638[{@?id me}]}
@@ -87,6 +87,7 @@ REM #1 - direction = Whether that's up (-1 grow) down (+1 grow) left (-1 gcol) o
 	@temp CurrentAP = {@eval $(CurrentAP) - 1}
 	@echo %g%LThis action costs you %w%L1 %g%LAction Point. You have %w%L$(CurrentAP)%g%L AP left.
 	@desc #1638[{@?id me}] = {@?modify "$(CurrentAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+	#2567 $(newgrow);$(newgcol);$(newsrow);$(newscol);{@?id me}
 	#23143
 @end
 @else
