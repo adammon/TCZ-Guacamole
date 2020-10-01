@@ -22,7 +22,7 @@ REM Trekwho - Who's online playing TCZTrek
 ~%[%g%l{@?pad 65 "-="}
 @with $gr elements #1638 do 
 @if {@eval ("$7" <> "#0") && ("$7" <> "#1")} do
-@echo %[%w%l{@?pad 20 " " "Captain {@?realname *$7}"}{@?pad 12 " "  "{@?itemno 1 "," "$6"}"}%l %l %l %l {@?pad 16 " " "{@?itemno 2 "," "$6"}"}%l %l %l {@?pad 20 " " "{@?result {@eval "{@?location *$7}" = "#22018"}="%Y%lYES" "%r%lNO"}"}
+@echo %[%w%l{@?pad 20 " " "{@?itemno 14 "," "$6"} {@?realname *$7}"}{@?pad 12 " "  "{@?itemno 1 "," "$6"}"}%l %l %l %l {@?pad 16 " " "{@?itemno 2 "," "$6"}"}%l %l %l {@?pad 20 " " "{@?result {@eval "{@?location *$7}" = "#22018"}="%Y%lYES" "%r%lNO"}"}
 @end
 @end
 ~%[%g%l{@?pad 65 "-="}
