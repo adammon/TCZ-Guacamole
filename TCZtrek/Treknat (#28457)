@@ -26,7 +26,7 @@ REM Fire September 2020
        @break
      @end
   
-  @else {@eval "$3" == "who} do
+  @else {@eval "$3" == "who"} do
      #27612
      @break
   @end
@@ -50,11 +50,11 @@ REM Fire September 2020
 @temp msg = {@?itemno {@calc {@?length {@?filter $(pre)}} + 1} ";" "%1;%2;%3;%4;%5;%6;%7;%8;%9;%9%1;%9%2;%9%3;%9%4;%9%5;%9%6;%9%7;%9%8;%9%9;%9%9%1;%9%9%2;%9%9%3;%9%9%4;%9%9%5;%9%9%6;%9%9%7;%9%9%8;%9%9%9"}$(pre) $(content)
 @temp msg = {@?replace "{@?newline}" "{@?newline}{@?pad {@eval {@?length {@?filter $(pre)}} + 1} " "}" ALL "$(msg)"}
      @with elements #1638 do
-        @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = K} do
+        @if {@eval ({@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = K} && "$6" <> "#1") do
            @if false {@?set $7 = quiet} do
              @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7]}}} = K} do @temp klGroup = $7;$(klgroup)
            @end
-       @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = F} do
+       @else {@eval ({@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = F} & "$6" <> "#0") do
            @if false {@?set $7 = quiet} do
              @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7]}}} = F} do @temp feGroup = $7;$(fegroup)
            @end
@@ -62,7 +62,7 @@ REM Fire September 2020
      @end
 
 @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = K} do @foreach ";" "$(klgroup)" do @notify $6 = $(msg)
-@if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = F} do @foreach ";" "$(fegroup)" do @echo $6 = $(msg)
+@if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = F} do @foreach ";" "$(fegroup)" do @notify $6 = $(msg)
 
 @end
 
