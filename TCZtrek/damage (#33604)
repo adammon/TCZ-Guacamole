@@ -41,6 +41,18 @@ REM #2 - Damage done
                @echo %g%LYou just destroyed %w%L{@?itemno 14 "," {@?desc #1638[$(oppID)]}} {@?namec $(oppID)}%g%L's ship.
                @desc #1638[$(oppID)] = {@?modify "Captain" 14 "," "{@?desc #1638[$(oppID)]}"}
                
+               @if {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Captain") do
+               @desc #1638[{@?id me}] = {@?modify "Commodore" 14 "," "{@?desc #1638[{@?id me}]}"}
+               @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Commodore") do
+               @desc #1638[{@?id me}] = {@?modify "Rear Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
+               @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Rear Admiral") do
+               @desc #1638[{@?id me}] = {@?modify "Vice Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
+               @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Vice Admiral") do
+               @desc #1638[{@?id me}] = {@?modify "Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
+               @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Admiral") do
+               @desc #1638[{@?id me}] = {@?modify "Fleet Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
+               @end
+            
                @if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
                   @notify $(oppid) = %g%LYour ship was just destroyed by %w%LCaptain {@?namec *{@?id me}}.
                   
