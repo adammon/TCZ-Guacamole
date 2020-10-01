@@ -1,8 +1,7 @@
 REM Fire September 2020
 @chpid
 
-@with elements #1638 do 
-  
+
   @if {@eval "$3" == "help"} do
      @echo {@?odrop {@?myself}}
      @break
@@ -41,8 +40,8 @@ REM Fire September 2020
         @echo %g%lSorry, you need to have %m%l[%y%LTREKNAT%m%L]%g%l %g%lturned on to use it.
         @break
      @end
-     @temp spods = 0
-     @temp botspots = 0
+     @temp grow = 0
+     @temp gcol = 0
      @if {@?exists #1638[{@?id}]} do @temp grow = {@?itemno 3 "," {@?desc #1638[{@?id me}]}}
      @if {@?exists #1638[{@?id}]} do @temp gcol = {@?itemno 4 "," {@?desc #1638[{@?id me}]}}
   
@@ -53,14 +52,16 @@ REM Fire September 2020
      @with elements #1638 do
         @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = K} do
            @if false {@?set $6 = quiet} do
-              @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$6]}}} = K} do
-                 @notify *$6 = $(msg)
+             @temp klGroup = $(klgroup) + ; + $6
+                REM @notify *$6 = $(msg)
+                @echo $(klgroup)
               @end
           @end
        @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = F} do
           @if false {@?set $6 = quiet} do
               @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$6]}}} = F} do
                  @notify *$6 = $(msg)
+                 @echo $6
               @end
           @end
        @end
