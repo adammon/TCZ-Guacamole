@@ -46,12 +46,16 @@ REM #2 - Damage done
                
                @if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
                   @notify $(oppid) = %g%LYour ship was just destroyed by %w%LCaptain {@?namec *{@?id me}}.
+                  
+               @end
                @returnvalue @break 
           @else 
                @desc #1638[$(oppID)] = {@?modify "$(NewHealth)" 10 "," "{@?desc #1638[$(oppID)]}"}
                @echo %g%LYou just did %w%L$(damage)%g%L damage to %w%LCaptain {@?namec $(oppID)}%g%L's ship.
                 @if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
                   @notify $(oppid) = %g%LYour ship just received %w%L$(damage)%g%L damage from %w%LCaptain {@?namec *{@?id me}}.
+                 
+               @end
                @returnvalue @break 
           @end
      @else
