@@ -37,7 +37,9 @@ REM #2 - Damage done
                      @desc #1638[$(oppID)] = {@?modify "9" 6 "," "{@?desc #1638[$(oppID)]}"}
                @end
                @desc #1638[$(oppID)] = {@?modify "100" 10 "," "{@?desc #1638[$(oppID)]}"}
-               @echo %g%LYou just destroyed %w%LCaptain {@?namec $(oppID)}%g%L's ship.
+               
+               @echo %g%LYou just destroyed %w%L{@?itemno 14 "," {@?desc #1638[$(oppID)]}} {@?namec $(oppID)}%g%L's ship.
+               @desc #1638[$(oppID)] = {@?modify "Captain" 14 "," "{@?desc #1638[$(oppID)]}"}
                
                @if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
                   @notify $(oppid) = %g%LYour ship was just destroyed by %w%LCaptain {@?namec *{@?id me}}.
