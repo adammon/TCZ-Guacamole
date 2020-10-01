@@ -11,7 +11,7 @@ REM No arguments, but have to compare current location against starbase LOC.
      @temp CurrentAP = {@?itemno 12 "," {@?desc #1638[{@?id me}]}}
      
 @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = K} do
-    @if {@eval ((abs ($(cursrow) - 9) < 2) && ((abs ($(curscol) - 9) < 2)} && ($(curgcol) = 15) && ($(curgcol) = 15)} Do
+    @if {@eval ((abs ($(cursrow) - 9) < 2) && ((abs ($(curscol) - 9) < 2)} && ($(curgrow) = 15) && ($(curgcol) = 15)} Do
         @desc #1638[{@?id me}] = {@?modify "10" 8 "," "{@?desc #1638[{@?id me}]}"}
         @desc #1638[{@?id me}] = {@?modify "10" 9 "," "{@?desc #1638[{@?id me}]}"}
         @temp NewAP = {@eval $(currentAP) - 1}
@@ -22,7 +22,7 @@ REM No arguments, but have to compare current location against starbase LOC.
     @end
 
 @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = F} do
-    @if {@eval ((abs ($(cursrow) - 1) < 2) && ((abs ($(curscol) - 1) < 2)} && ($(curgcol) = 1) && ($(curgcol) = 1)} Do
+    @if {@eval ((abs ($(cursrow) - 1) < 2) && ((abs ($(curscol) - 1) < 2)} && ($(curgrow) = 1) && ($(curgcol) = 1)} Do
     
         @desc #1638[{@?id me}] = {@?modify "10" 8 "," "{@?desc #1638[{@?id me}]}"}
         @desc #1638[{@?id me}] = {@?modify "10" 9 "," "{@?desc #1638[{@?id me}]}"}
