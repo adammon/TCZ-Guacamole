@@ -18,40 +18,38 @@ REM #2 - Damage done
           @temp NewHealth = {@eval $(Opphealth) - $(Damage)}
           
           @if {@eval $(NewHealth) < 1} do
-                     @temp oppgrow = {@?itemno 3 "," {@?desc #1638[$(oppID)]}}
-                     @temp oppgcol = {@?itemno 4 "," {@?desc #1638[$(oppID)]}}
-                     @temp oppsrow = {@?itemno 5 "," {@?desc #1638[$(oppID)]}}
-                     @temp oppscol = {@?itemno 6 "," {@?desc #1638[$(oppID)]}}
-                     #2567 $(oppGrow);$(oppgcol);$(oppsrow);$(oppscol);n
+@temp oppgrow = {@?itemno 3 "," {@?desc #1638[$(oppID)]}}
+@temp oppgcol = {@?itemno 4 "," {@?desc #1638[$(oppID)]}}
+@temp oppsrow = {@?itemno 5 "," {@?desc #1638[$(oppID)]}}
+@temp oppscol = {@?itemno 6 "," {@?desc #1638[$(oppID)]}}
+#2567 $(oppGrow);$(oppgcol);$(oppsrow);$(oppscol);n
                @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$(oppID)]}}} = F} do
-                    
-                     @desc #1638[$(oppID)] = {@?modify "1" 3 "," "{@?desc #1638[$(oppID)]}"}
-                     @desc #1638[$(oppID)] = {@?modify "1" 4 "," "{@?desc #1638[$(oppID)]}"}
-                     @desc #1638[$(oppID)] = {@?modify "1" 5 "," "{@?desc #1638[$(oppID)]}"}
-                     @desc #1638[$(oppID)] = {@?modify "1" 6 "," "{@?desc #1638[$(oppID)]}"}
+@desc #1638[$(oppID)] = {@?modify "1" 3 "," "{@?desc #1638[$(oppID)]}"}
+@desc #1638[$(oppID)] = {@?modify "1" 4 "," "{@?desc #1638[$(oppID)]}"}
+@desc #1638[$(oppID)] = {@?modify "1" 5 "," "{@?desc #1638[$(oppID)]}"}
+@desc #1638[$(oppID)] = {@?modify "1" 6 "," "{@?desc #1638[$(oppID)]}"}
                @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$(oppID)]}}} = K} do
-
-                     @desc #1638[$(oppID)] = {@?modify "15" 3 "," "{@?desc #1638[$(oppID)]}"}
-                     @desc #1638[$(oppID)] = {@?modify "15" 4 "," "{@?desc #1638[$(oppID)]}"}
-                     @desc #1638[$(oppID)] = {@?modify "9" 5 "," "{@?desc #1638[$(oppID)]}"}
-                     @desc #1638[$(oppID)] = {@?modify "9" 6 "," "{@?desc #1638[$(oppID)]}"}
+@desc #1638[$(oppID)] = {@?modify "15" 3 "," "{@?desc #1638[$(oppID)]}"}
+@desc #1638[$(oppID)] = {@?modify "15" 4 "," "{@?desc #1638[$(oppID)]}"}
+@desc #1638[$(oppID)] = {@?modify "9" 5 "," "{@?desc #1638[$(oppID)]}"}
+@desc #1638[$(oppID)] = {@?modify "9" 6 "," "{@?desc #1638[$(oppID)]}"}
                @end
                @desc #1638[$(oppID)] = {@?modify "100" 10 "," "{@?desc #1638[$(oppID)]}"}
-               
                @echo %g%LYou just destroyed %w%L{@?itemno 14 "," {@?desc #1638[$(oppID)]}} {@?namec $(oppID)}%g%L's ship.
                @desc #1638[$(oppID)] = {@?modify "Captain" 14 "," "{@?desc #1638[$(oppID)]}"}
                
-               @if {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Captain") do
-               @desc #1638[{@?id me}] = {@?modify "Commodore" 14 "," "{@?desc #1638[{@?id me}]}"}
-               @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Commodore") do
-               @desc #1638[{@?id me}] = {@?modify "Rear Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
-               @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Rear Admiral") do
-               @desc #1638[{@?id me}] = {@?modify "Vice Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
-               @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Vice Admiral") do
-               @desc #1638[{@?id me}] = {@?modify "Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
-               @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Admiral") do
-               @desc #1638[{@?id me}] = {@?modify "Fleet Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
-               @end
+ REM SET TITLE
+ @if {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Captain") do
+   @desc #1638[{@?id me}] = {@?modify "Commodore" 14 "," "{@?desc #1638[{@?id me}]}"}
+   @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Commodore") do
+   @desc #1638[{@?id me}] = {@?modify "Rear Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
+   @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Rear Admiral") do
+   @desc #1638[{@?id me}] = {@?modify "Vice Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
+   @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Vice Admiral") do
+   @desc #1638[{@?id me}] = {@?modify "Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
+  @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Admiral") do
+    @desc #1638[{@?id me}] = {@?modify "Fleet Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
+  @end
             
                @if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
                   @notify $(oppid) = %g%LYour ship was just destroyed by %w%LCaptain {@?namec *{@?id me}}.
