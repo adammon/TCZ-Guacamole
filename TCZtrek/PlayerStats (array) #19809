@@ -1,7 +1,21 @@
 
-SAMPLE: @desc #19809[{@?id me}] = 0,0,0,0,0
-1 Moves,
-2 Shots Fired,
-3 Destroyed Ships,
-4 Reloads,
-5 Sector Captures
+SAMPLE: @desc #19809[{@?id me}] = Captain,0,0,0,0,0
+1 Title
+2 Moves,
+3 Shots Fired,
+4 Destroyed Ships,
+5 Times Destroyed
+5 Reloads,
+6 SectorClaim
+7 SectorTakeover
+
+
+
+
+
+Fleet admiral
+Admiral
+Vice Adminral
+Rear Admiral
+Commodore
+Captain
