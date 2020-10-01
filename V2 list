@@ -11,5 +11,6 @@
   might also want to notify players that their AP have been replenished as well, or at least have
   an option to see it or turn it off." (trekwho)
   
- 9. Add "Repair" that costs AP similar to reload
-  
+ 9. Add "Repair" that costs AP similar to reload. DONE
+ 10. Add rank calculations for players.
+ 11. Darker if not over >50% conquered.
