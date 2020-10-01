@@ -8,3 +8,6 @@ V1.1
 6. Added notifications for online players to know who is damaging their ship and if/when they are destroyed. Working on notifications for out of Space or offline players.
 
 
+V1.2
+1. Fixed an improper calculation for taking over a galaxy where you need >2 sectors over the opponent to take the galaxy.
+2. Added an "In space?" column to TREKwho
