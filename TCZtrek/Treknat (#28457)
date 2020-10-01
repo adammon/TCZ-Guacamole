@@ -65,3 +65,6 @@ REM Fire September 2020
 @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = F} do @foreach ";" "$(fegroup)" do @echo $6 = $(msg)
 
 @end
+
+
+
