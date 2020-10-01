@@ -1,4 +1,4 @@
-SAMPLE: @desc #1638[{@?id me}] =Federation,USS Reliant,1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,10,on
+SAMPLE: @desc #1638[{@?id me}] =Federation,USS Reliant,1,1,1,1,%w%L%i%g%LGreen%w%L,10,10,100,100,10,on,Captain
 1 Team, 
 2 Name of ship, 
 3 grow,
@@ -12,6 +12,7 @@ SAMPLE: @desc #1638[{@?id me}] =Federation,USS Reliant,1,1,1,1,%w%L%i%g%LGreen%w
 11 shields,
 12 AP
 13 NAT (on or off)
+14 title
 
 
 @desc #1638[#1] =Klingon,Empty Space,151,5,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off
