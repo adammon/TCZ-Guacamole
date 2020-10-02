@@ -18,13 +18,13 @@ REM Trekwho - Who's online playing TCZTrek
      @temp gr=1:$h
 @end
 ~
-~%[%m%l {@?padleft 24 " " "Name:"}{@?padleft 10 " " "Team:"}%l %l %L %L %L{@?pad 16 " " "Ship:"}%l {@?pad 8 " " "Space?"}%l %l %l %l{@?pad 12 " " "Connected?"}
-~%[%g%l{@?pad 75 "-="}
+~%[%m%l {@?padleft 24 " " "Name:"}{@?padleft 10 " " "Team:"}%l %l %L %L %L{@?pad 25 " " "Ship:"}%l {@?pad 8 " " "Space?"}%l %l %l %l{@?pad 12 " " "Connected?"}
+~%[%g%l{@?pad 85 "-="}
 @with $gr elements #1638 do 
 @if {@eval ("$7" <> "#0") && ("$7" <> "#1")} do
-@echo %[%w%l{@?pad 25 " " "{@?itemno 14 "," "$6"} {@?realname *$7}"}{@?pad 10 " "  "{@?itemno 1 "," "$6"}"}%l %l %l %l {@?pad 16 " " "{@?itemno 2 "," "$6"}"}%l {@?pad 12 " " "{@?result {@eval "{@?location *$7}" = "#22018"}="%Y%lYES" "%r%lNO"}"}%l %l %l {@?pad 12 " " "{@?result {@eval "{@?connected *$7}"}="%Y%lYES" "%r%lNO"}"}
+@echo %[%w%l{@?pad 25 " " "{@?itemno 14 "," "$6"} {@?realname *$7}"}{@?pad 10 " "  "{@?itemno 1 "," "$6"}"}%l %l %l %l {@?pad 25 " " "{@?itemno 2 "," "$6"}"}%l {@?pad 12 " " "{@?result {@eval "{@?location *$7}" = "#22018"}="%Y%lYES" "%r%lNO"}"}%l %l %l {@?pad 12 " " "{@?result {@eval "{@?connected *$7}"}="%Y%lYES" "%r%lNO"}"}
 @end
 @end
-~%[%g%l{@?pad 75 "-="}
+~%[%g%l{@?pad 85 "-="}
 ~%[ %c%lListed:  %w%l{@?display}
 ~
