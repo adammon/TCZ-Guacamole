@@ -9,3 +9,6 @@ REM - Resetting AP in the event of uneven playercounts.
   @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7}]}}"} == "F"} do @temp FedCount = {@eval 1 + $(FedCount)}
   @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7}]}}"} == "K"} do @temp KliCount = {@eval 1 + $(KliCount)}
 @end
+
+@echo $(FedCount)
+@echo $(KliCount)
