@@ -4,11 +4,30 @@ REM - Resetting AP in the event of uneven playercounts.
 
 @temp FedCount = 0
 @temp KliCount = 0
+@temp FedAP
+@temp KliAP
+@temp FedTotalAP = 0
+@temp KliTotalAP = 0
 
 @with elements #1638 do
-  @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$6}]}}"} == "F"} do @temp FedCount = {@eval 1 + $(FedCount)}
-  @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$6}]}}"} == "K"} do @temp KliCount = {@eval 1 + $(KliCount)}
+  @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "F"} do @temp FedCount = {@eval 1 + $(FedCount)}
+  @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "K"} do @temp KliCount = {@eval 1 + $(KliCount)}
 @end
 
-@echo $(FedCount)
-@echo $(KliCount)
+@if {@eval ($(Fedcount) = $(Klicount))} do
+@temp FedAP = 20
+@temp KliAP = 20
+@end
+
+@if {@eval ($(Fedcount) > $(Klicount))} do
+    @temp FedAP = 20
+    @temp KliAP = {@eval ((($(FedCount) * $(FedAP))-($(KliCount) * 20)) / $(KliCount) + 20}
+@end
+
+@if {@eval ($(Fedcount) < $(Klicount))} do
+    @temp KliAP = 20
+    @temp FedAP = {@eval ((($(KliCount) * $(KliAP))-($(FedCount) * 20)) / $(FedCount) + 20}
+@end
+
+@echo $(KliAP)
+@echo $(FedAP)
