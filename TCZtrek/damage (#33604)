@@ -7,7 +7,7 @@ REM #2 - Damage done
      @temp oppID = {@?itemno 1 ";" "$3"}
      @temp damage = {@?itemno 2 ";" "$3"}
      @if {@eval ($(oppID) = {@?id me})} Do
-        @echo C'mon Steve, don't be silly.
+        @echo %g%LThe %m%LLorax Maneouvre%g%L was banned across the whole universe on Stardate %w%L6221.6%g%L. Stop shooting yourself.
         @break
      @end
      @if {@?exists #1638[$(oppID)] do
