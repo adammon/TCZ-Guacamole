@@ -1,4 +1,4 @@
-REM - Resetting AP in the event of uneven playercounts.
+REM - Resetting AP in the event of both even and uneven playercounts.
 
 @chpid
 
@@ -15,19 +15,17 @@ REM - Resetting AP in the event of uneven playercounts.
 @end
 
 @if {@eval ($(Fedcount) = $(Klicount))} do
-@temp FedAP = 20
-@temp KliAP = 20
-@end
-
-@if {@eval ($(Fedcount) > $(Klicount))} do
+    @temp FedAP = 20
+    @temp KliAP = 20
+@else {@eval ($(Fedcount) > $(Klicount))} do
     @temp FedAP = 20
     @temp KliAP = {@eval ((($(FedCount) * $(FedAP))-($(KliCount) * 20)) / $(KliCount) + 20}
-@end
-
-@if {@eval ($(Fedcount) < $(Klicount))} do
+@else {@eval ($(Fedcount) < $(Klicount))} do
     @temp KliAP = 20
     @temp FedAP = {@eval ((($(KliCount) * $(KliAP))-($(FedCount) * 20)) / $(FedCount) + 20}
 @end
 
-@echo $(KliAP)
-@echo $(FedAP)
+@with elements #1638 do
+     @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "F"} do @desc #1638[$7] = {@?modify "$(FedAP)" 12 "," "{@?desc #1638[$7]}"}
+     @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "K"} do @desc #1638[$7] = {@?modify "$(KliAP)" 12 "," "{@?desc #1638[$7]}"}
+@end
