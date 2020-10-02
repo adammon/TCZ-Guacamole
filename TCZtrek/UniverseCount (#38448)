@@ -1,0 +1,19 @@
+@temp galFed = 0
+@temp galKli = 0
+@temp galNeu = 0
+
+@for 1 to 15 do 
+     @temp gcol = $4
+     @for 1 to 15 do
+          @temp grow = $4
+          @temp value = {@?itemno $(gcol) ";" "{@?itemno $(grow) "{@?newline}" "{@?desc #2578}"}"}
+          @if {@eval ("$(value)" = "#0")} do 
+            @temp galFed = {@eval 1 + $(galFed)}
+          @else {@eval ("$(value)" = "#1")} do 
+            @temp galKli = {@eval 1 + $(galKli)}
+          @else {@eval ("$(value)" = "n")} do 
+            @temp galNeu = {@eval 1 + $(galNeu)}
+          @end
+     @end
+@end
+@echo {@?padcentre 105 " " "%b%LFederation Galaxies: {%w%L}$(galFed) {%r%L}Klingon Galaxies: {%w%L}$(galKli) {%w}Neutral Galaxies: {%w%L}$(galNeu)"}
