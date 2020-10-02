@@ -16,4 +16,4 @@
           @end
      @end
 @end
-@echo {@?padcentre 105 " " "%b%LFederation Galaxies: {%w%L}$(galFed) {%r%L}Klingon Galaxies: {%w%L}$(galKli) {%w}Neutral Galaxies: {%w%L}$(galNeu)"}
+@echo {@?padcentre 105 " " "%b%LFederation Galaxies: {%w%L}$(galFed) {%M%L}| {%r%L}Klingon Galaxies: {%w%L}$(galKli) {%M%L}| {%w}Neutral Galaxies: {%w%L}$(galNeu)"}
