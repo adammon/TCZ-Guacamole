@@ -26,7 +26,7 @@ REM Setter for Galaxy/Sector coordinates
   REM Count controlled sectors for galaxy maps.
           @temp numF = 0
           @temp numK = 0
-          @foreach "{@?newline}" {@?desc #24719[15x9]} do 
+          @foreach "{@?newline}" $(sector) do 
           @foreach ";" $6 do 
                @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$6]}}} = F} do
                @temp numF = {@eval $(numF) + 1}
