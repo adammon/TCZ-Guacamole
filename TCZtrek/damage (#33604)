@@ -1,20 +1,13 @@
-REM Damage Simplifier for TCZTrek
-REM Simplifies and cleans up other commands to focus on their intended scope
-
+REM Damage Simplifier for TCZTrek - simplifies and cleans up other commands to focus on their intended scope
 @chpid
-
 REM #1 - Opponent ID# 
 REM #2 - Damage done
-
 
 @if {@eval {@eval {@?noitems ";" "$3"} == 2}} do
      @temp oppID = {@?itemno 1 ";" "$3"}
      @temp damage = {@?itemno 2 ";" "$3"}
-
-
      @if {@?exists #1638[$(oppID)] do
-     
-          @temp OppHealth = {@?itemno 10 "," {@?desc #1638[$(oppID)]}}
+         @temp OppHealth = {@?itemno 10 "," {@?desc #1638[$(oppID)]}}
           @temp NewHealth = {@eval $(Opphealth) - $(Damage)}
           
           @if {@eval $(NewHealth) < 1} do
@@ -37,31 +30,32 @@ REM #2 - Damage done
                @desc #1638[$(oppID)] = {@?modify "100" 10 "," "{@?desc #1638[$(oppID)]}"}
                @echo %g%LYou just destroyed %w%L{@?itemno 14 "," {@?desc #1638[$(oppID)]}} {@?namec $(oppID)}%g%L's ship.
                @desc #1638[$(oppID)] = {@?modify "Captain" 14 "," "{@?desc #1638[$(oppID)]}"}
-               
  REM SET TITLE
  @if {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Captain") do
    @desc #1638[{@?id me}] = {@?modify "Commodore" 14 "," "{@?desc #1638[{@?id me}]}"}
+   @echo %g%LCongratulations, you just received a field promotion to %w%LCommodore%g%L.
    @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Commodore") do
    @desc #1638[{@?id me}] = {@?modify "Rear Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
+      @echo %g%LCongratulations, you just received a field promotion to %w%LRear Admiral%g%L.
    @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Rear Admiral") do
    @desc #1638[{@?id me}] = {@?modify "Vice Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
+         @echo %g%LCongratulations, you just received a field promotion to %w%LVice Admiral%g%L.
    @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Vice Admiral") do
    @desc #1638[{@?id me}] = {@?modify "Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
+            @echo %g%LCongratulations, you just received a field promotion to %w%LAdmiral%g%L.
   @else {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Admiral") do
     @desc #1638[{@?id me}] = {@?modify "Fleet Admiral" 14 "," "{@?desc #1638[{@?id me}]}"}
+                @echo %g%LCongratulations, you just received a field promotion to %w%LFleet Admiral%g%L.
   @end
-            
-               @if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
-                  @notify $(oppid) = %g%LYour ship was just destroyed by %w%LCaptain {@?namec *{@?id me}}.
-                  
-               @end
-               @returnvalue @break 
+@if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
+     @notify $(oppid) = %g%LYour ship was just destroyed by %w%LCaptain {@?namec *{@?id me}}.
+ @end
+      @returnvalue @break 
           @else 
-               @desc #1638[$(oppID)] = {@?modify "$(NewHealth)" 10 "," "{@?desc #1638[$(oppID)]}"}
-               @echo %g%LYou just did %w%L$(damage)%g%L damage to %w%LCaptain {@?namec $(oppID)}%g%L's ship.
-                @if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
-                  @notify $(oppid) = %g%LYour ship just received %w%L$(damage)%g%L damage from %w%LCaptain {@?namec *{@?id me}}.
-                 
+ @desc #1638[$(oppID)] = {@?modify "$(NewHealth)" 10 "," "{@?desc #1638[$(oppID)]}"}
+@echo %g%LYou just did %w%L$(damage)%g%L damage to %w%LCaptain {@?namec $(oppID)}%g%L's ship.
+@if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
+@notify $(oppid) = %g%LYour ship just received %w%L$(damage)%g%L damage from %w%LCaptain {@?namec *{@?id me}}.
                @end
                @returnvalue @break 
           @end
@@ -69,7 +63,6 @@ REM #2 - Damage done
         @echo That's not a current player.
         @returnvalue Error
      @end
-     
 @else
      @echo You must specify 2 arguments. #1 is opponent ID#. #2 is damage.
      @returnvalue Error
