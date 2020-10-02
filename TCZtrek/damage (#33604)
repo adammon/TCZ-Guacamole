@@ -2,7 +2,7 @@ REM Damage Simplifier for TCZTrek - simplifies and cleans up other commands to f
 @chpid
 REM #1 - Opponent ID# 
 REM #2 - Damage done
-
+@set #22018 = !quiet
 @if {@eval {@eval {@?noitems ";" "$3"} == 2}} do
      @temp oppID = {@?itemno 1 ";" "$3"}
      @temp damage = {@?itemno 2 ";" "$3"}
@@ -53,3 +53,4 @@ REM Promote!
      @echo You must specify 2 arguments. #1 is opponent ID#. #2 is damage.
      @returnvalue Error
 @end
+@set #22018 = quiet
