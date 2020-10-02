@@ -14,10 +14,12 @@ REM Long Range Sensor
     @temp xline
 @end
 
-#38448
 
 REM Output of scan
 @echo %w%L%I%m%L**{@?pad 3}01{@?pad 3} 02{@?pad 3} 03{@?pad 3} 04{@?pad 3} 05{@?pad 3} 06{@?pad 3} 07{@?pad 3} 08{@?pad 3} 09{@?pad 3} 10{@?pad 3} 11{@?pad 3} 12{@?pad 3} 13{@?pad 3} 14{@?pad 3} 15{@?pad 3}**
+@echo
+
+#38448
 @echo
 @echo %w%L%I%g%L{@?pad {@?strlen {@?itemno 1 "," {@?desc #1638[{@?id me}]}} {@?itemno 14 "," {@?desc #1638[{@?id me}]}} {@?realname *{@?id me}} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[{@?id me}]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}} "-="}
 @echo %w%L{@?itemno 1 "," {@?desc #1638[{@?id me}]}} {@?itemno 14 "," {@?desc #1638[{@?id me}]}} {@?realname *{@?id me}} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[{@?id me}]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}
