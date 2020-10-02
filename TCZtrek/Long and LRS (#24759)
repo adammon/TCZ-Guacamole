@@ -14,6 +14,8 @@ REM Long Range Sensor
     @temp xline
 @end
 
+#38448
+
 REM Output of scan
 @echo %w%L%I%m%L**{@?pad 3}01{@?pad 3} 02{@?pad 3} 03{@?pad 3} 04{@?pad 3} 05{@?pad 3} 06{@?pad 3} 07{@?pad 3} 08{@?pad 3} 09{@?pad 3} 10{@?pad 3} 11{@?pad 3} 12{@?pad 3} 13{@?pad 3} 14{@?pad 3} 15{@?pad 3}**
 @echo
