@@ -45,7 +45,7 @@ REM Promote!
  @desc #1638[$(oppID)] = {@?modify "$(NewHealth)" 10 "," "{@?desc #1638[$(oppID)]}"}
 @echo %g%LYou just did %w%L$(damage)%g%L damage to %w%L{@?itemno 14 "," {@?desc #1638[$(oppID)]}} {@?realname $(oppID)}%g%L's ship.
 @if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
-@notify $(oppid) = %g%LYour ship just received %w%L$(damage)%g%L damage from %w%L{@?itemno 14 "," {@?desc #1638[{@?id me})]}} {@?realname *{@?id me}}.
+@notify $(oppid) = %g%LYour ship just received %w%L$(damage)%g%L damage from %w%L{@?itemno 14 "," {@?desc #1638[{@?id me})]}}{@?realname *{@?id me}}.
                @end
                @returnvalue @break 
           @end
