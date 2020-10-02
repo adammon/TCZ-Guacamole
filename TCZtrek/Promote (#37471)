@@ -1,3 +1,5 @@
+@chpid
+
 @if {@eval ("{@?itemno 14 "," {@?desc #1638[{@?id me}]}}" = "Captain") do
    @desc #1638[{@?id me}] = {@?modify "Commodore" 14 "," "{@?desc #1638[{@?id me}]}"}
    @echo %g%LCongratulations, you just received a field promotion to %w%LCommodore%g%L.
