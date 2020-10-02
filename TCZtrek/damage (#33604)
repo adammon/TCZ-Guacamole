@@ -28,20 +28,20 @@ REM #2 - Damage done
 @desc #1638[$(oppID)] = {@?modify "9" 6 "," "{@?desc #1638[$(oppID)]}"}
                @end
                @desc #1638[$(oppID)] = {@?modify "100" 10 "," "{@?desc #1638[$(oppID)]}"}
-               @echo %g%LYou just destroyed %w%L{@?itemno 14 "," {@?desc #1638[$(oppID)]}} {@?namec $(oppID)}%g%L's ship.
+               @echo %g%LYou just destroyed %w%L{@?itemno 14 "," {@?desc #1638[$(oppID)]}} {@?realname $(oppID)}%g%L's ship.
                @desc #1638[$(oppID)] = {@?modify "Captain" 14 "," "{@?desc #1638[$(oppID)]}"}
 REM Promote!
 #37471
  
 @if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
-     @notify $(oppid) = %g%LYour ship was just destroyed by %w%LCaptain {@?namec *{@?id me}}.
+     @notify $(oppid) = %g%LYour ship was just destroyed by %w%L{@?itemno 14 "," {@?desc #1638[{@?id me})]}} {@?realname *{@?id me}}.
  @end
       @returnvalue @break 
           @else 
  @desc #1638[$(oppID)] = {@?modify "$(NewHealth)" 10 "," "{@?desc #1638[$(oppID)]}"}
-@echo %g%LYou just did %w%L$(damage)%g%L damage to %w%LCaptain {@?namec $(oppID)}%g%L's ship.
+@echo %g%LYou just did %w%L$(damage)%g%L damage to %w%L{@?itemno 14 "," {@?desc #1638[$(oppID)]}} {@?realname $(oppID)}%g%L's ship.
 @if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
-@notify $(oppid) = %g%LYour ship just received %w%L$(damage)%g%L damage from %w%LCaptain {@?namec *{@?id me}}.
+@notify $(oppid) = %g%LYour ship just received %w%L$(damage)%g%L damage from %w%L{@?itemno 14 "," {@?desc #1638[{@?id me})]}} {@?realname *{@?id me}}.
                @end
                @returnvalue @break 
           @end
