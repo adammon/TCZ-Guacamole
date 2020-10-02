@@ -18,15 +18,15 @@ Visit the game room (%y%Ltcztrek%w%L). From there, %y%Ljoin%w%L the battle where
 
 %g%L - %y%Lwarp (up/left/down/right) %w%Lto move between galaxies
 
-%g%L - %y%Lphaser (x,y)%w%L to fire your phasers at an opponent (or friendly) ship within one sector of your ship. 100% chance to hit.
+%g%L - %y%Lphaser (row,column)%w%L to fire your phasers at an opponent (or friendly) ship within one sector of your ship. 100% chance to hit.
 
-%g%L - %y%Ltorpedo (x,y) %w%Lto fire inside a galaxy with a 50% chance to miss but double the damage
+%g%L - %y%Ltorpedo (row,column) %w%Lto fire inside a galaxy with a 50% chance to miss but double the damage
 
 %g%L - %y%Lshort %w%Lrange scan shows you the current galaxy 
 
 %g%L - %y%Llong %w%Lrange scan shows you who controls the universe
 
-%g%L - %y%Lhail (x,y)%w%L identifies the opponent (or friendly) ship at those coordinates
+%g%L - %y%Lhail (row,column))%w%L identifies the opponent (or friendly) ship at those coordinates
 
 %g%L - %y%Lreload %w%Lat or next to your starbase to fill up your phaser banks and torpedos
 
