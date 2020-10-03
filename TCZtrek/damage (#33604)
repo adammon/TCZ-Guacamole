@@ -53,9 +53,10 @@ REM Promote!
         @echo That's not a current player.
         @returnvalue Error
      @end
+ @end     
 @else
      @echo You must specify 2 arguments. #1 is opponent ID#. #2 is damage.
      @returnvalue Error
 @end
-@end
+
 @set #22018 = quiet
