@@ -8,8 +8,8 @@ REM #2 - Damage done
      @temp damage = {@?itemno 2 ";" "$3"}
      @if {@eval ($(oppID) = {@?id me})} Do
         @echo %g%LThe %m%LLorax Maneouvre%g%L was banned across the whole universe on Stardate %w%L6221.6%g%L. Stop shooting yourself.
-        @break
-     @end
+     @else
+     
      @if {@?exists #1638[$(oppID)] do
          @temp OppHealth = {@?itemno 10 "," {@?desc #1638[$(oppID)]}}
           @temp NewHealth = {@eval $(Opphealth) - $(Damage)}
@@ -56,5 +56,6 @@ REM Promote!
 @else
      @echo You must specify 2 arguments. #1 is opponent ID#. #2 is damage.
      @returnvalue Error
+@end
 @end
 @set #22018 = quiet
