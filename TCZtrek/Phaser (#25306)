@@ -25,13 +25,17 @@ REM #1 - direction = Whether that's up (-1 grow) down (+1 grow) left (-1 gcol) o
               @if {@eval ($curgrow > 0) && ($curgrow <= 15) && ($curgcol > 0) && ($curgcol <= 15) && ($srow > 0) && ($srow <= 9) && ($scol > 0) && ($scol <= 9)} do    
                     @if {@eval ((abs ($(cursrow) - $(srow)) < 2) && ((abs ($(curscol) - $(scol)) < 2)} do
                          @if {@eval {#25303 $(curgrow);$(curgcol);$(srow);$(scol)} do
-                             @echo %g%lDirect hit!
-                             @temp NewAP = {@eval $(currentAP) - 1}
-                             @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
-                             @temp phPointsNew = {@eval $(phPointsOld) - 1}
-                             @desc #1638[{@?id me}] = {@?modify "$(phPointsNew)" 8 "," "{@?desc #1638[{@?id me}]}"}
-                             @temp OppDamage = {@eval (2 * {@?rand 1 = 10})}
-                             {#33604 {#24738 $(curGrow);$(curGcol);$(srow);$(sCol)};$(oppDamage)}
+                              @if  {@eval ("{#24738 $(curGrow);$(curGcol);$(srow);$(sCol)}" = "{@?id me}")} do
+                                #33604 {#24738 $(curGrow);$(curGcol);$(srow);$(sCol)};$(oppDamage)
+                             @else {@eval ("{#24738 $(curGrow);$(curGcol);$(srow);$(sCol)}" <> "{@?id me}")} do
+                              @echo %g%lDirect hit!
+                              @temp NewAP = {@eval $(currentAP) - 1}
+                              @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+                              @temp phPointsNew = {@eval $(phPointsOld) - 1}
+                              @desc #1638[{@?id me}] = {@?modify "$(phPointsNew)" 8 "," "{@?desc #1638[{@?id me}]}"}
+                              @temp OppDamage = {@eval (2 * {@?rand 1 = 10})}
+                               #33604 {#24738 $(curGrow);$(curGcol);$(srow);$(sCol)};$(oppDamage)
+                             @end
                         @else 
                             @echo %g%LYour %w%l%I%g%LPHASER%g%L fires harmlessly into space.
                             @temp NewAP = {@eval $(currentAP) - 1}
