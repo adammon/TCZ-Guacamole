@@ -18,3 +18,6 @@ V1.3
 1. Added a galaxycount to the Long Range Scan so you can tell how many galaxies have been conquered or remain unconquered.
 2. Dynamic AP resets. If you have less players on your team, each player on your team will get an AP boost!
 3. Prevented players from shooting themselves (The Lorax Manoeuvre)
+4. Working shields! Taking damage will first affect your shields before affecting your ship health.
+5. Regenerating shields! Shields will regenerate 10 points every hour. (Armor doesn't.)
+6. To make up for working shields, damage from phasers and torpedos have been increased substantially. (phasers do between 2-20 damage, torpedos 4-40)
