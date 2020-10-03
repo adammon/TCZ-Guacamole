@@ -12,7 +12,16 @@ REM #2 - Damage done
      
      @if {@?exists #1638[$(oppID)] do
          @temp OppHealth = {@?itemno 10 "," {@?desc #1638[$(oppID)]}}
-          @temp NewHealth = {@eval $(Opphealth) - $(Damage)}
+         @temp OppShields = {@?itemno 11 "," {@?desc #1638[$(oppID)]}}
+         
+         @if {@eval $(damage) <= $(OppShields) do
+              @temp NewShields = {@eval $(OppShields) - $(Damage)}
+              @temp NewHealth = {@eval $(OppHealth)}
+         @else {@eval $(damage) > $(OppShields) do
+              @temp NewShields = 0
+              @temp NewHealth = {@eval $(OppHealth) - ($(damage) - $(Oppshields))}
+         @end
+
           
           @if {@eval $(NewHealth) < 1} do
 @temp oppgrow = {@?itemno 3 "," {@?desc #1638[$(oppID)]}}
@@ -32,6 +41,7 @@ REM #2 - Damage done
 @desc #1638[$(oppID)] = {@?modify "9" 6 "," "{@?desc #1638[$(oppID)]}"}
                @end
                @desc #1638[$(oppID)] = {@?modify "100" 10 "," "{@?desc #1638[$(oppID)]}"}
+               @desc #1638[$(oppID)] = {@?modify "100" 11 "," "{@?desc #1638[$(oppID)]}"}
                @echo %g%LYou just destroyed %w%L{@?itemno 14 "," {@?desc #1638[$(oppID)]}} {@?realname $(oppID)}%g%L's ship.
                @desc #1638[$(oppID)] = {@?modify "Captain" 14 "," "{@?desc #1638[$(oppID)]}"}
 REM Promote!
@@ -43,6 +53,7 @@ REM Promote!
       @returnvalue @break 
           @else 
  @desc #1638[$(oppID)] = {@?modify "$(NewHealth)" 10 "," "{@?desc #1638[$(oppID)]}"}
+ @desc #1638[$(oppID)] = {@?modify "$(NewShields)" 11 "," "{@?desc #1638[$(oppID)]}"}
 @echo %g%LYou just did %w%L$(damage)%g%L damage to %w%L{@?itemno 14 "," {@?desc #1638[$(oppID)]}} {@?realname $(oppID)}%g%L's ship.
 @if {@eval ({@?location *$(oppID)} = #22018) && ({@?connected *$(oppID)})} do
 @notify $(oppid) = %g%LYour ship just received %w%L$(damage)%g%L damage from %w%L{@?itemno 14 "," {@?desc #1638[{@?id me})]}}{@?realname *{@?id me}}.
