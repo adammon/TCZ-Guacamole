@@ -24,10 +24,10 @@ REM - Resetting AP in the event of both even and uneven playercounts.
     @temp KliAP = 20
 @else {@eval ($(Fedcount) > $(Klicount))} do
     @temp FedAP = 20
-    @temp KliAP = {@eval ((($(FedCount) * $(FedAP))-($(KliCount) * 20)) / $(KliCount) + 20}
+    @temp KliAP = {@eval (20 * $(Fedcount)) / $(KliCount)}
 @else {@eval ($(Fedcount) < $(Klicount))} do
     @temp KliAP = 20
-    @temp FedAP = {@eval ((($(KliCount) * $(KliAP))-($(FedCount) * 20)) / $(FedCount) + 20}
+    @temp FedAP = {@eval (20 * $(Klicount)) / $(FedCount)}
 @end
 
 @with elements #1638 do
