@@ -12,6 +12,11 @@ REM - Resetting AP in the event of both even and uneven playercounts.
 @with elements #1638 do
   @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "F"} do @temp FedCount = {@eval 1 + $(FedCount)}
   @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "K"} do @temp KliCount = {@eval 1 + $(KliCount)}
+  @if {@eval ({@?itemno 11 "," $6} + 10) >= 100} do
+      @temp shieldRegen = 100
+  @else
+      @temp shieldRegen = {@eval ({@?itemno 11 "," $6} + 10)}
+  @end
 @end
 
 @if {@eval ($(Fedcount) = $(Klicount))} do
@@ -26,6 +31,7 @@ REM - Resetting AP in the event of both even and uneven playercounts.
 @end
 
 @with elements #1638 do
-     @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "F"} do @desc #1638[$7] = {@?modify "$(FedAP)" 12 "," "{@?desc #1638[$7]}"}
-     @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "K"} do @desc #1638[$7] = {@?modify "$(KliAP)" 12 "," "{@?desc #1638[$7]}"}
+REM    @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "F"} do @desc #1638[$7] = {@?modify "$(FedAP)" 12 "," "{@?desc #1638[$7]}"}
+REM     @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "K"} do @desc #1638[$7] = {@?modify "$(KliAP)" 12 "," "{@?desc #1638[$7]}"}
+     @desc #1638[$7] = {@?modify "$(shieldRegen)" 11 "," "{@?desc #1638[$7]}"}
 @end
