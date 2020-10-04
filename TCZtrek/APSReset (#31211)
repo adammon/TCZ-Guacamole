@@ -17,6 +17,7 @@ REM - Resetting AP in the event of both even and uneven playercounts.
   @else
       @temp shieldRegen = {@eval ({@?itemno 11 "," $6} + 10)}
   @end
+  @desc #1638[$7] = {@?modify "$(shieldRegen)" 11 "," "{@?desc #1638[$7]}"}
 @end
 
 @if {@eval ($(Fedcount) = $(Klicount))} do
@@ -33,5 +34,4 @@ REM - Resetting AP in the event of both even and uneven playercounts.
 @with elements #1638 do
    @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "F"} do @desc #1638[$7] = {@?modify "$(FedAP)" 12 "," "{@?desc #1638[$7]}"}
    @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "K"} do @desc #1638[$7] = {@?modify "$(KliAP)" 12 "," "{@?desc #1638[$7]}"}
-     @desc #1638[$7] = {@?modify "$(shieldRegen)" 11 "," "{@?desc #1638[$7]}"}
 @end
