@@ -1,7 +1,7 @@
 REM Stat Update for TCZTrek - simplifies and cleans up other commands to focus on updating the playerstats array #19809
 @chpid
 REM #1 - ID of player
-REM #2 - Stat to Update in #19809 1 PhasersFired,2 TorpedosFired,3 Destroyed Ships,4 Times Destroyed,5 Reloads,6 Repairs, 7 SectorClaim,8 SectorTakeover
+REM #2 - Stat to Update in #19809 1 PhasersFired,2 TorpedosFired,3 Destroyed Ships,4 Times Destroyed,5 Reloads,6 Repairs, 7 SectorClaim,8 SectorTakeover, 9 moves
 
 @if {@eval {@eval {@?noitems ";" "$3"} == 2}} do
      @temp playerID = {@?itemno 1 ";" "$3"}
