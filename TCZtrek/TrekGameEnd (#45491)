@@ -30,7 +30,7 @@
         @temp title = %w%LCongratulations to the %b%LUnited Federation of Planets%w%L on their successful pacifying of the universe on this date! {@?newline}{@?newline}The following names will be recorded in the annals of history on this date as true heroes for the %b%LFederation%w%L!{@?newline} 
         @with all elements #1638 do 
            @if {@eval ("$7" <> "#0") && ("$7" <> "#1") && ("$7" <> "#1") && ({@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7]}}} = F) do
-               @temp winners={@?newline}%l %l %[%w%l{@?itemno 14 "," "$6"} {@?realname *$7} of the {@?itemno 2 "," "$6"}{@?newline} $(winners) 
+               @temp winners={@?newline}%l %l %[%w%l{@?itemno 14 "," "$6"} {@?realname *$7} %g%Lof the%w%L {@?itemno 2 "," "$6"}{@?newline} $(winners) 
            @end
         @end
        
@@ -39,7 +39,7 @@
         @temp title = %w%LCongratulations to the %r%LKlingon Empire%w%L on their successful conquering of the universe on this date! {@?newline}{@?newline}The following names will be recorded for all ancestors to praise as true heroes for their triumphant decimation of the universe for the %r%LEmpire%w%L! %m%LQapla'!%w%L{@?newline} 
         @with all elements #1638 do 
               @if {@eval ("$7" <> "#0") && ("$7" <> "#1") && ("$7" <> "#1") && ({@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7]}}} = K) do
-                  @temp winners={@?newline}%l %l %[%w%l{@?itemno 14 "," "$6"} {@?realname *$7} of the {@?itemno 2 "," "$6"}{@?newline} $(winners) 
+                  @temp winners={@?newline}%l %l %[%w%l{@?itemno 14 "," "$6"} {@?realname *$7} %g%Lof the%w%L {@?itemno 2 "," "$6"}{@?newline} $(winners) 
               @end
         @end
       @end
