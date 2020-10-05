@@ -8,7 +8,7 @@ REM #2 - Stat to Update in #19809 1 PhasersFired,2 TorpedosFired,3 Destroyed Shi
      @temp updateStat = {@?itemno 2 ";" "$3"}   
      
      @if false {@?exists #19809[$(playerID)] do
-         @desc #19809[$(playerID)] = 0,0,0,0,0,0,0,0
+         @desc #19809[$(playerID)] = 0,0,0,0,0,0,0,0,0
      @end
      
      @temp newstat = {@eval ({@?itemno "$(updateStat)" "," {@?desc #19809[$(playerID)]}} + 1}
