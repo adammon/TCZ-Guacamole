@@ -19,43 +19,48 @@
      @end
 @end
 
+@temp winners
 
+@if {@eval (($(galFed) >= 225) || ($(galKli) >= 15)) do
+   @temp prelist = %[%m%l {@?padleft 24 " " "Name:"}{@?pad 25 " " "Ship:"}{@?newline}%[%g%l{@?pad 45 "-="}
+   @temp line = %[%g%l{@?pad 45 "-="}
 
-@if {@eval (($(galFed) >= 205) || ($(galKli) >= 205)) do
-   @temp prelist = %[%m%l {@?padleft 24 " " "Name:"}{@?pad 25 " " "Ship:"}{@?newline}%[%g%l{@?pad 85 "-="}{@?newline}
-     
-     @if {@eval ($(galFed) >= 10)} do
+     @if {@eval ($(galFed) >= 225)} do
         @temp subject = %y%LCongratulations to the %b%LUnited Federation of Planets%y%L!
-        @temp title = %y%LCongratulations to the %b%LUnited Federation of Planets%y%L on their successful pacifying of the universe on this date! The following names will be recorded in the annals of history on this date as true heroes for the %b%LFederation%w%L!
+        @temp title = %w%LCongratulations to the %b%LUnited Federation of Planets%w%L on their successful pacifying of the universe on this date! {@?newline}{@?newline}The following names will be recorded in the annals of history on this date as true heroes for the %b%LFederation%w%L!{@?newline} 
         @with all elements #1638 do 
            @if {@eval ("$7" <> "#0") && ("$7" <> "#1") && ("$7" <> "#1") && ({@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7]}}} = F) do
-               @temp winners=%[%w%l{@?pad 25 " " "{@?itemno 14 "," "$6"} {@?realname *$7}"} {@?pad 25 " " "{@?itemno 2 "," "$6"}"}{@?newline} $(winners) 
+               @temp winners={@?newline}%l %l %[%w%l{@?itemno 14 "," "$6"} {@?realname *$7} of the {@?itemno 2 "," "$6"}{@?newline} $(winners) 
            @end
         @end
        
-     @else {@eval ($(galKli) >= 225)} do
-        @temp title = %y%LCongratulations to the %r%LKlingon Empire%y%L!
-        @temp title = %y%LCongratulations to the %r%LKlingon Empire%y%L on their successful conquering of the universe on this date! The following names will be recorded for all ancestors to praise as true heroes for their triumphant decimation of the universe for the %r%LEmpire%w%L! %m%LQapla'!%w%L
+     @else {@eval ($(galKli) >= 15)} do
+        @temp subject = %y%LCongratulations to the %r%LKlingon Empire%y%L!
+        @temp title = %w%LCongratulations to the %r%LKlingon Empire%w%L on their successful conquering of the universe on this date! {@?newline}{@?newline}The following names will be recorded for all ancestors to praise as true heroes for their triumphant decimation of the universe for the %r%LEmpire%w%L! %m%LQapla'!%w%L{@?newline} 
         @with all elements #1638 do 
               @if {@eval ("$7" <> "#0") && ("$7" <> "#1") && ("$7" <> "#1") && ({@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7]}}} = K) do
-                  @temp winners=%[%w%l{@?pad 25 " " "{@?itemno 14 "," "$6"} {@?realname *$7}"} {@?pad 25 " " "{@?itemno 2 "," "$6"}"}{@?newline} $(winners) 
+                  @temp winners={@?newline}%l %l %[%w%l{@?itemno 14 "," "$6"} {@?realname *$7} of the {@?itemno 2 "," "$6"}{@?newline} $(winners) 
               @end
         @end
       @end
-      
- @echo $(title)
- @echo $(prelist)
- 
- @echo $(winners)
+      @temp postamble = {@?newline} %w%LThank you to all players. The universe has now been reset for a new game. {@?newline}{@?newline}Please visit %y%LTCZTrek %w%Lfor the next phase of battle!
+
+ REM @echo $(subject)
+  REM @echo $(title)
+  REM  @echo $(line)
+REM  @echo $(prelist)
+ REM  @echo $(winners)
+ REM  @echo $(line)
+ REM  @echo $(postamble)
      
-REM @force *#2158 = bbs topic games/tcztrek
-REM @force *#2158 = bbs add 
+@force *#2158 = bbs topic games/tcztrek
+@force *#2158 = bbs add $(subject) = $(title){@?newline}$(line)$(winners)$(line)$(postamble)
 REM #24723
 REM @destroy #1638[ALL]
 REM @desc #1638[#1] =Klingon,Empty Space,15,15,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
 REM @desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
 REM @else
-REM @echo Game's still on.
+REM @echo No winner!
 REM @end
 @end
 
