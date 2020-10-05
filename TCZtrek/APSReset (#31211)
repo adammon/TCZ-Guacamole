@@ -35,3 +35,5 @@ REM - Resetting AP in the event of both even and uneven playercounts.
    @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "F"} do @desc #1638[$7] = {@?modify "$(FedAP)" 12 "," "{@?desc #1638[$7]}"}
    @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "K"} do @desc #1638[$7] = {@?modify "$(KliAP)" 12 "," "{@?desc #1638[$7]}"}
 @end
+
+#45491
