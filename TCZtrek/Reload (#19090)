@@ -21,6 +21,7 @@ REM No arguments, but have to compare current location against starbase LOC.
         @temp NewAP = {@eval $(currentAP) - 1}
         @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
         @echo %g%LYou use %w%L1AP%g%L to %y%Lreload %g%Lyour phaser banks and torpedos.
+        #36688 {@?id me};5
     @else
         @echo %g%LYou are not close to your starbase in Galaxy %w%L15%y%L,%w%L15 %g%LSector %w%L9%y%L,%w%l9%g%l.
     @end
@@ -33,7 +34,7 @@ REM No arguments, but have to compare current location against starbase LOC.
         @temp NewAP = {@eval $(currentAP) - 1}
         @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
         @echo %g%LYou use %w%L1AP%g%L to %y%Lreload %g%Lyour phaser banks and torpedos.
-    
+    #36688 {@?id me};5
     @else
         @echo %g%LYou are not close to your starbase in Galaxy %w%L1%y%L,%w%L1 %g%LSector %w%L1%y%L,%w%l1%g%l.
     @end
