@@ -11,7 +11,7 @@ REM #4 - sector as x,y
      @temp victimID = {@?itemno 2 ";" "$3"}        
      @temp galaxy = {@?itemno 3 ";" "$3"}  
      @temp sector = {@?itemno 4 ";" "$3"}  
-     @desc #46421[{@?time epoch})] = $(killerid);$(victimID);$(galaxy);$(sector)
+     @desc #46421[{@?time epoch}] = $(killerid);$(victimID);$(galaxy);$(sector)
 @else
      @echo You must specify 4 arguments. #1 is player ID#. #2 is the stat to update.
      @returnvalue Error
