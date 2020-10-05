@@ -21,7 +21,7 @@
 
 @temp winners
 
-@if {@eval (($(galFed) >= 225) || ($(galKli) >= 15)) do
+@if {@eval (($(galFed) >= 225) || ($(galKli) >= 225)) do
    @temp prelist = %[%m%l {@?padleft 24 " " "Name:"}{@?pad 25 " " "Ship:"}{@?newline}%[%g%l{@?pad 45 "-="}
    @temp line = %[%g%l{@?pad 45 "-="}
 
@@ -34,7 +34,7 @@
            @end
         @end
        
-     @else {@eval ($(galKli) >= 15)} do
+     @else {@eval ($(galKli) >= 225)} do
         @temp subject = %y%LCongratulations to the %r%LKlingon Empire%y%L!
         @temp title = %w%LCongratulations to the %r%LKlingon Empire%w%L on their successful conquering of the universe on this date! {@?newline}{@?newline}The following names will be recorded for all ancestors to praise as true heroes for their triumphant decimation of the universe for the %r%LEmpire%w%L! %m%LQapla'!%w%L{@?newline} 
         @with all elements #1638 do 
