@@ -3,8 +3,9 @@ REM Trekstat - Details on stats of Trek Players
 @chpid
 
 @execution 3
-@sort #19809 = alpha ascending elements 1 ","
+
 @temp h={@eval {@?scrheight} - 6}
+
 
 @if {@eval "$3"=""} do
     @temp gr=1:$h
@@ -12,11 +13,27 @@ REM Trekstat - Details on stats of Trek Players
     @temp gr=$3:$h
 @else {@eval "$3"="all"}
     @temp gr=all
+@else {@eval "$3"="phasers"}
+    @temp statsort=1
+@else {@eval "$3"="torpedos"}
+    @temp statsort=2
+@else {@eval "$3"="kills"}
+    @temp statsort=3
+@else {@eval "$3"="died"}
+    @temp statsort=4
+@else {@eval "$3"="reloads"}
+    @temp statsort=5
+@else {@eval "$3"="repairs"}
+    @temp statsort=6
+@else {@eval "$3"="moves"}
+    @temp statsort=9
 @else {@?grouprange $3}
      @temp gr=$3
 @else
      @temp gr=1:$h
 @end
+
+@sort #19809 = alpha ascending elements $(statsort) ","
 ~
 ~%[%m%l {@?padleft 10 " " ""}{@?padleft 8 " " "Phasers"}%l %l %L {@?pad 8 " " "Torpedos"}%l %l %l {@?pad 8 " " "Players"}%l %l %l %l{@?pad 8 " " "Dest by"}%l %l %l %l{@?pad 8 " " "Reloads"}%l %l %l %l{@?pad 8 " " "Repairs"}%l %l %l %l{@?pad 8 " " ""}
 ~%[%m%l {@?padleft 10 " " "Name:"}{@?padleft 8 " " "Fired:"}%l %l %L {@?pad 8 " " "Fired:"}%l %l %l {@?pad 8 " " "Killed:"}%l %l %l %l{@?pad 8 " " "Players:"}%l %l %l %l{@?pad 8 " " "At Base:"}%l %l %l %l{@?pad 8 " " "At Base:"}%l %l %l %l{@?pad 8 " " "Moves:"}
