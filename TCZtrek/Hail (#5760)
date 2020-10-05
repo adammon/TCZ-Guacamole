@@ -24,12 +24,13 @@ REM make sure we have good ranges on these coordinates (9x9)
 @end
 @end
 @end
-@temp wraplength = {@?strlen {@?itemno 1 "," {@?desc #1638[$(Hailed)]}} {@?itemno 14 "," {@?desc #1638[$(Hailed)]}} {@?realname *$(Hailed)} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[$(Hailed)]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}}
+
 
 @if {@eval "$(Hailed)" = "<UNKNOWN VARIABLE>"} do
 @Echo %g%LYour Communications Officer reports no response. Either no one is there, or no one wants to talk to you.
 @else
 REM Output of scan
+@temp wraplength = {@?strlen {@?itemno 1 "," {@?desc #1638[$(Hailed)]}} {@?itemno 14 "," {@?desc #1638[$(Hailed)]}} {@?realname *$(Hailed)} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[$(Hailed)]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}}
 @echo %w%L%I%y%L{@?pad $(wraplength) "-="}
 @echo %w%L{@?itemno 1 "," {@?desc #1638[$(Hailed)]}} {@?itemno 14 "," {@?desc #1638[$(Hailed)]}} {@?realname *$(Hailed)} -- Ship's Log -- {@?itemno 2 "," {@?desc #1638[$(Hailed)]}} -- Stardate {@?rightstr 4 {@?datetime EPOCH}}.{@?leftstr 2 {@?datetime EPOCH}}
 @echo %w%L%I%y%L{@?pad $(wraplength) "-="}
@@ -37,8 +38,8 @@ REM Output of scan
 @echo %w%L%I%g%L %c%LAlert Level: {@?itemno 7 "," {@?desc #1638[$(Hailed)]}} {@?pad 6} %w%L%I%g%L %c%LPhoton Torpedos:  %w%L{@?itemno 9 "," {@?desc #1638[$(Hailed)]}}
 @echo %w%L%I%g%L %c%LGalaxy: %w%L{@?itemno 3 "," {@?desc #1638[$(Hailed)]}}, {@?itemno 4 "," {@?desc #1638[$(Hailed)]}} {@?pad 12} %w%L%I%g%L %c%LPhaser Power:  %w%L{@?itemno 8 "," {@?desc #1638[$(Hailed)]}}
 @echo %w%L%I%g%L %c%LSector: %w%L{@?itemno 5 "," {@?desc #1638[$(Hailed)]}}, {@?itemno 6 "," {@?desc #1638[$(Hailed)]}} {@?pad 12} %w%L%I%g%L %c%LHealth: {@?pad 1} %w%L{progressbar {@?itemno 10 "," {@?desc #1638[$(Hailed)]}}/100=10} %w%L{@?itemno 10 "," {@?desc #1638[$(Hailed)]}}%
-@echo %w%L%I%g%L %c%LAction Points: %w%L {@?itemno 12 "," {@?desc #1638[$(Hailed)]}}  {@?pad 2} %w%L%I%g%L%c%LShields: %w%L{@?pad 1}{progressbar {@?itemno 11 "," {@?desc #1638[$(Hailed)]}}/100=10} %w%L{@?itemno 11 "," {@?desc #1638[$(Hailed)]}}%
-@echo %w%L%I%g%L{@?pad $(wraplength) "-="}
+@echo %w%L%I%g%L %c%LAction Points: %w%L {@?itemno 12 "," {@?desc #1638[$(Hailed)]}}  {@?pad 7} %w%L%I%g%L%c%LShields: %w%L{@?pad 1}{progressbar {@?itemno 11 "," {@?desc #1638[$(Hailed)]}}/100=10} %w%L{@?itemno 11 "," {@?desc #1638[$(Hailed)]}}%
+@echo %w%L%I%y%L{@?pad $(wraplength) "-="}
 @else {@eval "{@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$(Hailed)]}}}" <> "{@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}}"} do
 @echo %w%LYour Communications Officer reports a garbled response to hails. 
 @echo %w%L%I%g%L %c%LAlert Level: {@?itemno 7 "," {@?desc #1638[$(Hailed)]}} {@?pad 6} %w%L%I%g%L %c%LPhoton Torpedos:  %w%LUNKNOWN
