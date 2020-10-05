@@ -1,4 +1,5 @@
 
+@sort #1638 = alpha ascending elements 1 ","
 @temp galFed = 0
 @temp galKli = 0
 @temp galNeu = 0
@@ -18,27 +19,46 @@
      @end
 @end
 
-@if {@eval (($(galFed) >= 225) || ($(galKli) >= 225)) do
-   @echo Game over man, game over!
 
+
+@if {@eval (($(galFed) >= 205) || ($(galKli) >= 205)) do
+   @temp prelist = %[%m%l {@?padleft 24 " " "Name:"}{@?pad 25 " " "Ship:"}{@?newline}%[%g%l{@?pad 85 "-="}{@?newline}
      
-     @if {@eval ($(galFed) >= 225)} do
-        @temp title = %y%LCongratulations to the %b%LUnited Federation of Planets%y%L!
-        @temp message = 
-
+     @if {@eval ($(galFed) >= 10)} do
+        @temp subject = %y%LCongratulations to the %b%LUnited Federation of Planets%y%L!
+        @temp title = %y%LCongratulations to the %b%LUnited Federation of Planets%y%L on their successful pacifying of the universe on this date! The following names will be recorded in the annals of history on this date as true heroes for the %b%LFederation%w%L!
+        @with all elements #1638 do 
+           @if {@eval ("$7" <> "#0") && ("$7" <> "#1") && ("$7" <> "#1") && ({@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7]}}} = F) do
+               @temp winners=%[%w%l{@?pad 25 " " "{@?itemno 14 "," "$6"} {@?realname *$7}"} {@?pad 25 " " "{@?itemno 2 "," "$6"}"}{@?newline} $(winners) 
+           @end
+        @end
+       
      @else {@eval ($(galKli) >= 225)} do
         @temp title = %y%LCongratulations to the %r%LKlingon Empire%y%L!
-      @temp message = 
+        @temp title = %y%LCongratulations to the %r%LKlingon Empire%y%L on their successful conquering of the universe on this date! The following names will be recorded for all ancestors to praise as true heroes for their triumphant decimation of the universe for the %r%LEmpire%w%L! %m%LQapla'!%w%L
+        @with all elements #1638 do 
+              @if {@eval ("$7" <> "#0") && ("$7" <> "#1") && ("$7" <> "#1") && ({@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7]}}} = K) do
+                  @temp winners=%[%w%l{@?pad 25 " " "{@?itemno 14 "," "$6"} {@?realname *$7}"} {@?pad 25 " " "{@?itemno 2 "," "$6"}"}{@?newline} $(winners) 
+              @end
+        @end
+      @end
+      
+ @echo $(title)
+ @echo $(prelist)
+ 
+ @echo $(winners)
      
-     
-     @end
-@force *#2158 = bbs topic games/tcztrek
-@force *#2158 = bbs add 
+REM @force *#2158 = bbs topic games/tcztrek
+REM @force *#2158 = bbs add 
 REM #24723
 REM @destroy #1638[ALL]
 REM @desc #1638[#1] =Klingon,Empty Space,15,15,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
 REM @desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
-@else
-@echo Game's still on.
+REM @else
+REM @echo Game's still on.
+REM @end
 @end
-@end
+
+
+
+
