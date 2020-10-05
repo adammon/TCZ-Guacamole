@@ -2,7 +2,7 @@ Ship classes                                                                 + S
 
 Scout      - Double the AP, half weapons, 1/4 the armor, no shields               Cloak - 5AP - 
 Carrier    - Half the AP, half weapons, double armor, no shields                  Allow other team members to reload next to you.
-Cruiser    - Default ship, normal AP, weapons, armor, shields                     Flexible loadout (Choose Extra AP, weapons, armors)
+Cruiser    - Default ship, normal AP, weapons, armor, shields                     None
 Battleship - 3/4 the AP, double weapons, normal armor, 1/2 shields                Quantum torpedo - 5AP - 
 Science Ship - Normal AP, half weapons, 1/2 armor, double shields                 AP steal enemies or AP heal friends
 
