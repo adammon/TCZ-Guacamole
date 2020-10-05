@@ -1,0 +1,44 @@
+
+@temp galFed = 0
+@temp galKli = 0
+@temp galNeu = 0
+
+@for 1 to 15 do 
+     @temp gcol = $4
+     @for 1 to 15 do
+          @temp grow = $4
+          @temp value = {@?itemno $(gcol) ";" "{@?itemno $(grow) "{@?newline}" "{@?desc #2578}"}"}
+          @if {@eval ("$(value)" = "#0")} do 
+            @temp galFed = {@eval 1 + $(galFed)}
+          @else {@eval ("$(value)" = "#1")} do 
+            @temp galKli = {@eval 1 + $(galKli)}
+          @else {@eval ("$(value)" = "n")} do 
+            @temp galNeu = {@eval 1 + $(galNeu)}
+          @end
+     @end
+@end
+
+@if {@eval (($(galFed) >= 225) || ($(galKli) >= 225)) do
+   @echo Game over man, game over!
+
+     
+     @if {@eval ($(galFed) >= 225)} do
+        @temp title = %y%LCongratulations to the %b%LUnited Federation of Planets%y%L!
+        @temp message = 
+
+     @else {@eval ($(galKli) >= 225)} do
+        @temp title = %y%LCongratulations to the %r%LKlingon Empire%y%L!
+      @temp message = 
+     
+     
+     @end
+@force *#2158 = bbs topic games/tcztrek
+@force *#2158 = bbs add 
+REM #24723
+REM @destroy #1638[ALL]
+REM @desc #1638[#1] =Klingon,Empty Space,15,15,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
+REM @desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
+@else
+@echo Game's still on.
+@end
+@end
