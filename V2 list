@@ -1,8 +1,8 @@
 1. Different types of ships
-2. NAT (Starnat? Limited to just your team?)
+2. NAT (Starnat? Limited to just your team?) *done in 1.2*
 3. NPCs
 4. PlayerStats array 
-5. Auto-completion
+5. Auto-completion *done in 1.4*
 6. Notifications that you were destroyed and by who. (Completed for online, will build out for offline)
 7. Automated alerts (Red alert if damage and in same galaxy, yellow if full health and same galaxy)
 8. Clarify ships don't need prefixes (USS or IKS)
@@ -12,5 +12,5 @@
   an option to see it or turn it off." (trekwho)
   
  9. Add "Repair" that costs AP similar to reload. DONE
- 10. Add rank calculations for players.
+ 10. Add rank calculations for players. DONE
  11. Darker if not over >50% conquered.
