@@ -55,13 +55,13 @@ REM  @echo $(prelist)
      
 @force *#2158 = bbs topic games/tcztrek
 @force *#2158 = bbs add $(subject) = $(title){@?newline}$(line)$(winners)$(line)$(postamble)
-REM #24723
-REM @destroy #1638[ALL]
-REM @desc #1638[#1] =Klingon,Empty Space,15,15,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
-REM @desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
-REM @else
-REM @echo No winner!
-REM @end
+#24723
+@destroy #1638[ALL]
+@desc #1638[#1] =Klingon,Empty Space,15,15,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
+@desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
+@else
+@echo No winner!
+@end
 @end
 
 
