@@ -1,1 +1,21 @@
+REM Stat Update for TCZTrek - simplifies and cleans up other commands to focus on updating the playerstats array #19809
+@chpid
+REM #1 - ID of player
+REM #2 - Stat to Update in #19809 1 Moves,2 Shots Fired,3 Destroyed Ships,4 Times Destroyed,5 Reloads,6 SectorClaim,7 SectorTakeover
+
+@if {@eval {@eval {@?noitems ";" "$3"} == 2}} do
+     @temp playerID = {@?itemno 1 ";" "$3"}
+     @temp updateStat = {@?itemno 2 ";" "$3"}   
+     
+     @if false {@?exists #19809[$(playerID)] do
+         @desc #19809[$(playerID)] = 0,0,0,0,0,0,0
+     @end
+     
+     @temp newstat = {@eval ({@?itemno "$(updateStat)" "," {@?desc #19809[$(playerID)]}} + 1}
+     @desc #19809[$(playerID)] = {@?modify  $(newStat) $(updateStat) "," {@?desc #19809[$(playerID)]}}
+@else
+     @echo You must specify 2 arguments. #1 is player ID#. #2 is the stat to update.
+     @returnvalue Error
+@end
+
 
