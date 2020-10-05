@@ -18,7 +18,8 @@ REM Trekstat - Details on stats of Trek Players
      @temp gr=1:$h
 @end
 ~
-~%[%m%l {@?padleft 10 " " "Name:"}{@?padleft 8 " " "Phasers:"}%l %l %L {@?pad 8 " " "Torpedos:"}%l {@?pad 8 " " "Killed"}%l %l %l %l{@?pad 8 " " "Died"}%l %l %l %l{@?pad 8 " " "Killed"}%l %l %l %l{@?pad 8 " " "Reloads"}%l %l %l %l{@?pad 8 " " "Repairs"}%l %l %l %l{@?pad 8 " " "Moves"}
+~%[%m%l {@?padleft 10 " " ""}{@?padleft 8 " " "Phasers"}%l %l %L {@?pad 8 " " "Torpedos"}%l %l %l {@?pad 8 " " "Players"}%l %l %l %l{@?pad 8 " " "Dest by"}%l %l %l %l{@?pad 8 " " "Reloads"}%l %l %l %l{@?pad 8 " " "Repairs"}%l %l %l %l{@?pad 8 " " ""}
+~%[%m%l {@?padleft 10 " " "Name:"}{@?padleft 8 " " "Fired:"}%l %l %L {@?pad 8 " " "Fired:"}%l %l %l {@?pad 8 " " "Killed:"}%l %l %l %l{@?pad 8 " " "Players:"}%l %l %l %l{@?pad 8 " " "At Base:"}%l %l %l %l{@?pad 8 " " "At Base:"}%l %l %l %l{@?pad 8 " " "Moves:"}
 ~%[%g%l{@?pad 85 "-="}
 @with $gr elements #19809 do 
 @if {@eval ("$7" <> "#0") && ("$7" <> "#1")} do
