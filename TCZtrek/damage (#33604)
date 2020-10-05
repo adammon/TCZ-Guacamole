@@ -43,7 +43,6 @@ REM #2 - Damage done
                @desc #1638[$(oppID)] = {@?modify "100" 10 "," "{@?desc #1638[$(oppID)]}"}
                @desc #1638[$(oppID)] = {@?modify "100" 11 "," "{@?desc #1638[$(oppID)]}"}
                @echo %g%LYou just destroyed %w%L{@?itemno 14 "," {@?desc #1638[$(oppID)]}} {@?realname $(oppID)}%g%L's ship.
-               #46466 {@?id me};{$(OppID);$(oppGrow),$(oppgcol);$(oppsrow),$(oppscol)
                @desc #1638[$(oppID)] = {@?modify "Captain" 14 "," "{@?desc #1638[$(oppID)]}"}
                #36688 {@?id me};3
                #36688 $(oppID);4
