@@ -1,13 +1,14 @@
-
+REM #2 - Stat to Update in #19809 1 PhasersFired,2 TorpedosFired,3 Destroyed Ships,4 Times Destroyed,5 Reloads,6 Repairs, 7 SectorClaim,8 SectorTakeover, 9 moves
 SAMPLE: @desc #19809[{@?id me}] = 0,0,0,0,0,0,0,0,0
-1 Moves,
-2 Shots Fired,
+1 PhasersFired,
+2 TorpedosFired,
 3 Destroyed Ships,
-4 Times Destroyed
+4 Times Destroyed,
 5 Reloads,
-6 SectorClaim
-7 SectorTakeover
-
+6 Repairs, 
+7 SectorClaim,
+8 SectorTakeover, 
+9 moves
 
 
 
