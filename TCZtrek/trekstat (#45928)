@@ -15,18 +15,25 @@ REM Trekstat - Details on stats of Trek Players
     @temp gr=all
 @else {@eval "$3"="phasers"}
     @temp statsort=1
+        @temp gr=all
 @else {@eval "$3"="torpedos"}
     @temp statsort=2
+        @temp gr=all
 @else {@eval "$3"="kills"}
     @temp statsort=3
+        @temp gr=all
 @else {@eval "$3"="died"}
     @temp statsort=4
+        @temp gr=all
 @else {@eval "$3"="reloads"}
     @temp statsort=5
+        @temp gr=all
 @else {@eval "$3"="repairs"}
     @temp statsort=6
+        @temp gr=all
 @else {@eval "$3"="moves"}
     @temp statsort=9
+        @temp gr=all
 @else {@?grouprange $3}
      @temp gr=$3
 @else
