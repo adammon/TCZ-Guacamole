@@ -2,7 +2,8 @@ Kill list array
 
 element name = {@?time epoch}
 
-Killer 1
-Killed 2
-galaxy 3
-sector 4
+Time 1
+Killer 2
+Victim 3
+galaxy 4
+sector 5
