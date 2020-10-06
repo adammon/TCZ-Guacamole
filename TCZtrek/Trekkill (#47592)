@@ -18,10 +18,10 @@ REM Trek Kill List in a nice readable format
      @temp gr=1:$h
 @end
 ~
-~%[%m%l {@?padleft 39 " " "Date:"}{@?padleft 10 " " "Killer:"}%l %l %L %L {@?pad 10 " " "Victim:"}%l {@?pad 7 " " "Galaxy"}%l %l %l %l{@?pad 7 " " "Sector"}
+~%[%m%l {@?padleft 39 " " "Date:"}{@?padleft 10 " " "Killer:"}%l %l %L {@?pad 10 " " "Victim:"}%l %l {@?pad 7 " " "Galaxy"}%l %l %l %l{@?pad 7 " " "Sector"}
 ~%[%g%l{@?pad 85 "-="}
 @with $gr elements #46421  do 
-@echo %[%w%l{@?pad 40 " " "{@?realtime {@?itemno 1 ";" "$6"}}"}{@?pad 10 " "  "{@?realname {@?itemno 2 ";" "$6"}}"}%l %l %l {@?pad 10 " " "{@?realname {@?itemno 3 ";" "$6"}}"} %l %l {@?pad 7 " " "{@?itemno 4 ";" "$6"}"}%l %l {@?pad 7 " " "{@?itemno 5 ";" "$6"}"} 
+@echo %[%w%l{@?pad 40 " " "{@?realtime {@?itemno 1 ";" "$6"}}"}{@?pad 10 " "  "{@?realname {@?itemno 2 ";" "$6"}}"}%l %l %l {@?pad 10 " " "{@?realname {@?itemno 3 ";" "$6"}}"} %l %l{@?pad 7 " " "{@?itemno 4 ";" "$6"}"}%l %l %L {@?pad 7 " " "{@?itemno 5 ";" "$6"}"} 
 @end
 @end
 ~%[%g%l{@?pad 85 "-="}
