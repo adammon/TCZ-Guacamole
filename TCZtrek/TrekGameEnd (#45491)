@@ -35,7 +35,7 @@
         @end
        
      @else {@eval ($(galKli) >= 225)} do
-        @temp subject = %y%LCongratulations to the %r%LKlingon Empire%y%L!
+        @temp subject = %y%LCongratulations to the %r%LKlingon Empire%y%L! Season {@?drop #31211} Winner
         @temp title = %w%LCongratulations to the %r%LKlingon Empire%w%L on their successful conquering of the universe on this date! {@?newline}{@?newline}The following names will be recorded for all ancestors to praise as true heroes for their triumphant decimation of the universe for the %r%LEmpire%w%L! %m%LQapla'!%w%L{@?newline} 
         @with all elements #1638 do 
               @if {@eval ("$7" <> "#0") && ("$7" <> "#1") && ("$7" <> "#1") && ({@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7]}}} = K) do
