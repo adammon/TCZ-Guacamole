@@ -59,6 +59,7 @@ REM  @echo $(prelist)
 @destroy #1638[ALL]
 @desc #1638[#1] =Klingon,Empty Space,15,15,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
 @desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
+@drop #31211 = {@eval {@?drop #31211} + 1}
 @else
 @echo No winner!
 @end
