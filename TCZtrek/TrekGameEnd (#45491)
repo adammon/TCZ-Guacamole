@@ -26,7 +26,7 @@
    @temp line = %[%g%l{@?pad 45 "-="}
 
      @if {@eval ($(galFed) >= 225)} do
-        @temp subject = %y%LCongratulations to the %b%LUnited Federation of Planets%y%L!
+        @temp subject = %y%LCongratulations to the %b%LUnited Federation of Planets%y%L! Season {@?drop #31211} Winner
         @temp title = %w%LCongratulations to the %b%LUnited Federation of Planets%w%L on their successful pacifying of the universe on this date! {@?newline}{@?newline}The following names will be recorded in the annals of history on this date as true heroes for the %b%LFederation%w%L!{@?newline} 
         @with all elements #1638 do 
            @if {@eval ("$7" <> "#0") && ("$7" <> "#1") && ("$7" <> "#1") && ({@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7]}}} = F) do
