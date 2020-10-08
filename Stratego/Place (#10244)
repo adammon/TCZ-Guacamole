@@ -1,1 +1,3 @@
 REM Placing pieces on the board (beginning the game, only during placing phase)
+REM Format Place <piece> = X,Y (X=left right, Y=up down to satisfy the TCZTREk whiners)
+
