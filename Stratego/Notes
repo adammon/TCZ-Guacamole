@@ -20,3 +20,13 @@ Players alternate moving; red moves first. Each player moves one piece per turn.
 Two zones in the middle of the board, each 2×2, cannot be entered by either player's pieces at any time. They are shown as lakes on the battlefield and serve as choke points to make frontal assaults less direct.
 
 The game can be won by capturing the opponent's Flag, or all of his moveable pieces. It is possible to have ranked pieces that are not moveable because they are trapped behind bombs.
+
+
+Need:
+
+Board
+Place pieces Command
+Piece tracking array
+Piece moving command (north, south, east, west)
+Combat resolution command (Higher number kills, bombs, spies)
+
