@@ -1,0 +1,8 @@
+1. Status: (No Players, Waiting on Player 1, Waiting on Player 2, Placing Pieces, In Progress, Game Over)
+2. Player 1: ID#
+3. Player 2: ID#
+
+
+@desc #8898[Status] = No Players
+@desc #8898[Player1] = #5486
+@desc #8898[Player2] = #2158 
