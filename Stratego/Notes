@@ -26,6 +26,8 @@ Need:
 
 Board
 Place pieces Command
+Set piece Command
+get piece command
 Piece tracking array
 Piece moving command (north, south, east, west)
 Combat resolution command (Higher number kills, bombs, spies)
