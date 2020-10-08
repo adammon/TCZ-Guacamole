@@ -31,5 +31,5 @@ Piece moving command (north, south, east, west)
 Combat resolution command (Higher number kills, bombs, spies)
 Combat display (bigger size piece showing fight)
 Alternating turns between players
-
+Player 1 and Player 2 Array of where pieces are on the board and if they're placed or dead.
 
