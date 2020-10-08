@@ -29,4 +29,7 @@ Place pieces Command
 Piece tracking array
 Piece moving command (north, south, east, west)
 Combat resolution command (Higher number kills, bombs, spies)
+Combat display (bigger size piece showing fight)
+Alternating turns between players
+
 
