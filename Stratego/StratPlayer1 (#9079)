@@ -1,1 +1,44 @@
+Element for each piece (40 pieces) - Player 1
+Status = Waiting, Placed, Playing, Dead
+Element descriptioN: Status, Location on board X, location on board Y
 
+@desc #9079[F*1] = Waiting,1,0
+@desc #9079[S*1] = Waiting,0,0
+@desc #9079[2*1] = Waiting,0,0
+@desc #9079[2*2] = Waiting,0,0
+@desc #9079[2*3] = Waiting,0,0
+@desc #9079[2*4] = Waiting,0,0
+@desc #9079[2*5] = Waiting,0,0
+@desc #9079[2*6] = Waiting,0,0
+@desc #9079[2*7] = Waiting,0,0
+@desc #9079[2*8] = Waiting,0,0
+@desc #9079[3*1] = Waiting,0,0
+@desc #9079[3*2] = Waiting,0,0
+@desc #9079[3*3] = Waiting,0,0
+@desc #9079[3*4] = Waiting,0,0
+@desc #9079[3*5] = Waiting,0,0
+@desc #9079[4*1] = Waiting,0,0
+@desc #9079[4*2] = Waiting,0,0
+@desc #9079[4*3] = Waiting,0,0
+@desc #9079[4*4] = Waiting,0,0
+@desc #9079[5*1] = Waiting,0,0
+@desc #9079[5*2] = Waiting,0,0
+@desc #9079[5*3] = Waiting,0,0
+@desc #9079[5*4] = Waiting,0,0
+@desc #9079[6*1] = Waiting,0,0
+@desc #9079[6*2] = Waiting,0,0
+@desc #9079[6*3] = Waiting,0,0
+@desc #9079[6*4] = Waiting,0,0
+@desc #9079[7*1] = Waiting,0,0
+@desc #9079[7*2] = Waiting,0,0
+@desc #9079[7*3] = Waiting,0,0
+@desc #9079[8*1] = Waiting,0,0
+@desc #9079[8*2] = Waiting,0,0
+@desc #9079[9*1] = Waiting,0,0
+@desc #9079[M*1] = Waiting,0,0
+@desc #9079[B*1] = Waiting,0,0
+@desc #9079[B*2] = Waiting,0,0
+@desc #9079[B*3] = Waiting,0,0
+@desc #9079[B*4] = Waiting,0,0
+@desc #9079[B*5] = Waiting,0,0
+@desc #9079[B*6] = Waiting,0,0
