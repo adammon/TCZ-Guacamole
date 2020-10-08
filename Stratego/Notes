@@ -29,6 +29,7 @@ Place pieces Command
 Set piece Command
 get piece command
 Piece tracking array
+Game status Array
 Piece moving command (north, south, east, west)
 Combat resolution command (Higher number kills, bombs, spies)
 Combat display (bigger size piece showing fight)
