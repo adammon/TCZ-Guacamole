@@ -3,7 +3,7 @@ REM Trek Kill List in a nice readable format
 @chpid
 
 @execution 3
-@sort #46421 = alpha ascending elements 1 ","
+@sort #46421 = alpha descending elements 1 ","
 @temp h={@eval {@?scrheight} - 6}
 
 @if {@eval "$3"=""} do
