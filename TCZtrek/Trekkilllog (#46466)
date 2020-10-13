@@ -11,7 +11,7 @@ REM #4 - sector as x,y
      @temp victimID = {@?itemno 2 ";" "$3"}        
      @temp galaxy = {@?itemno 3 ";" "$3"}  
      @temp sector = {@?itemno 4 ";" "$3"}  
-     @desc #46421[END] = {@?time epoch},$(killerid);$(victimID);$(galaxy);$(sector)
+     @desc #46421[END] = {@?time epoch},$(killerid);$(victimID);$(galaxy);$(sector);{@?drop #31211}
 @else
      @echo You must specify 4 arguments. #1 is killer ID#. #2 is the victim ID#, #3 is the galaxy in x,y format. #4 is the sector in x,y format. 
      @returnvalue Error
