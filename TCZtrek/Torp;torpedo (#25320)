@@ -32,7 +32,7 @@ REM Sector column as scol
                              @desc #1638[{@?id me}] = {@?modify "$(torpPointsNew)" 9 "," "{@?desc #1638[{@?id me}]}"}
                              #36688 {@?id me};2
                              @temp OppDamage = {@eval {@?rand 1 = 10}*4}
-                             {#33604 {#24738 $(curGrow);$(curGcol);$(srow);$(sCol)};$(oppDamage)}
+                             #33604 {#24738 $(curGrow);$(curGcol);$(srow);$(sCol)};$(oppDamage)}
                         @else {@eval $(dmgChance) < 5} do
                              @echo %g%LYour %w%l%I%r%L*** TORPEDO ***%g%L just barely misses your opponents ship. Tough luck.
                              @temp NewAP = {@eval $(currentAP) - 1}
