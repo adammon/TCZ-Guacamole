@@ -15,5 +15,5 @@ REM Joiner post-prompt
      @temp shipname = {@?capitalise $1}
      @temp shipclassK = IKS
      @temp shipclassF = USS
-     @return $(shipname)
+     @return true
 @end
