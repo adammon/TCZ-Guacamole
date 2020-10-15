@@ -10,6 +10,8 @@ REM #1 ID#
     @temp mapIcon = %w%L%i%r%L*
 @else {@eval ($1 = #0) do
     @temp mapIcon = %w%L%i%b%L*
+@else {@eval ($1 = O) do 
+    @temp mapIcon = %w%L%i%g%LO
 @else
      @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$1]}}} = F} do
           @temp mapIcon = %w%l%i%b%LF
