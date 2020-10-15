@@ -1,1 +1,48 @@
 @prompt %g%LWelcome to %y%LTCZTrek%g%L. Please enter the name of your Ship, Captain {@?realname {@?id me}}: = #19306 = #19313 = #19315
+
+REM Joining the Fleet in TCZ Trek. 
+REM - One Argument, name of ship, hopefully allows spaces :I
+@chpid
+
+@If {@?exists #1638[{@?id me}] Do
+     @echo %g%LYou're already playing, you tribble. %w%LCheck your %y%Lshort%w%L range scanner
+     @break
+
+
+     REM Check teams to ensure that they are fair.
+
+     @with elements #1638 do
+
+        @if {@eval {@?leftstr 1 "{@?itemno 1 "," $6}} = K} do
+             @temp Klingons = {@eval 1+$(Klingons)}
+        @else {@eval {@?leftstr 1 "{@?itemno 1 "," $6}} = F} do
+            @temp Feds = {@eval 1+$(Feds)}
+        @end
+    @end
+
+@echo Current Team Numbers:
+    @echo %g%LKlingons: %w%L$(klingons)
+    @echo %g%LFederation: %w%L$(feds)
+  
+    @if {@eval $(klingons) < $(feds)} do
+        @echo %g%lMore Federation players than Klingons. Assigning you to the %r%LKlingons %g%Lto balance the teams.
+            @desc #1638[{@?id me}] = Klingon,$(shipclassK) $(shipName),15,15,9,9,%w%L%i%g%LGreen%w%L,20,20,100,100,20,on,Captain,Cruiser
+    @else  {@eval $(klingons) > $(feds)} do
+        @echo %g%LMore Klingon players than Federation. Assigning you to the %b%LFederation %g%Lto balance the teams.
+ 
+           @desc #1638[{@?id me}] = Federation,$(shipclassF) $(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,20,20,100,100,20,on,Captain,Cruiser
+  
+    @else {@eval $(klingons) = $(feds)} do
+          @echo %g%LBoth teams are equal so you are being randomly assigned.
+          @temp teamChance = {@?rand 10}
+          @if {@eval $(teamChance) > 4} do 
+                @echo %g%lYou have been randomly assigned to the %r%LKlingon%g%L team.
+               @desc #1638[{@?id me}] = Klingon,$(shipclassK) $(shipName),15,15,9,9,%w%L%i%g%LGreen%w%L,20,20,100,100,20,on,Captain,Cruiser
+          @else {@eval $(teamChance) < 5} do
+               @echo %g%lYou have been randomly assigned to the %b%LFederation%g%L team.
+               @desc #1638[{@?id me}] = Federation,$(shipclassF) $(shipName),1,1,1,1,%w%L%i%g%LGreen%w%L,20,20,100,100,20,on,Captain,Cruiser
+          @end
+    @end
+  
+@end
+
