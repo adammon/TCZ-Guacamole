@@ -17,7 +17,7 @@ REM Pay 10AP to set your current location to n
            @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
            @desc #1638[{@?id me}] = {@?modify "Cloaked" 13 "," "{@?desc #1638[{@?id me}]}"}
            #2567 $(curGrow);$(curGcol);$(curSrow);$(curScol);n
-           @echo %g%LYou yell at your First Office to engage the cloak, hiding from enemy patrols at the cost of %w%L5AP%g%L.
+           @echo %g%LYou yell at your First Officer to engage the cloak, hiding from enemy patrols at the cost of %w%L5AP%g%L.
          @else
           @echo %g%LYour cloaking device requires %y%L5AP%g%L to utilize, sir. Have you not read the manual?
          @end
@@ -33,8 +33,7 @@ REM Pay 10AP to set your current location to n
          @else
           @echo %g%LYour cloaking device requires %y%L5AP%g%L to utilize, sir. Have you not read the manual?
          @end
-         
-         
+                
        @else 
           @echo %g%LOnly scout ships are currently outfitted with cloaking devices, sir.
        @end
