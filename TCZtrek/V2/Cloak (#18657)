@@ -27,7 +27,7 @@ REM Pay 10AP to set your current location to n
            @temp NewAP = {@eval $(currentAP) - 5}
            @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
            @desc #1638[{@?id me}] = {@?modify "Scout" 13 "," "{@?desc #1638[{@?id me}]}"}
-           #2567 $(curGrow);$(curGcol);$(curSrow);$(curScol);n
+           #2567 $(curGrow);$(curGcol);$(curSrow);$(curScol);{@?id me}
          @else
           @echo %g%LYour cloaking device requires %y%L5AP%g%L to utilize, sir. Have you not read the manual?
          @end
