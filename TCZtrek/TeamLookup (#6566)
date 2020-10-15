@@ -6,10 +6,14 @@ REM #1 ID#
 
 @if {@eval ($1 = n) do
     @temp mapIcon = %w%L*
-@else {@eval ($1 = #1) do
-    @temp mapIcon = %w%L%i%r%L*
 @else {@eval ($1 = #0) do
     @temp mapIcon = %w%L%i%b%L*
+@else {@eval ($1 = #1) do
+    @temp mapIcon = %w%L%i%r%L*
+@else {@eval ($1 = #2) do
+    @temp mapIcon = %w%L%i%b*
+@else {@eval ($1 = #3) do
+    @temp mapIcon = %w%L%i%r*
 @else {@eval ($1 = O) do 
     @temp mapIcon = %w%L%i%g%LO
 @else
