@@ -4,15 +4,16 @@ REM Joiner post-prompt
 
 @if {@eval {@?strlen "$1"} < 1} do
          @echo %g%LEnter a name for your ship, you tribble.
-
+         @return false
 @else {@eval {@?noitems "," "$1"} > 1} do
          @echo %g%LNo commas, you tribble.
-
+         @return false
 @else {@eval {@?noitems ";" "$1"} > 1} do
          @echo %g%LNo semicolons, you tribble.
+         @return false
 @else 
      @temp shipname = {@?capitalise $1}
      @temp shipclassK = IKS
      @temp shipclassF = USS
-
+     @return $(shipname)
 @end
