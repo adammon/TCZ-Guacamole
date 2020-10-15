@@ -12,7 +12,7 @@ REM Sector column as scol
 @temp torpPointsOld = {@?itemno 9 "," {@?desc #1638[{@?id me}]}}
 @temp CurrentAP = {@?itemno 12 "," {@?desc #1638[{@?id me}]}}
 
-
+@if {@eval {@?itemno 13 "," {@?desc #1638[{@?id me}]}} = "Battleship"} do 
 
 @if {@eval $CurrentAP > 0} Do
      @if {@eval $torpPointsOld > 0} do
@@ -69,6 +69,8 @@ REM Sector column as scol
 @else
     @echo %g%LNo more action points, sir. 
 @end
+@else
+@echo %g%LNo quantum torpedos on board, sir. This is not a battleship.%w%L
 @else
 @echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
 @end
