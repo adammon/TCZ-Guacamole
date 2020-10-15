@@ -1,6 +1,13 @@
 REM Joiner post-prompt
 @chpid
+@temp shipclassK = IKS
+@temp shipclassF = USS
 
 
-@desc #1638[{@?id me}] = {@?modify "$1" 2 "," {@?Desc #1638[{@?id me}]}
-@echo %g%LWelcome aboard the %w%LStarship $1%g%L, Captain.
+@if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = F} do
+     @desc #1638[{@?id me}] = {@?modify "$(shipclassF) $1" 2 "," {@?Desc #1638[{@?id me}]}
+@else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = K} do
+    @desc #1638[{@?id me}] = {@?modify "$(shipclassK) $1" 2 "," {@?Desc #1638[{@?id me}]}
+@end
+
+@echo %g%LWelcome aboard the %w%LStarship $(shipclassK) $1%g%L, Captain.
