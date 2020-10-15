@@ -10,13 +10,14 @@ REM Pay 10AP to set your current location to n
 @if {@eval {@?exists #1638[{@?id me}]}} do	
      @temp CurrentAP = {@?itemno 12 "," {@?desc #1638[{@?id me}]}}
      @if {@eval $CurrentAP > 0} Do
-       @if {@eval "{@?itemno 12 "," {@?desc #1638[{@?id me}]}}" = "Scout"} do
+       @if {@eval "{@?itemno 13 "," {@?desc #1638[{@?id me}]}}" = "Scout"} do
          @if {@eval $CurrentAP > 5} Do
           
           REM - CLOAK THE SHIP
            @temp NewAP = {@eval $(currentAP) - 5}
-           @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+           @desc #1638[{@?id me}] = {@?modify "Cloaked" 13 "," "{@?desc #1638[{@?id me}]}"}
            #2567 $(curGrow);$(curGcol);$(curSrow);$(curScol);n
+           
          @else
           @echo %g%LYour cloaking device requires %y%L5AP%g%L to utilize, sir. Have you not read the manual?
        @else
