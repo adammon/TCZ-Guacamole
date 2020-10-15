@@ -1,5 +1,3 @@
-@prompt %g%LWelcome to %y%LTCZTrek%g%L. Please enter the name of your Ship, Captain {@?realname {@?id me}}: = #19306 = #19313 = #19315
-
 REM Joining the Fleet in TCZ Trek. 
 REM - One Argument, name of ship, hopefully allows spaces :I
 @chpid
@@ -8,7 +6,7 @@ REM - One Argument, name of ship, hopefully allows spaces :I
      @echo %g%LYou're already playing, you tribble. %w%LCheck your %y%Lshort%w%L range scanner
      @break
 
-@else
+@else false {@?exists #1638[{@?id me}] do
 
      REM Check teams to ensure that they are fair.
 
@@ -27,12 +25,12 @@ REM - One Argument, name of ship, hopefully allows spaces :I
     @if {@eval $(klingons) < $(feds)} do
         @echo %g%lThere are currently more Federation players than Klingons. You are being assigned to the %r%LKlingons %g%Lto balance the teams.
        REM @desc #1638[{@?id me}] = Klingon,Unnamed,15,15,9,9,%w%L%i%g%LGreen%w%L,20,20,100,100,20,on,Captain,Cruiser
-        @prompt Name your ship, %w%LKlingon Captain {@?realname *{@?id me}}: = #19306 = #19313 = #19315
+        @prompt %g%LName your ship, %w%LKlingon Captain {@?realname *{@?id me}}: = #19306 = #19313 = #19315
         
     @else  {@eval $(klingons) > $(feds)} do
          @echo %g%lThere are currently more Klingon players than Federation. You are being assigned to the %b%LFederation %g%Lto balance the teams.
           REM @desc #1638[{@?id me}] = Federation,Unnamed,1,1,1,1,%w%L%i%g%LGreen%w%L,20,20,100,100,20,on,Captain,Cruiser
-           @prompt Name your ship, %w%LFederation Captain {@?realname *{@?id me}}: = #19306 = #19313 = #19315
+           @prompt%g%LName your ship, %w%LFederation Captain {@?realname *{@?id me}}: = #19306 = #19313 = #19315
 
     @else {@eval $(klingons) = $(feds)} do
           @echo %g%LBoth teams are equal so you are being randomly assigned.
@@ -40,11 +38,11 @@ REM - One Argument, name of ship, hopefully allows spaces :I
           @if {@eval $(teamChance) > 4} do 
                 @echo %g%lYou have been randomly assigned to the %r%LKlingon%g%L team.
               REM @desc #1638[{@?id me}] = Klingon,Unnamed,15,15,9,9,%w%L%i%g%LGreen%w%L,20,20,100,100,20,on,Captain,Cruiser
-              @prompt Name your ship, %w%LKlingon Captain {@?realname *{@?id me}}: = #19306 = #19313 = #19315
+              @prompt %g%LName your ship, %w%LKlingon Captain {@?realname *{@?id me}}: = #19306 = #19313 = #19315
           @else {@eval $(teamChance) < 5} do
                @echo %g%lYou have been randomly assigned to the %b%LFederation%g%L team.
               REM  @desc #1638[{@?id me}] = Federation,Unnamed,1,1,1,1,%w%L%i%g%LGreen%w%L,20,20,100,100,20,on,Captain,Cruiser
-               @prompt Name your ship, %w%LFederation Captain {@?realname *{@?id me}}: = #19306 = #19313 = #19315
+               @prompt %g%LName your ship, %w%LFederation Captain {@?realname *{@?id me}}: = #19306 = #19313 = #19315
           @end
     @end
   
