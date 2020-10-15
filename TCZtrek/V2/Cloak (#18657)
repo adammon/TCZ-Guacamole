@@ -1,3 +1,29 @@
 REM Special Ability for Scout Ship
 REM Pay 10AP to set your current location to n
 
+@chpid
+@temp curGrow = {@?itemno 3 "," {@?desc #1638[{@?id me}]}}
+@temp CurGcol = {@?itemno 4 "," {@?desc #1638[{@?id me}]}}
+@temp curSrow = {@?itemno 5 "," {@?desc #1638[{@?id me}]}}
+@temp curScol = {@?itemno 6 "," {@?desc #1638[{@?id me}]}}
+
+@if {@eval {@?exists #1638[{@?id me}]}} do	
+     @temp CurrentAP = {@?itemno 12 "," {@?desc #1638[{@?id me}]}}
+     @if {@eval $CurrentAP > 0} Do
+       @if {@eval "{@?itemno 12 "," {@?desc #1638[{@?id me}]}}" = "Scout"} do
+         @if {@eval $CurrentAP > 5} Do
+          
+          REM - CLOAK THE SHIP
+           @temp NewAP = {@eval $(currentAP) - 5}
+           @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+           #2567 $(curGrow);$(curGcol);$(curSrow);$(curScol);n
+         @else
+          @echo %g%LYour cloaking device requires %y%L5AP%g%L to utilize, sir. Have you not read the manual?
+       @else
+          @echo %g%LOnly scout ships are currently outfitted with cloaking devices, sir.
+    @else
+      @echo %g%LNo more action points, sir. 
+    @end
+@else
+@echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
+@end
