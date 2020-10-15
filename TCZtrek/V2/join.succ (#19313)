@@ -5,9 +5,11 @@ REM Joiner post-prompt
 
 
 @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = F} do
-     @desc #1638[{@?id me}] = {@?modify "$(shipclassF) $1" 2 "," {@?Desc #1638[{@?id me}]}
+     @desc #1638[{@?id me}] = {@?modify "$(shipclassF) {@?capitalise $1}" 2 "," {@?Desc #1638[{@?id me}]}
+     @echo %g%LWelcome aboard the %w%LStarship $(shipclassF) {@?capitalise $1}%g%L, Captain. Live long and prosper.
 @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = K} do
-    @desc #1638[{@?id me}] = {@?modify "$(shipclassK) $1" 2 "," {@?Desc #1638[{@?id me}]}
+    @desc #1638[{@?id me}] = {@?modify "$(shipclassK) {@?capitalise $1}" 2 "," {@?Desc #1638[{@?id me}]}
+    @echo %g%LWelcome aboard the %w%LStarship $(shipclassK) {@?capitalise $1}%g%L, Captain. Revenge is a dish best served cold.
 @end
 
-@echo %g%LWelcome aboard the %w%LStarship $(shipclassK) $1%g%L, Captain.
+
