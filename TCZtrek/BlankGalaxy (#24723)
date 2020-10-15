@@ -5,6 +5,10 @@
      @for 1 to 15 do
         @temp col = $4
         @desc #24719[$(row)x$(col)] = {@?drop {@?myself}}
+        @desc #24719[1x1]=O;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n
+        @desc #24719[15x15]=n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;n{@?newline}n;n;n;n;n;n;n;n;O
      @end
   @end
   @desc #2578 = {@?odrop {@?myself}}
+
+
