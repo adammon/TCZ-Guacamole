@@ -3,3 +3,4 @@ REM Joiner post-prompt
 
 
 @echo %g%LWe tried to beam you aboard %w%LStarship $1%g%L, %w%LCaptain {@?realname {@?id me}}%g%L, however your molecules were scrambled by a tachyon beam. Maybe try again later?
+@destroy #1638[{@?id me}]
