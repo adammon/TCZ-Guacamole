@@ -45,21 +45,21 @@
       @end
       @temp postamble = {@?newline} %w%LThank you to all players. The universe has now been reset for a new game. {@?newline}{@?newline}Please visit %y%LTCZTrek %w%Lfor the next phase of battle!
 
- @echo $(subject)
-@echo $(title)
-  @echo $(line)
-  @echo $(prelist)
- @echo $(winners)
-  @echo $(line)
-  @echo $(postamble)
+REM @echo $(subject)
+REM @echo $(title)
+REM   @echo $(line)
+REM   @echo $(prelist)
+REM  @echo $(winners)
+REM   @echo $(line)
+REM   @echo $(postamble)
      
  @force *#2158 = bbs topic games/tcztrek
  @force *#2158 = bbs add $(subject) = $(title)$(line)$(winners)$(line)$(postamble)
-REM #24723
-REM @destroy #1638[ALL]
+#24723
+ @destroy #1638[ALL]
  @desc #1638[#1] =Klingon,Empty Space,15,15,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
 @desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
- REM @drop #31211 = {@eval {@?drop #31211} + 1}
+@drop #31211 = {@eval {@?drop #31211} + 1}
 @echo {@?drop #31211}
 @else
 @echo No winner!
