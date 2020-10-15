@@ -57,8 +57,8 @@ REM   @echo $(postamble)
  @force *#2158 = bbs add $(subject) = $(title)$(line)$(winners)$(line)$(postamble)
 #24723
  @destroy #1638[ALL]
- @desc #1638[#1] =Klingon,Empty Space,15,15,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
-@desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain
+ @desc #1638[#1] =Klingon,Empty Space,15,15,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain,Cruiser
+@desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain,Cruiser
 @drop #31211 = {@eval {@?drop #31211} + 1}
 @echo {@?drop #31211}
 @else
