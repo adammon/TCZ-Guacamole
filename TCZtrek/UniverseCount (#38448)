@@ -11,6 +11,10 @@
             @temp galFed = {@eval 1 + $(galFed)}
           @else {@eval ("$(value)" = "#1")} do 
             @temp galKli = {@eval 1 + $(galKli)}
+          @else{@eval ("$(value)" = "#2")} do 
+            @temp galFed = {@eval 1 + $(galFed)}
+          @else {@eval ("$(value)" = "#3")} do 
+            @temp galKli = {@eval 1 + $(galKli)}
           @else {@eval ("$(value)" = "n")} do 
             @temp galNeu = {@eval 1 + $(galNeu)}
           @end
