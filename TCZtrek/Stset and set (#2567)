@@ -38,9 +38,17 @@ REM Setter for Galaxy/Sector coordinates
           @end
           REM @echo F: $(numF), K:$(numK)
            @if {@eval $(numF) > $(numK)} do
+              @if {@eval ($(numF) - $(numK)) >= 5} do
               @temp galaxy = {@?modify "{@?modify "#0" $(gcol) ";" "{@?itemno $(grow) "{@?newline}" "$(galaxy)"}"}" $(grow) "{@?newline}" "$(galaxy)"}
+              @else {@eval ($(numF) - $(numK)) < 5} do
+              @temp galaxy = {@?modify "{@?modify "#2" $(gcol) ";" "{@?itemno $(grow) "{@?newline}" "$(galaxy)"}"}" $(grow) "{@?newline}" "$(galaxy)"}
+              @end
            @else {@eval $(numK) > $(numF)} do
+              @if {@eval ($(numK) - $(numF)) >= 5} do
               @temp galaxy = {@?modify "{@?modify "#1" $(gcol) ";" "{@?itemno $(grow) "{@?newline}" "$(galaxy)"}"}" $(grow) "{@?newline}" "$(galaxy)"}
+              @else {@eval ($(numK) - $(numF)) < 5} do
+              @temp galaxy = {@?modify "{@?modify "#3" $(gcol) ";" "{@?itemno $(grow) "{@?newline}" "$(galaxy)"}"}" $(grow) "{@?newline}" "$(galaxy)"}
+              @end
            @end
 
            REM Don't update galaxy if someone won a sector cell and it became even, must take lead
