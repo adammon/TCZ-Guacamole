@@ -43,7 +43,7 @@ V1.6
 %y%L2. %w%LFixed instances where sector captures along the last column don't get counted towards a galaxy capture.
 %y%L3. %W%LFixed game end mechanics where a BBS post wasn't being made and the game wouldn't end.
 %y%L4. %w%LFixed game reset to add back colouring system placeholders.
-%y%L5. %w%lActually added comma check that I had lied about previously so you boobs wouldn't break the game continually.
+%y%L5. %w%lComma and semi-colon checking officially added to the join command.
 
 Enhancements!
 %y%L1. Added the season number to trekkill.
