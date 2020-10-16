@@ -35,3 +35,18 @@ V1.5
 %g%LFurther TCZTrek Updates! 
 %y%L1. %w%LNew command %y%LTrekstat%w%L for all the details on player conduct within the game.
 %y%L2. %w%Lnew command %y%Ltrekkill%w%L for a list of murders and victims in the game by date.
+
+
+V1.6
+%g%LFixes!
+%y%L1. %w%LFixed Lorax Manoeuvre with torpedos.
+%y%L2. %w%LFixed instances where sector captures along the last column don't get counted towards a galaxy capture.
+%y%L3. %W%LFixed game end mechanics where a BBS post wasn't being made and the game wouldn't end.
+%y%L4. %w%LFixed game reset to add back colouring system placeholders.
+%y%L5. %w%lActually added comma check that I had lied about previously so you boobs wouldn't break the game continually.
+
+Enhancements!
+%y%L1. Added the season number to trekkill.
+%y%L2. Improved "join" command lets you know which team you're on first BEFORE you enter a name. Just type "join" at TCZtrek and follow the prompts.
+%y%L3. New galaxy map colour coding: darker colours indicate a weaker conquer while brighter colours indicate stronger sector controls. (Controlling a galaxy by 5 or more sectors over the opponents makes it bright)
+
