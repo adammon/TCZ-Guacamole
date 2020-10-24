@@ -8,13 +8,17 @@
      @for 1 to 9 do
           @temp srow = $4
           @temp value = {#24738 {@?itemno 3 "," {@?desc #1638[{@?id me}]}};{@?itemno 4 "," {@?desc #1638[{@?id me}]}};$(srow);$(scol)}          
-          @if {@eval "{@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$(value)]}}}" = "F")} do 
-            @temp galFed = {@eval 1 + $(galFed)}
-          @else {@eval "{@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$(value)]}}}" = "K")} do
-            @temp galKli = {@eval 1 + $(galKli)}
+          @if {@eval ("{@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$(value)]}}}" = "F")} do 
+            @temp secFed = {@eval 1 + $(secFed)}
+          @else {@eval ("{@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$(value)]}}}" = "K")} do
+            @temp secKli = {@eval 1 + $(secKli)}
+          @else {@eval ("$(value)" = "#3")} do
+            @temp secKli = {@eval 1 + $(secKli)}
+          @else {@eval ("$(value)" = "#2")} do
+            @temp secFed = {@eval 1 + $(secFed)}
           @else {@eval ("$(value)" = "n")} do 
-            @temp galNeu = {@eval 1 + $(galNeu)}
+            @temp secNeu = {@eval 1 + $(secNeu)}
           @end
      @end
 @end
-@echo {@?padcentre 105 " " "%b%LFederation Sector: {%w%L}$(galFed) {%M%L}| {%r%L}Klingon Sector: {%w%L}$(galKli) {%M%L}| {%w}Neutral Sectors: {%w%L}$(galNeu)"}
+@echo {@?padcentre 105 " " "%b%LFederation Sectors: {%w%L}$(secFed) {%M%L}| {%r%L}Klingon Sectors: {%w%L}$(secKli) {%M%L}| {%w}Neutral Sectors: {%w%L}$(secNeu)"}
