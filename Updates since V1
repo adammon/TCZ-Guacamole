@@ -50,4 +50,5 @@ Enhancements!
 %y%L2. Improved "join" command lets you know which team you're on first BEFORE you enter a name. Just type "join" at TCZtrek and follow the prompts.
 %y%L3. Increased torpedo accuracy to take into account distance. If you're close, accuracy will be 60% and decline by 1% for every space you are away from your opponent.
 %y%L4. Added functionality to allow for galaxy colour coding. Future Use: Controlling a galaxy by 5 or more sectors over the opponents makes it a different colour.
+%y%L5. Added a sectorcount to to the shortrange scan so you can see how many sectors are controlled in your galaxy.
 
