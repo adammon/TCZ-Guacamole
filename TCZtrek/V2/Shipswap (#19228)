@@ -30,11 +30,11 @@ REM Allow players to change their ship to a new type
       @temp NewAP = {@?itemno 5 "," "{@?desc #18636[$1]}"}
       @echo $(newPhasers), $(newTorpedos), $(newArmor), $(newShields), $(newAP)
       @echo $1
-      @desc #1638[$(oppID)] = {@?modify "$(newPhasers)" 8 "," "{@?desc #1638[$(oppID)]}"}
-      @desc #1638[$(oppID)] = {@?modify "$(newTorpedos)" 9 "," "{@?desc #1638[$(oppID)]}"}
-      @desc #1638[$(oppID)] = {@?modify "$(newArmor)" 10 "," "{@?desc #1638[$(oppID)]}"}
-      @desc #1638[$(oppID)] = {@?modify "$(newShields)" 11 "," "{@?desc #1638[$(oppID)]}"}
-      @desc #1638[$(oppID)] = {@?modify "$(newAP)" 12 "," "{@?desc #1638[$(oppID)]}"}
+      REM @desc #1638[{@?id me}] = {@?modify "$(newPhasers)" 8 "," "{@?desc #1638[{@?id me}]}"}
+      REM @desc #1638[{@?id me}] = {@?modify "$(newTorpedos)" 9 "," "{@?desc #1638[{@?id me}]}"}
+      REM @desc #1638[{@?id me}] = {@?modify "$(newArmor)" 10 "," "{@?desc #1638[{@?id me}]}"}
+      REM @desc #1638[{@?id me}] = {@?modify "$(newShields)" 11 "," "{@?desc #1638[{@?id me}]}"}
+      REM @desc #1638[{@?id me}] = {@?modify "$(newAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
    @end
 @else
   @echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
