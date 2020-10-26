@@ -2,7 +2,7 @@ REM Allow players to change their ship to a new type
 
 
 @chpid
-@if {@?exists #1638[{@?id me}]} do	
+REM @if {@?exists #1638[{@?id me}]} do	
    @temp CurrentShip = {@?itemno 15 "," {@?desc #1638[{@?id me}]}}
    @temp CurrentName = {@?itemno 2 "," {@?desc #1638[{@?id me}]}}
    @if {@eval "$1" = ""} do
