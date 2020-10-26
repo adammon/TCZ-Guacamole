@@ -40,6 +40,6 @@ REM @if {@?exists #1638[{@?id me}]} do
       REM @desc #1638[{@?id me}] = {@?modify "$(newAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
    @end
    @end
-@else
-  @echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
-@end
+REM @else
+REM  @echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
+REM @end
