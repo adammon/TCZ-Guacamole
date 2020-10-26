@@ -1,5 +1,5 @@
 REM Special Ability for Scout Ship
-REM Pay 10AP to set your current location to n
+REM Pay 5AP to set your current location to n
 
 @chpid
 @temp curGrow = {@?itemno 3 "," {@?desc #1638[{@?id me}]}}
