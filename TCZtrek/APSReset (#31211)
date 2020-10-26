@@ -36,4 +36,6 @@ REM - Resetting AP in the event of both even and uneven playercounts.
    @If {@eval {@?upper {@?leftstr 1 "{@?itemno 1 "," $6}"} == "K"} do @desc #1638[$7] = {@?modify "$(KliAP)" 12 "," "{@?desc #1638[$7]}"}
 @end
 
+@drop #31211 = {@eval {@?odrop #31211} + 1}
+
 #45491
