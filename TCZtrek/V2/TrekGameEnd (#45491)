@@ -1,0 +1,85 @@
+
+@sort #1638 = alpha ascending elements 1 ","
+@temp galFed = 0
+@temp galKli = 0
+@temp galNeu = 0
+
+@for 1 to 15 do 
+     @temp gcol = $4
+     @for 1 to 15 do
+          @temp grow = $4
+          @temp value = {@?itemno $(gcol) ";" "{@?itemno $(grow) "{@?newline}" "{@?desc #2578}"}"}
+          @if {@eval ("$(value)" = "#0")} do 
+            @temp galFed = {@eval 1 + $(galFed)}
+          @else {@eval ("$(value)" = "#1")} do 
+            @temp galKli = {@eval 1 + $(galKli)}
+          @else {@eval ("$(value)" = "#2")} do 
+            @temp galFed = {@eval 1 + $(galFed)}   
+           @else {@eval ("$(value)" = "#3")} do 
+            @temp galKli = {@eval 1 + $(galKli)}
+          @else {@eval ("$(value)" = "n")} do 
+            @temp galNeu = {@eval 1 + $(galNeu)}
+          @end
+     @end
+@end
+
+@temp winners
+
+
+@if {@eval ($(galFed) >= 225 && {@?odrop #31211 < 336)} do
+@temp wincondition = F
+@else {@eval ($(galKli) >= 225 && {@?odrop #31211 < 336)} do
+@temp wincondition = K
+@else {@eval ($(galKli) > $(galFed) && {@?odrop #31211 = 336)} do
+@temp wincondition = K
+@else {@eval ($(galFed) > $(galKli) && {@?odrop #31211 = 336)} do
+@temp wincondition = K
+@else 
+@temp wincondition = N
+@end
+
+@if {@eval ("$(wincondition)" ="F") || "$(wincondition)" ="K")}   do
+   @temp prelist = %[%m%l {@?padleft 24 " " "Name:"}{@?pad 25 " " "Ship:"}{@?newline}%[%g%l{@?pad 45 "-="}
+   @temp line = %[%g%l{@?pad 45 "-="}
+
+     @if {@eval "$(wincondition)" ="F"} do
+        @temp subject = Season {@?drop #31211} Winner: The United Federation of Planets! 
+        @temp title = %w%LCongratulations to the %b%LUnited Federation of Planets%w%L on their successful pacifying of the universe on this date! {@?newline}{@?newline}The following names will be recorded in the annals of history on this date as true heroes for the %b%LFederation%w%L!{@?newline} 
+        @with all elements #1638 do 
+           @if {@eval ("$7" <> "#0") && ("$7" <> "#1") && ("$7" <> "#1") && ({@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7]}}} = F) do
+               @temp winners={@?newline}%l %l %[%w%l{@?itemno 14 "," "$6"} {@?realname *$7} %g%Lof the%w%L {@?itemno 2 "," "$6"}{@?newline} $(winners) 
+           @end
+        @end
+       
+     @else {@eval "$(wincondition)" ="K"} do
+        @temp subject = Season {@?drop #31211} Winner: The Klingon Empire! 
+        @temp title = %w%LCongratulations to the %r%LKlingon Empire%w%L on their successful conquering of the universe on this date! {@?newline}{@?newline}The following names will be recorded for all ancestors to praise as true heroes for their triumphant decimation of the universe for the %r%LEmpire%w%L! %m%LQapla'!%w%L{@?newline} 
+        @with all elements #1638 do 
+              @if {@eval ("$7" <> "#0") && ("$7" <> "#1") && ("$7" <> "#1") && ({@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$7]}}} = K) do
+                  @temp winners={@?newline}%l %l %[%w%l{@?itemno 14 "," "$6"} {@?realname *$7} %g%Lof the%w%L {@?itemno 2 "," "$6"}{@?newline} $(winners) 
+              @end
+        @end
+      @end
+      @temp postamble = {@?newline} %w%LThank you to all players. The universe has now been reset for a new game. {@?newline}{@?newline}Please visit %y%LTCZTrek %w%Lfor the next phase of battle!
+
+REM @echo $(subject)
+REM @echo $(title)
+REM   @echo $(line)
+REM   @echo $(prelist)
+REM  @echo $(winners)
+REM   @echo $(line)
+REM   @echo $(postamble)
+     
+ @force *#2158 = bbs topic games/tcztrek
+ @force *#2158 = bbs add $(subject) = $(title)$(line)$(winners)$(line)$(postamble)
+#24723
+ @destroy #1638[ALL]
+ @desc #1638[#1] =Klingon,Empty Space,15,15,9,9,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain,Cruiser
+@desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain,Cruiser
+@drop #31211 = {@eval {@?drop #31211} + 1}
+@echo {@?drop #31211}
+@odrop #31211 = 0
+@else
+@echo No winner!
+@end
+@end
