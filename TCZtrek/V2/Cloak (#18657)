@@ -15,7 +15,7 @@ REM Pay 10AP to set your current location to n
           REM - CLOAK THE SHIP
            @temp NewAP = {@eval $(currentAP) - 5}
            @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
-           @desc #1638[{@?id me}] = {@?modify "Cloaked" 13 "," "{@?desc #1638[{@?id me}]}"}
+           @desc #1638[{@?id me}] = {@?modify "Cloaked" 15 "," "{@?desc #1638[{@?id me}]}"}
            #2567 $(curGrow);$(curGcol);$(curSrow);$(curScol);n
            @echo %g%LYou yell at your First Officer to engage the cloak, hiding from enemy patrols at the cost of %w%L5AP%g%L.
          @else
@@ -27,7 +27,7 @@ REM Pay 10AP to set your current location to n
           REM - UNCLOAK THE SHIP
            @temp NewAP = {@eval $(currentAP) - 5}
            @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
-           @desc #1638[{@?id me}] = {@?modify "Scout" 13 "," "{@?desc #1638[{@?id me}]}"}
+           @desc #1638[{@?id me}] = {@?modify "Scout" 15 "," "{@?desc #1638[{@?id me}]}"}
            #2567 $(curGrow);$(curGcol);$(curSrow);$(curScol);{@?id me}
            @echo %g%L"%w%LDisengage the cloak%g%L," you order, at the cost of %w%L5AP%g%L.
          @else
