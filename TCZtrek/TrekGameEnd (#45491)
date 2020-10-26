@@ -65,6 +65,7 @@ REM   @echo $(postamble)
 @desc #1638[#0] =Federation,Empty Space,1,1,1,1,%w%L%i%g%LGreen%w%L,0,0,0,0,0,off,Captain,Cruiser
 @drop #31211 = {@eval {@?drop #31211} + 1}
 @echo {@?drop #31211}
+@odrop #31211 = 0
 @else
 @echo No winner!
 @end
