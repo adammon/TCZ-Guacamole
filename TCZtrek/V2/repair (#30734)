@@ -1,0 +1,48 @@
+REM Repairing armor/shields at Starbase start locations
+@chpid
+@if {@eval {@?exists #1638[{@?id me}]}} do	
+REM No arguments, but have to compare current location against starbase LOC.
+
+     @temp curgrow = {@?itemno 3 "," {@?desc #1638[{@?id me}]}}
+     @temp curgcol = {@?itemno 4 "," {@?desc #1638[{@?id me}]}}
+     @temp cursrow = {@?itemno 5 "," {@?desc #1638[{@?id me}]}}
+     @temp curscol = {@?itemno 6 "," {@?desc #1638[{@?id me}]}}
+     @temp CurrentAP = {@?itemno 12 "," {@?desc #1638[{@?id me}]}}
+     @temp ShipMaxArmor = {@?itemno 3 "," "{@?desc #18636[{@?itemno 15 "," {@?desc #1638[$(oppID)]}}]}"} 
+     @temp ShipMaxShields = {@?itemno 4 "," "{@?desc #18636[{@?itemno 15 "," {@?desc #1638[$(oppID)]}}]}"}
+
+@if {@eval $CurrentAP > 0} Do
+     
+     
+@if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = K} do
+    @if {@eval ((abs ($(cursrow) - 9) < 2) && ((abs ($(curscol) - 9) < 2) && ($(curgrow) = 15) && ($(curgcol) = 15))} Do
+        @desc #1638[{@?id me}] = {@?modify "$(ShipMaxArmor)" 10 "," "{@?desc #1638[{@?id me}]}"}
+        @desc #1638[{@?id me}] = {@?modify "$(ShipMaxShields)" 11 "," "{@?desc #1638[{@?id me}]}"}
+        @temp NewAP = {@eval $(currentAP) - 1}
+        @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+        @echo %g%LYou use %w%L1AP%g%L to %y%Lrepair %g%Lyour armor and shields to full strength.
+        #36688 {@?id me};6
+    @else
+        @echo %g%LYou are not close to your starbase in Galaxy %w%L15%y%L,%w%L15 %g%LSector %w%L9%y%L,%w%l9%g%l.
+    @end
+
+@else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = F} do
+    @if {@eval ((abs ($(cursrow) - 1) < 2) && ((abs ($(curscol) - 1) < 2) && ($(curgrow) = 1) && ($(curgcol) = 1))} Do
+    
+        @desc #1638[{@?id me}] = {@?modify "$(ShipMaxArmor)" 10 "," "{@?desc #1638[{@?id me}]}"}
+        @desc #1638[{@?id me}] = {@?modify "$(ShipMaxShields)" 11 "," "{@?desc #1638[{@?id me}]}"}
+        @temp NewAP = {@eval $(currentAP) - 1}
+        @desc #1638[{@?id me}] = {@?modify "$(NewAP)" 12 "," "{@?desc #1638[{@?id me}]}"}
+        @echo %g%LYou use %w%L1AP%g%L to %y%Lrepair %g%Lyour armor and shields to full strength.
+        #36688 {@?id me};6
+    @else
+        @echo %g%LYou are not close to your starbase in Galaxy %w%L1%y%L,%w%L1 %g%LSector %w%L1%y%L,%w%l1%g%l.
+    @end
+    
+@end
+@else
+@echo %g%LNo more action points, sir. 
+@end
+@else
+@echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
+@end
