@@ -15,8 +15,8 @@ REM #2 - Damage done
      @if {@?exists #1638[$(oppID)] do
          @temp OppHealth = {@?itemno 10 "," {@?desc #1638[$(oppID)]}}
          @temp OppShields = {@?itemno 11 "," {@?desc #1638[$(oppID)]}}
-         @temp ShipMaxArmor = {@?itemno 3 "," "{@?desc #18636[{@?itemno 15 "," {@?desc #1638[$(oppID]}}]}"} 
-         @temp ShipMaxShields = {@?itemno 4 "," "{@?desc #18636[{@?itemno 15 "," {@?desc #1638[$(oppID]}}]}"}
+         @temp ShipMaxArmor = {@?itemno 3 "," "{@?desc #18636[{@?itemno 15 "," {@?desc #1638[$(oppID)]}}]}"} 
+         @temp ShipMaxShields = {@?itemno 4 "," "{@?desc #18636[{@?itemno 15 "," {@?desc #1638[$(oppID)]}}]}"}
          @if {@eval $(damage) <= $(OppShields) do
               @temp NewShields = {@eval $(OppShields) - $(Damage)}
               @temp NewHealth = {@eval $(OppHealth)}
