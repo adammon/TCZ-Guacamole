@@ -11,4 +11,11 @@ Science Ship - Normal AP, half weapons, 1/2 armor, double shields,detects change
    @echo %g%LCarrier 10,10,150,0,10
    @echo %g%LBattleship 40,40,100,50,10
    @echo %g%lScience %w%LShip 10,10,50,150,20
+   
+@desc #18636[Scout]=10,10,50,50,40,%g%LCloak
+@desc #18636[Carrier]=10,10,150,0,10,%g%LReload %w%L(For others)
+@desc #18636[Cruiser]=20,20,100,100,20,None
+@desc #18636[Battleship]=40,40,100,50,10,%g%LQuantum
+@desc #18636[Science]=10,10,50,150,20,%g%LHeal/%r%LSteal
+
 
