@@ -1,9 +1,14 @@
 Ship classes                                                                 + Special ability
 
 Scout      - Double the AP, half weapons, 1/4 the armor, no shields               Cloak - 5AP - 
-Carrier    - Half the AP, half weapons, double armor, no shields                  Allow other team members to reload next to you.
 Cruiser    - Default ship, normal AP, weapons, armor, shields                     None
+Carrier    - Half the AP, half weapons, double armor, no shields                  Allow other team members to reload next to you.
 Battleship - 3/4 the AP, double weapons, normal armor, 1/2 shields                Quantum torpedo - 5AP - 
 Science Ship - Normal AP, half weapons, 1/2 armor, double shields,detects changes in galaxy                AP steal enemies or AP heal friends
 
+   @echo %g%LScout 10,10,50,50,40
+   @echo %g%LCruiser 20,20,100,100,20 
+   @echo %g%LCarrier 10,10,150,0,10
+   @echo %g%LBattleship 40,40,100,50,10
+   @echo %g%lScience %w%LShip 10,10,50,150,20
 
