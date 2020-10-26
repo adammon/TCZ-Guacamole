@@ -1,0 +1,36 @@
+REM Allow players to change their ship to a new type
+
+
+@chpid
+@if {@?exists #1638[{@?id me}]} do	
+   @temp CurrentShip = {@?itemno 15 "," {@?desc #1638[{@?id me}]}}
+   @temp CurrentName = {@?itemno 2 "," {@?desc #1638[{@?id me}]}}
+   @if {@eval "$1" = "help"} do
+     ~%[%g%l{@?pad 85 "-="}
+     @echo %y%LYou are currently flying a %w%L$(CurrentShip)%y%L, the %w%L$(CurrentName)%y%L.
+     ~%[%g%l{@?pad 85 "-="}
+     @echo {@?padcentre  85 "{%c%L}-" "{%y%L}Ships Available{%C%L}"}
+     ~%[%g%l{@?pad 85 "-="}
+     @echo %[%m%l {@?padleft 12 " " ""}{@?padleft 8 " " "Phasers"}%l %l %L {@?pad 8 " " "Torpedos"}%l %l %l {@?pad 8 " " "Armor"}%l %l %l %l{@?pad 6 " " "Shields"}%l %l %l %l{@?pad 5 " " "AP"}%l %l %l %l{@?pad 8 " " "Special"}
+     @with all elements #18636 do 
+       @echo %[%w%l{@?pad 13 " " "$7"}{@?pad 8 " "  "{@?itemno 1 "," "$6"}"}%l %l %l %l{@?pad 8 " "  "{@?itemno 2 "," "$6"}"}%l %l %l %l{@?pad 8 " "  "{@?itemno 3 "," "$6"}"}%l %l %l %l{@?pad 6 " "  "{@?itemno 4 "," "$6"}"}%l %l %l %l{@?pad 5 " "  "{@?itemno 5 "," "$6"}"}%l %l %l %l{@?pad 28 " "  "{@?itemno 6 "," "$6"}"}
+    @end
+    ~%[%g%l{@?pad 85 "-="}
+    @else {@eval "$1" = "{@?itemno 15 "," {@?desc #1638[{@?id me}]}}"} do
+       @echo %w%LLieutenant Hudson %g%Lhails your ready room quite urgently...
+       @echo %g%LYou want to swap your %w%L{@?itemno 15 "," {@?desc #1638[{@?id me}]}} %g%Lfor another %w%L{@?itemno 15 "," {@?desc #1638[{@?id me}]}}%g%L? {@?newline}{@?newline}%w%LI should fine you %y%L5AP%w%L for being dumb. %m%LREQUEST DENIED%g%L!
+    @else false {@?exists #18636[$1]} do
+       @echo %w%LLieutenant Hudson %g%Lhails your ready room quite urgently...
+       @echo %g%LI'm not quite sure what kind of nonsense ship class a %w%L$1%g%L is. {@?newline}{@?newline}%w%LI should fine you %y%L5AP%w%L for being dumb. %m%LREQUEST DENIED%g%L!
+    @else 
+      @temp NewPhasers = {@?itemno 1 "," "{@?desc #18636[$1]}"}
+      @temp NewTorpedos = {@?itemno 2 "," "{@?desc #18636[$1]}"}
+      @temp NewArmor = {@?itemno 3 "," "{@?desc #18636[$1]}"}
+      @temp NewShields = {@?itemno 4 "," "{@?desc #18636[$1]}"}
+      @temp NewAP = {@?itemno 5 "," "{@?desc #18636[$1]}"}
+      @echo $(newPhasers), $(newTorpedos), $(newArmor), $(newShields), $(newAP)
+      @echo $1
+   @end
+@else
+  @echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
+@end
