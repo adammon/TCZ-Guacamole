@@ -1,5 +1,5 @@
 REM Element = class
-REM AP,phasers,torpedos,armor,shields
+REM phasers,torpedos,armor,shields,AP
 
 
 
@@ -9,11 +9,11 @@ Cruiser    - Default ship, normal AP, weapons, armor, shields                   
 Battleship - 3/4 the AP, double weapons, normal armor, 1/2 shields                Quantum torpedo - 5AP - 
 Science Ship - Normal AP, half weapons, 1/2 armor, double shields                 AP steal enemies or AP heal friends
 
-@desc #18636[Scout]=10,10,50,50,40
-@desc #18636[Carrier]=10,10,150,0,10
-@desc #18636[Cruiser]=20,20,100,100,20
-@desc #18636[Battleship]=40,40,100,50,20
-@desc #18636[Science]=10,10,50,150,20
+@desc #18636[Scout]=10,10,50,50,50,%g%LCloak
+@desc #18636[Carrier]=10,10,150,0,20,%g%LReload %w%L(For others)
+@desc #18636[Cruiser]=20,20,100,100,30,None
+@desc #18636[Battleship]=40,40,100,50,20,%g%LQuantum
+@desc #18636[Science]=10,10,50,150,30,%g%LHeal/%r%LSteal
 
 AP 5 points       
 Phasers 1 point   
