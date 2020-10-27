@@ -11,7 +11,13 @@ REM Joiner post-prompt
 @else {@eval {@?noitems ";" "$1"} > 1} do
          @echo %g%LNo semicolons, you tribble.
          @return false
-@else 
+@else {@eval {@?controller} != {@?id me}} do
+         @echo %g%LNo puppets, you muppet.
+         @return false
+@else {@eval {@?set {@?id me} = BEING} do
+         @echo %g%LNo puppets, you admin muppet.
+         @return false        
+ @else 
      @temp shipname = {@?capitalise $1}
      @temp shipclassK = IKS
      @temp shipclassF = USS
