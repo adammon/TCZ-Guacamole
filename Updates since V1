@@ -39,18 +39,18 @@ V1.5
 
 V1.6 - TCZTrek updates!
 %g%LFixes!
-%5%y%L1. %w%LFixed Lorax Manoeuvre with torpedos.
-%5%y%L2. %w%LFixed instances where sector captures along the last column don't get counted towards a galaxy capture.
-%5%y%L3. %W%LFixed game end mechanics where a BBS post wasn't being made and the game wouldn't end.
-%5%y%L4. %w%LFixed game reset to add back colouring system placeholders.
-%5%y%L5. %w%lComma and semi-colon checking officially added to the join command.
+%4%y%L1. %w%LFixed Lorax Manoeuvre with torpedos.
+%4%y%L2. %w%LFixed instances where sector captures along the last column don't get counted towards a galaxy capture.
+%4%y%L3. %W%LFixed game end mechanics where a BBS post wasn't being made and the game wouldn't end.
+%4%y%L4. %w%LFixed game reset to add back colouring system placeholders.
+%4%y%L5. %w%lComma and semi-colon checking officially added to the join command.
 
 %g%LEnhancements!
-%5%y%L1. %w%LAdded the season number to trekkill.
+%4%y%L1. %w%LAdded the season number to trekkill.
 %5%y%L2. %w%LImproved "join" command lets you know which team you're on first BEFORE you enter a name. Just type "join" at TCZtrek and follow the prompts.
-%5%y%L3. %w%LIncreased torpedo accuracy to take into account distance. If you're close, accuracy will be 60% and decline by 1% for every space you are away from your opponent.
-%5%y%L4. %w%LAdded functionality to allow for galaxy colour coding. Future Use: Controlling a galaxy by 5 or more sectors over the opponents makes it a different colour.
-%5%y%L5. %w%LAdded a sectorcount to to the shortrange scan so you can see how many sectors are controlled in your galaxy.
+%4%y%L3. %w%LIncreased torpedo accuracy to take into account distance. If you're close, accuracy will be 60% and decline by 1% for every space you are away from your opponent.
+%4%y%L4. %w%LAdded functionality to allow for galaxy colour coding. Future Use: Controlling a galaxy by 5 or more sectors over the opponents makes it a different colour.
+%4%y%L5. %w%LAdded a sectorcount to to the shortrange scan so you can see how many sectors are controlled in your galaxy.
 
 If you have any issues, please forward along your concerns to the appropriate mailbox.  And thanks for playing!
 
