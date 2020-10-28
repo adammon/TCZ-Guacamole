@@ -33,7 +33,9 @@ REM rand 0 - Heal itself 50
      @else {@eval ($(randMove) = 5} do
         DAMAGE
       @else {@eval ($(randMove) = 0} do  
-        HEAL
+       @temp oldhealth = {@?itemno 6 "," {@?desc #1638[$6]}}
+       @temp newhealth = {@eval $(oldhealth) + 50}
+       @desc #1638[#2158] = {@?modify "$(newhealth)" 10 "," "{@?desc #1638[#2158]}"}
      @else
        @echo Nothing done.
      @end
