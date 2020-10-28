@@ -8,10 +8,36 @@ REM rand 7 - warp up
 REM rand 9 - warp right
 REM rand 3 - warp down
 REM rand 5 - 150 damage to ships in sector
-REM rand 0 - Nothing
+REM rand 0 - Heal itself 50 
 
 @if {@eval {@?exists #1638[#2158]}} do	
+
+  @while {@eval $5 <= 3} do 
     @temp randMove = {@?rand 10}
+    @if {@eval ($(randMove) = 8} do
+        @force *#2158 = impulse up
+    @else {@eval ($(randMove) = 6} do
+        @force *#2158 = impulse right
+    @else {@eval ($(randMove) = 2} do
+        @force *#2158 = impulse down
+     @else {@eval ($(randMove) = 4} do
+        @force *#2158 = impulse left
+     @else {@eval ($(randMove) = 1} do
+        @force *#2158 = warp left
+     @else {@eval ($(randMove) = 7} do
+        @force *#2158 = warp up
+     @else {@eval ($(randMove) = 9} do
+        @force *#2158 = warp right
+     @else {@eval ($(randMove) = 3} do
+        @force *#2158 = warp down
+     @else {@eval ($(randMove) = 5} do
+        DAMAGE
+      @else {@eval ($(randMove) = 0} do  
+        HEAL
+     @else
+       @echo Nothing done.
+     @end
+   @end
 @else
     @Echo No borg in game.
 @end
