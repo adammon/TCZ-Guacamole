@@ -21,6 +21,8 @@ REM #1 ID#
           @temp mapIcon = %w%l%i%b%LF
      @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$1]}}} = K} do
           @temp mapIcon = %w%L%i%r%LK
+     @else {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[$1]}}} = B} do
+          @temp mapIcon = %w%L%i%g%LB
      @end
 @end
 
