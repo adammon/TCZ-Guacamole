@@ -11,7 +11,8 @@ REM rand 5 - 150 damage to ships in sector
 REM rand 0 - Heal itself 50 
 
 @if {@eval {@?exists #1638[#2158]}} do	
-
+     @temp grow = {@?itemno 1 ";" "$3"}
+     @temp gcol = {@?itemno 2 ";" "$3"}
   @while {@eval $5 <= 3} do 
     @temp randMove = {@?rand 10}
     @if {@eval ($(randMove) = 8} do
@@ -31,7 +32,13 @@ REM rand 0 - Heal itself 50
      @else {@eval ($(randMove) = 3} do
         @force *#2158 = warp down
      @else {@eval ($(randMove) = 5} do
-        DAMAGE
+        @for 1 to 9 do
+            @temp srow = $4
+            @for 1 to 9 do
+              @temp col = $4
+               @if {@?exists #1638[{#24738 {@?itemno 3 "," {@?desc #1638[{@?id me}]}};{@?itemno 4 "," {@?desc #1638[{@?id me}]}};$(srow);$(scol)}]} do
+                  #33604 {#24738 {@?itemno 3 "," {@?desc #1638[{@?id me}]}};{@?itemno 4 "," {@?desc #1638[{@?id me}]}};$(srow);$(scol)};150
+               @end              
       @else {@eval ($(randMove) = 0} do  
        @temp oldhealth = {@?itemno 6 "," {@?desc #1638[$6]}}
        @temp newhealth = {@eval $(oldhealth) + 50}
