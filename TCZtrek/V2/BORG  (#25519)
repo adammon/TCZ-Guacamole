@@ -1,1 +1,17 @@
+REM - random BORG movements once it's in play. Highlighted as B in short range sensors. Converts sectors to neutrals.
+REM rand 8 - impulse up
+REM rand 6 - impulse right
+REM rand 2 - impulse down
+REM rand 4 - impulse left
+REM rand 1 - warp left
+REM rand 7 - warp up
+REM rand 9 - warp right
+REM rand 3 - warp down
+REM rand 5 - 150 damage to ships in sector
+REM rand 0 - Nothing
 
+@if {@eval {@?exists #1638[#2158]}} do	
+    @temp randMove = {@?rand 10}
+@else
+    @Echo No borg in game.
+@end
