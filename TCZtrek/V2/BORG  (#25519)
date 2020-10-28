@@ -37,7 +37,10 @@ REM rand 0 - Heal itself 50
             @for 1 to 9 do
               @temp col = $4
                @if {@?exists #1638[{#24738 {@?itemno 3 "," {@?desc #1638[{@?id me}]}};{@?itemno 4 "," {@?desc #1638[{@?id me}]}};$(srow);$(scol)}]} do
+               @temp playerID = {@?desc #1638[{#24738 {@?itemno 3 "," {@?desc #1638[{@?id me}]}};{@?itemno 4 "," {@?desc #1638[{@?id me}]}};$(srow);$(scol)}]}
+                  @if {@eval ("$(playerID)" <> "#1" || "$(playerID)" <> "#2" || "$(playerID)" <> "#3" || "$(playerID)" <> "#0")} do
                   #33604 {#24738 {@?itemno 3 "," {@?desc #1638[{@?id me}]}};{@?itemno 4 "," {@?desc #1638[{@?id me}]}};$(srow);$(scol)};150
+                  @end
                @end       
             @end
          @end
