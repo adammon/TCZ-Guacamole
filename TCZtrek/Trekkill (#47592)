@@ -23,11 +23,8 @@ REM Trek Kill List in a nice readable format
 @with $gr elements #46421  do 
 @if {@eval "{@?itemno 3 ";" "$6"}" = "#2158"} do
 @echo %[%w%l%i%g%l{@?pad 20 " " " {@?realtime {@eval {@?itemno 1 ";" "$6"} + ({@?timediff} * 3600)} = epoch = dd-M-yy hh:nn pp}"}%l %l {@?pad 15 " "  "{@?realname {@?itemno 2 ";" "$6"}}"}%l %l %l {@?pad 15 " " "Hudson of Borg"} %l %l{@?pad 7 " " "{@?itemno 4 ";" "$6"}"}%l %l %L {@?pad 7 " " "{@?itemno 5 ";" "$6"}"}%l %l %l {@?pad 7 " " "{@?itemno 6 ";" "$6"}"} 
-@else
-@echo %[%w%l{@?pad 20 " " " {@?realtime {@eval {@?itemno 1 ";" "$6"} + ({@?timediff} * 3600)} = epoch = dd-M-yy hh:nn pp}"}%l %l {@?pad 15 " "  "{@?realname {@?itemno 2 ";" "$6"}}"}%l %l %l {@?pad 15 " " "{@?realname {@?itemno 3 ";" "$6"}}"} %l %l{@?pad 7 " " "{@?itemno 4 ";" "$6"}"}%l %l %L {@?pad 7 " " "{@?itemno 5 ";" "$6"}"}%l %l %l {@?pad 7 " " "{@?itemno 6 ";" "$6"}"}  
-@end
-@if {@eval "{@?itemno 2 ";" "$6"}" = "#2158"} do
-@echo %[%w%l{@?pad 20 " " " {@?realtime {@eval {@?itemno 1 ";" "$6"} + ({@?timediff} * 3600)} = epoch = dd-M-yy hh:nn pp}"}%l %l %w%l%i%g%l{@?pad 15 " "  "{@?realname {@?itemno 2 ";" "$6"}}"}%w%l%l %l %l {@?pad 15 " " "Hudson of Borg"} %l %l{@?pad 7 " " "{@?itemno 4 ";" "$6"}"}%l %l %L {@?pad 7 " " "{@?itemno 5 ";" "$6"}"}%l %l %l {@?pad 7 " " "{@?itemno 6 ";" "$6"}"} 
+@else {@eval "{@?itemno 2 ";" "$6"}" = "#2158"} do
+@echo %[%w%l{@?pad 20 " " " {@?realtime {@eval {@?itemno 1 ";" "$6"} + ({@?timediff} * 3600)} = epoch = dd-M-yy hh:nn pp}"}%l %l %w%l%i%g%l{@?pad 15 " "  "Hudson of Borg"}%w%l%l %l %l {@?pad 15 " " "{@?realname {@?itemno 3 ";" "$6"}}"} %l %l{@?pad 7 " " "{@?itemno 4 ";" "$6"}"}%l %l %L {@?pad 7 " " "{@?itemno 5 ";" "$6"}"}%l %l %l {@?pad 7 " " "{@?itemno 6 ";" "$6"}"} 
 @else
 @echo %[%w%l{@?pad 20 " " " {@?realtime {@eval {@?itemno 1 ";" "$6"} + ({@?timediff} * 3600)} = epoch = dd-M-yy hh:nn pp}"}%l %l {@?pad 15 " "  "{@?realname {@?itemno 2 ";" "$6"}}"}%l %l %l {@?pad 15 " " "{@?realname {@?itemno 3 ";" "$6"}}"} %l %l{@?pad 7 " " "{@?itemno 4 ";" "$6"}"}%l %l %L {@?pad 7 " " "{@?itemno 5 ";" "$6"}"}%l %l %l {@?pad 7 " " "{@?itemno 6 ";" "$6"}"}  
 @end
