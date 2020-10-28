@@ -38,7 +38,9 @@ REM rand 0 - Heal itself 50
               @temp col = $4
                @if {@?exists #1638[{#24738 {@?itemno 3 "," {@?desc #1638[{@?id me}]}};{@?itemno 4 "," {@?desc #1638[{@?id me}]}};$(srow);$(scol)}]} do
                   #33604 {#24738 {@?itemno 3 "," {@?desc #1638[{@?id me}]}};{@?itemno 4 "," {@?desc #1638[{@?id me}]}};$(srow);$(scol)};150
-               @end              
+               @end       
+            @end
+         @end
       @else {@eval ($(randMove) = 0} do  
        @temp oldhealth = {@?itemno 6 "," {@?desc #1638[$6]}}
        @temp newhealth = {@eval $(oldhealth) + 50}
