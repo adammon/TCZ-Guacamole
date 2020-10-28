@@ -63,6 +63,7 @@ REM Fire September 2020
 
 @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = K} do @foreach ";" "$(klgroup)" do @notify $6 = $(msg)
 @if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = F} do @foreach ";" "$(fegroup)" do @notify $6 = $(msg)
+@if {@eval {@?leftstr 1 "{@?itemno 1 "," {@?desc #1638[{@?id me}]}}} = B} do @foreach ";" "$(fegroup);$(klgroup)" do @notify $6 = $(msg)
 
 @end
 @set #22018 = quiet
