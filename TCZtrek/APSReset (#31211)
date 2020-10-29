@@ -39,3 +39,4 @@ REM - Resetting AP in the event of both even and uneven playercounts.
 @odrop #31211 = {@eval {@?odrop #31211} + 1}
 
 #45491
+#25519
