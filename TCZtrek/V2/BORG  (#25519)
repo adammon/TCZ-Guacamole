@@ -16,7 +16,7 @@ REM rand 0 - Heal itself 50
  @if {@eval ({@?odrop #31211} % 3 = 0) do
    @temp borgSayings = We are the Borg.;You will be assimilated.;Existence as you know it is over.;Resistance is futile.; I am Hudson of Borg. Resistance is futile. Your life as it has been is over. From this time forward, you will service us.;We are the Borg. Lower your shields and surrender your ships.;We are the Borg. Existence, as you know it, is over.;We are the Borg. Your biological and technological distinctiveness will be added to our own. Resistance is futile.;
    @temp borgrand = {@?rand 1 = 7}
-   @force *hudson = treknat %g%L{@?itemno $(borgrand) ";" "$(borgSayings)"}
+   @force *#2158 = treknat %g%L{@?itemno $(borgrand) ";" "$(borgSayings)"}
  @end 
   @while {@eval $5 <= 4} do 
     @temp randMove = {@?rand 10}
@@ -51,7 +51,7 @@ REM rand 0 - Heal itself 50
             @end
          @end
       @else {@eval ($(randMove) = 0} do  
-       @temp oldhealth = {@?itemno 6 "," {@?desc #1638[#2158]}}
+       @temp oldhealth = {@?itemno 10 "," {@?desc #1638[#2158]}}
        @temp newhealth = {@eval $(oldhealth) + 50}
        @desc #1638[#2158] = {@?modify "$(newhealth)" 10 "," "{@?desc #1638[#2158]}"}
      @else
