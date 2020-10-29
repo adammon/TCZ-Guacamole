@@ -16,8 +16,9 @@ REM rand 0 - Heal itself 50
    @temp borgrand = {@?rand 1 = 7}
    treknat %g%L{@?itemno $(borgrand) ";" "$(borgSayings)"}
  @end 
-  @while {@eval $5 <= 3} do 
+  @while {@eval $5 <= 4} do 
     @temp randMove = {@?rand 10}
+    @echo ($randMove)
     @if {@eval ($(randMove) = 8} do
         @force *#2158 = impulse up
     @else {@eval ($(randMove) = 6} do
