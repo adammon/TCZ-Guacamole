@@ -38,18 +38,16 @@ REM rand 0 - Heal itself 50
      @else {@eval ($(randMove) = 3} do
         @force *#2158 = warp down
      @else {@eval ($(randMove) = 5} do
-        @for 1 to 9 do
-            @temp srow = $4
-            @for 1 to 9 do
-              @temp scol = $4
-               @if {@?exists #1638[{#24738 {@?itemno 3 "," {@?desc #1638[{@?id me}]}};{@?itemno 4 "," {@?desc #1638[{@?id me}]}};$(srow);$(scol)}]} do
-               @temp playerID = {@?desc #1638[{#24738 {@?itemno 3 "," {@?desc #1638[{@?id me}]}};{@?itemno 4 "," {@?desc #1638[{@?id me}]}};$(srow);$(scol)}]}
-                  @if {@eval ("$(playerID)" <> "#1" && "$(playerID)" <> "#2" && "$(playerID)" <> "#3" && "$(playerID)" <> "#0" && "$(playerID)" <> "#2158")} do
-                  #33604 {#24738 {@?itemno 3 "," {@?desc #1638[{@?id me}]}};{@?itemno 4 "," {@?desc #1638[{@?id me}]}};$(srow);$(scol)};150
-                  @end
-               @end       
+        @Temp brow = {@?itemno 3 "," "{@?desc #1638[#2158]}"}
+        @temp bcol = {@?itemno 4 "," "{@?desc #1638[#2158]}"}
+         @with elements #1638 do
+                @if {@?itemexact "$7" ";" "#0;#1;#2;#3;#2158"} do @skip
+                   @temp oprow = {@?itemno 3 "," "$6"}
+                   @temp opcol = {@?itemno 4 "," "$6"}
+                @if {@eval (($brow) = $(Oprow)) && ($(Bcol) = $(Opcol))} do
+                 @force *#2158 = #33604 $7;200
+               @end
             @end
-         @end
       @else {@eval ($(randMove) = 0} do  
        @temp oldhealth = {@?itemno 10 "," {@?desc #1638[#2158]}}
        @temp newhealth = {@eval $(oldhealth) + 50}
