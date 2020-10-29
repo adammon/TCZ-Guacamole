@@ -9,6 +9,8 @@ REM rand 9 - warp right
 REM rand 3 - warp down
 REM rand 5 - 150 damage to ships in sector
 REM rand 0 - Heal itself 50 
+@chpid
+
 
 @if {@eval {@?exists #1638[#2158]}} do	
  @if {@eval ({@?odrop #31211} % 3 = 0) do
