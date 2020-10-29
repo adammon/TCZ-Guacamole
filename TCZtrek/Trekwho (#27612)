@@ -6,25 +6,32 @@ REM Trekwho - Who's online playing TCZTrek
 @sort #1638 = alpha ascending elements 1 ","
 @temp h={@eval {@?scrheight} - 6}
 
-@if {@eval "$3"=""} do
-    @temp gr=1:$h
-@else {@?digit $3}
+@temp Federation = 0
+@temp Klingon = 0
+@temp Borg = 0
+@temp count = 0
+
+ @if {@eval "$3"=""} do
+      @temp gr=1:$h
+  @else {@?digit $3}
     @temp gr=$3:$h
-@else {@eval "$3"="all"}
-    @temp gr=all
-@else {@?grouprange $3}
-     @temp gr=$3
-@else
-     @temp gr=1:$h
-@end
-~
-~%[%m%l {@?padleft 24 " " "Name:"}{@?padleft 10 " " "Team:"}%l %l %L %L %L{@?pad 25 " " "Ship:"}%l {@?pad 8 " " "Space?"}%l %l %l %l{@?pad 12 " " "Connected?"}
+  @else {@eval "$3"="all"}
+      @temp gr=all
+ @else {@?grouprange $3}
+       @temp gr=$3
+ @else
+    @temp gr=1:$h
+  @end
+  ~
+ ~%[%m%l {@?padleft 24 " " "Name:"}{@?padleft 10 " " "Team:"}%l %l %L %L %L{@?pad 25 " " "Ship:"}%l {@?pad 8 " " "Space?"}%l %l %l %l{@?pad 12 " " "Connected?"}
 ~%[%g%l{@?pad 85 "-="}
-@with $gr elements #1638 do 
-@if {@eval ("$7" <> "#0") && ("$7" <> "#1")} do
-@echo %[%w%l{@?pad 25 " " "{@?itemno 14 "," "$6"} {@?realname *$7}"}{@?pad 10 " "  "{@?itemno 1 "," "$6"}"}%l %l %l %l {@?pad 25 " " "{@?itemno 2 "," "$6"}"}%l {@?pad 12 " " "{@?result {@eval "{@?location *$7}" = "#22018"}="%Y%lYES" "%r%lNO"}"}%l %l %l {@?pad 12 " " "{@?result {@eval "{@?connected *$7}"}="%Y%lYES" "%r%lNO"}"}
+ @with $gr elements #1638 do
+  @if {@eval ("$7" <> "#0") && ("$7" <> "#1")} do
+  @temp {@?itemno 1 "," "$6"} = {@eval $({@?itemno 1 "," "$6"}) + 1}
+  @temp count = {@eval $(count) + 1}
+  @echo %[%w%l{@?pad 25 " " "{@?itemno 14 "," "$6"} {@?realname *$7}"}{@?pad 10 " "  "{@?itemno 1 "," "$6"}"}%l %l %l %l {@?pad 25 " " "{@?itemno 2 "," "$6"}"}%l {@?pad 12 " " "{@?result {@eval "{@?location *$7}" = "#22018"}="%Y%lYES" "%r%lNO"}"}%l %l %l {@?pad 12 " " "{@?result {@eval "{@?connected *$7}"}="%Y%lYES" "%r%lNO"}"}
 @end
 @end
-~%[%g%l{@?pad 85 "-="}
-~%[ %c%lListed:  %w%l{@?display}
-~
+ ~%[%g%l{@?pad 85 "-="}
+ ~%[ %c%lListed: %w%l$(count) (%b%l$(Federation) Federation%w%l, %r%l$(Klingon) Klingon%w%l, %g%l$(Borg) Borg%w%l.)
+ ~
