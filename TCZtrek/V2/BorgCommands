@@ -1,5 +1,5 @@
 Add Borg:
-@desc #1638[#2158] = Borg,Unimatrix Z,{@?rand 1= 15},{@?rand 1= 15},{@?rand 1= 9},{@?rand 1= 9},%w%L%i%r%LRED%w%L,0,0,0,1500,1000,off,Captain,Cruiser
+@desc #1638[#2158] = Borg,Unimatrix Z,{@?rand 1= 15},{@?rand 1= 15},{@?rand 1= 9},{@?rand 1= 9},%w%L%i%r%LRED%w%L,0,0,1500,0,1000,off,Captain,Cruiser
 
 Destroy Borg: 
 @destroy #1638[#2158]
