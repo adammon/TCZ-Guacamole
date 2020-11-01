@@ -1,5 +1,6 @@
 REM Fire September 2020
 @chpid
+@if {@eval {@?exists #1638[{@?id me}]}} do	
 @set #22018 = !quiet
 
   @if {@eval "$3" == "help"} do
@@ -69,5 +70,6 @@ REM Fire September 2020
 
 @end
 @set #22018 = quiet
-
-
+@else
+@echo %g%LYou are not currently battling for control of the galaxy. %y%LJoin %g%Lthe fight today!
+@end
